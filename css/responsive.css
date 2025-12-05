@@ -68,8 +68,8 @@
     }
 
     .logo-icon {
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
     }
 
     .hamburger {
@@ -231,8 +231,8 @@
     }
 
     .logo-icon {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
     }
 
     h1 { font-size: var(--font-size-2xl); }
