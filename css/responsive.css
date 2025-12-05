@@ -26,6 +26,14 @@
     .hero {
         min-height: auto;
         padding: var(--spacing-2xl) var(--spacing-md);
+        background-position: center center;
+    }
+
+    .hero::before {
+        background: linear-gradient(to bottom,
+                    rgba(26, 54, 93, 0.95) 0%,
+                    rgba(26, 54, 93, 0.9) 50%,
+                    rgba(26, 54, 93, 0.85) 100%);
     }
 
     .about-content {
@@ -101,6 +109,14 @@
     .hero {
         min-height: calc(100vh - 70px);
         padding: var(--spacing-xl) var(--spacing-md);
+        background-position: 70% center;
+    }
+
+    .hero::before {
+        background: linear-gradient(to bottom,
+                    rgba(26, 54, 93, 0.95) 0%,
+                    rgba(26, 54, 93, 0.9) 50%,
+                    rgba(26, 54, 93, 0.85) 100%);
     }
 
     .hero-content h1 {

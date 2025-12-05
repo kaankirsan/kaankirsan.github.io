@@ -172,12 +172,31 @@ a:hover {
 /* Hero Section */
 .hero {
     padding: var(--spacing-3xl) var(--spacing-xl);
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%),
+                url('../images/hero-bg.jpg') no-repeat center right;
+    background-size: cover;
+    background-blend-mode: overlay;
     color: var(--bg-white);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right,
+                rgba(26, 54, 93, 0.95) 0%,
+                rgba(26, 54, 93, 0.85) 40%,
+                rgba(26, 54, 93, 0.4) 70%,
+                rgba(26, 54, 93, 0.1) 100%);
+    z-index: 1;
 }
 
 .hero .container {
@@ -185,12 +204,19 @@ a:hover {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-3xl);
     align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    max-width: 600px;
 }
 
 .hero-content h1 {
     color: var(--bg-white);
     font-size: var(--font-size-5xl);
     margin-bottom: var(--spacing-md);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
@@ -198,6 +224,7 @@ a:hover {
     font-size: var(--font-size-2xl);
     margin-bottom: var(--spacing-lg);
     font-weight: var(--font-weight-semibold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-tagline {
@@ -205,13 +232,15 @@ a:hover {
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-medium);
     margin-bottom: var(--spacing-xl);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .hero-description {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     font-size: var(--font-size-lg);
     margin-bottom: var(--spacing-2xl);
     line-height: var(--line-height-relaxed);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .cta-buttons {
@@ -221,7 +250,7 @@ a:hover {
 }
 
 .hero-image {
-    text-align: center;
+    display: none;
 }
 
 .profile-image {
