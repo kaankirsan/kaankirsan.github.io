@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Autonomous Solar Panel Cleaning Robot - Full-stack robotics solution with 85% autonomy, computer vision, and real-time navigation">
+    <meta name="keywords" content="Robotics, Autonomous Robot, Solar Panel, Computer Vision, YOLO, OpenCV, SLAM, ROS 2">
+    <meta name="author" content="Kaan KIRŞAN">
+
+    <title>Autonomous Solar Panel Cleaning Robot | Kaan KIRŞAN</title>
+
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project-detail.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html#home" class="logo-link">
+                    <img src="../images/robot-logo.png" alt="Robot Logo" class="logo-icon">
+                    <span class="logo-text">Kaan KIRŞAN</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero Section -->
+    <section class="project-detail-hero">
+        <div class="container">
+            <div class="project-header">
+                <span class="project-badge-large">Robotics</span>
+                <h1 class="project-title">Autonomous Solar Panel Cleaning Robot</h1>
+                <p class="project-summary">Architected full-stack robotics solution featuring autonomous navigation with real-time obstacle detection and avoidance using OAK-D depth cameras and SLAM algorithms. Implemented computer vision pipeline for solar panel detection achieving 95%+ accuracy using YOLOv8 with custom training dataset and transfer learning. Designed mobile application for real-time telemetry monitoring, mission planning, and remote robot control with cloud integration.</p>
+            </div>
+
+            <div class="project-metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-value">85%</span>
+                    <span class="metric-label">Autonomous Operation</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">95%+</span>
+                    <span class="metric-label">Detection Accuracy</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">150+</span>
+                    <span class="metric-label">Field Test Cycles</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-content-section">
+        <div class="container">
+            <h2 class="section-heading">Project Overview</h2>
+            <div class="content-grid">
+                <div class="content-block">
+                    <h3>Challenge</h3>
+                    <p>Solar panel efficiency degrades significantly due to dust, dirt, and debris accumulation, reducing energy output by up to 25%. Manual cleaning is labor-intensive, dangerous, and inefficient for large-scale solar installations. The industry needed an autonomous solution that could navigate complex solar farm environments safely while performing precision cleaning operations.</p>
+                </div>
+                <div class="content-block">
+                    <h3>Solution</h3>
+                    <p>Developed a fully autonomous robotic platform integrating cutting-edge computer vision, SLAM navigation, and mobile app control. The robot autonomously identifies solar panels, plans optimal cleaning paths, detects and avoids obstacles in real-time, and reports mission progress through a cloud-connected mobile application accessible from anywhere.</p>
+                </div>
+            </div>
+
+            <div class="content-full">
+                <h3>Technical Approach</h3>
+                <p>The system architecture combines NVIDIA Jetson Orin Nano for high-performance AI inference with OAK-D stereo depth cameras providing real-time 3D environmental understanding. Custom YOLOv8 models were trained on 5,000+ annotated images of solar panels in various conditions, achieving 95%+ detection accuracy across different lighting conditions, panel angles, and environmental scenarios.</p>
+                <p>SLAM (Simultaneous Localization and Mapping) algorithms enable the robot to build real-time maps of solar farm layouts while tracking its precise position within the environment. The navigation stack implements dynamic path planning that adapts to moving obstacles, terrain changes, and mission requirements, ensuring safe and efficient operation in complex industrial settings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Stack -->
+    <section class="project-content-section alternate">
+        <div class="container">
+            <h2 class="section-heading">Technology Stack</h2>
+            <div class="tech-stack-grid">
+                <div class="tech-category">
+                    <h4>Hardware & Computing</h4>
+                    <div class="tech-list">
+                        <span class="tech-tag-detail">NVIDIA Jetson Orin Nano</span>
+                        <span class="tech-tag-detail">OAK-D Depth Camera</span>
+                        <span class="tech-tag-detail">Custom Motor Controllers</span>
+                        <span class="tech-tag-detail">IMU Sensors</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h4>Computer Vision & AI</h4>
+                    <div class="tech-list">
+                        <span class="tech-tag-detail">YOLOv5/v8</span>
+                        <span class="tech-tag-detail">OpenCV</span>
+                        <span class="tech-tag-detail">TensorFlow</span>
+                        <span class="tech-tag-detail">Custom ML Pipeline</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h4>Navigation & Control</h4>
+                    <div class="tech-list">
+                        <span class="tech-tag-detail">SLAM Algorithms</span>
+                        <span class="tech-tag-detail">ROS 2</span>
+                        <span class="tech-tag-detail">Path Planning</span>
+                        <span class="tech-tag-detail">Obstacle Avoidance</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h4>Software Development</h4>
+                    <div class="tech-list">
+                        <span class="tech-tag-detail">Python</span>
+                        <span class="tech-tag-detail">C++</span>
+                        <span class="tech-tag-detail">Flutter (Mobile App)</span>
+                        <span class="tech-tag-detail">Cloud Integration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="project-content-section">
+        <div class="container">
+            <h2 class="section-heading">Key Features & Achievements</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <h4>Autonomous Navigation</h4>
+                    <p>Real-time SLAM-based navigation with dynamic obstacle detection and avoidance, enabling safe operation in complex solar farm environments with minimal human intervention.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>Computer Vision Pipeline</h4>
+                    <p>Custom-trained YOLOv8 model achieving 95%+ accuracy in solar panel detection across varying lighting conditions, panel types, and environmental factors.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>Mobile App Integration</h4>
+                    <p>Cross-platform Flutter application providing real-time telemetry, mission planning, remote control capabilities, and comprehensive operational analytics.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>Field-Proven Reliability</h4>
+                    <p>Successfully completed 150+ field test cycles across diverse terrain and weather conditions, demonstrating robust performance and 85% autonomous operation success rate.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>Scalable Architecture</h4>
+                    <p>Modular software design enabling easy integration of additional sensors, cleaning mechanisms, and functionality for future expansion and customization.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>Cloud Connectivity</h4>
+                    <p>Real-time data synchronization with cloud services for fleet management, performance monitoring, maintenance scheduling, and operational insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results & Impact -->
+    <section class="project-content-section alternate">
+        <div class="container">
+            <h2 class="section-heading">Results & Impact</h2>
+            <div class="content-grid">
+                <div class="content-block">
+                    <h3>Performance Metrics</h3>
+                    <ul>
+                        <li>85% autonomous operation success rate in real-world conditions</li>
+                        <li>95%+ solar panel detection accuracy across all test scenarios</li>
+                        <li>150+ successful field test cycles completed</li>
+                        <li>Real-time obstacle avoidance with <100ms response time</li>
+                        <li>Multi-hour continuous operation without intervention</li>
+                    </ul>
+                </div>
+                <div class="content-block">
+                    <h3>Business Impact</h3>
+                    <ul>
+                        <li>Reduced labor costs by eliminating manual cleaning requirements</li>
+                        <li>Improved solar panel efficiency through regular automated cleaning</li>
+                        <li>Enhanced safety by removing workers from hazardous elevated locations</li>
+                        <li>Scalable solution applicable to solar farms of any size</li>
+                        <li>Cloud-based fleet management enabling multi-robot deployment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-images">
+                <div>
+                    <div class="project-image-container">
+                        <img src="../images/projects/solarbot-detail-1.jpg" alt="SolarBot Navigation System">
+                    </div>
+                    <p class="image-caption">Autonomous navigation with real-time SLAM mapping</p>
+                </div>
+                <div>
+                    <div class="project-image-container">
+                        <img src="../images/projects/solarbot-detail-2.jpg" alt="SolarBot Computer Vision">
+                    </div>
+                    <p class="image-caption">YOLOv8 solar panel detection in action</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Portfolio -->
+    <section class="back-to-portfolio">
+        <div class="container">
+            <a href="../index.html#projects" class="btn-back">Back to Portfolio</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Kaan KIRŞAN. All rights reserved.</p>
+            <p>Built with HTML5, CSS3, and Vanilla JavaScript | Hosted on GitHub Pages</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/navigation.js" defer></script>
+</body>
+</html>
