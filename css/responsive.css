@@ -29,11 +29,19 @@
         background-position: center center;
     }
 
+    .hero .container {
+        padding-left: var(--spacing-lg);
+    }
+
+    .hero-content {
+        padding-right: 0;
+    }
+
     .hero::before {
         background: linear-gradient(to bottom,
-                    rgba(26, 54, 93, 0.98) 0%,
-                    rgba(26, 54, 93, 0.96) 50%,
-                    rgba(26, 54, 93, 0.93) 100%);
+                    rgba(13, 17, 23, 0.98) 0%,
+                    rgba(13, 17, 23, 0.96) 50%,
+                    rgba(13, 17, 23, 0.93) 100%);
     }
 
     .about-content {
@@ -70,6 +78,7 @@
     .logo-icon {
         width: 28px;
         height: 28px;
+        padding: 6px;
     }
 
     .hamburger {
@@ -121,11 +130,20 @@
         background-position: 70% center;
     }
 
+    .hero .container {
+        padding-left: var(--spacing-md);
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding-right: 0;
+    }
+
     .hero::before {
         background: linear-gradient(to bottom,
-                    rgba(26, 54, 93, 0.98) 0%,
-                    rgba(26, 54, 93, 0.96) 50%,
-                    rgba(26, 54, 93, 0.93) 100%);
+                    rgba(13, 17, 23, 0.98) 0%,
+                    rgba(13, 17, 23, 0.96) 50%,
+                    rgba(13, 17, 23, 0.93) 100%);
     }
 
     .hero-content h1 {
@@ -233,6 +251,7 @@
     .logo-icon {
         width: 24px;
         height: 24px;
+        padding: 5px;
     }
 
     h1 { font-size: var(--font-size-2xl); }
