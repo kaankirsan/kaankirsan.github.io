@@ -31,9 +31,9 @@
 
     .hero::before {
         background: linear-gradient(to bottom,
-                    rgba(26, 54, 93, 0.95) 0%,
-                    rgba(26, 54, 93, 0.9) 50%,
-                    rgba(26, 54, 93, 0.85) 100%);
+                    rgba(26, 54, 93, 0.98) 0%,
+                    rgba(26, 54, 93, 0.96) 50%,
+                    rgba(26, 54, 93, 0.93) 100%);
     }
 
     .about-content {
@@ -63,6 +63,15 @@
 
 /* Mobile (480px and below) */
 @media (max-width: 480px) {
+    .logo-text {
+        font-size: var(--font-size-base);
+    }
+
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -114,9 +123,9 @@
 
     .hero::before {
         background: linear-gradient(to bottom,
-                    rgba(26, 54, 93, 0.95) 0%,
-                    rgba(26, 54, 93, 0.9) 50%,
-                    rgba(26, 54, 93, 0.85) 100%);
+                    rgba(26, 54, 93, 0.98) 0%,
+                    rgba(26, 54, 93, 0.96) 50%,
+                    rgba(26, 54, 93, 0.93) 100%);
     }
 
     .hero-content h1 {
@@ -218,7 +227,12 @@
     }
 
     .logo-text {
-        font-size: var(--font-size-lg);
+        font-size: var(--font-size-sm);
+    }
+
+    .logo-icon {
+        width: 28px;
+        height: 28px;
     }
 
     h1 { font-size: var(--font-size-2xl); }
