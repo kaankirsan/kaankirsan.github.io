@@ -1,4 +1,4 @@
-# Kaan Kırşan - Portfolio Website
+# Kaan KIRŞAN - Portfolio Website
 
 Personal portfolio website showcasing robotics, IoT, and software engineering projects.
 
