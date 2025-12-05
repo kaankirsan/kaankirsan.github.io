@@ -359,8 +359,10 @@ a:hover {
 }
 
 .skill-tag:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: var(--bg-white);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
 }
 
 /* Projects Section */
@@ -461,8 +463,8 @@ a:hover {
 
 .project-tech span {
     display: inline-block;
-    background-color: var(--bg-light);
-    color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--bg-white);
     padding: 4px 12px;
     border-radius: var(--radius-full);
     font-size: var(--font-size-xs);
@@ -470,8 +472,8 @@ a:hover {
 }
 
 .project-metric {
-    background-color: var(--bg-light);
-    color: var(--secondary-color);
+    background-color: var(--secondary-color);
+    color: var(--bg-white);
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--radius-md);
     font-size: var(--font-size-sm);
@@ -557,12 +559,12 @@ a:hover {
 
 .timeline-achievements span {
     display: inline-block;
-    background-color: var(--bg-white);
-    color: var(--primary-color);
+    background-color: var(--accent-color);
+    color: var(--primary-dark);
     padding: 4px 12px;
     border-radius: var(--radius-full);
     font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-semibold);
 }
 
 /* Contact Section */
