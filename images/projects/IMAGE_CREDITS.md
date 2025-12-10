@@ -26,10 +26,6 @@ All images are licensed under the Unsplash License:
 - **testing-01.jpg**: Industrial testing equipment (Unsplash)
 - **testing-02.jpg**: Data analysis and monitoring (Unsplash)
 
-### Train Wagon Durability Testing System
-- **battery-01.jpg**: Railway train system (Unsplash)
-- **battery-02.jpg**: Transportation infrastructure (Unsplash)
-
 ### AS/RS Warehouse Automation
 - **warehouse-01.jpg**: Automated warehouse interior (Unsplash)
 - **warehouse-02.jpg**: Logistics and storage systems (Unsplash)
