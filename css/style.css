@@ -722,6 +722,10 @@ a:hover {
     margin-bottom: var(--spacing-lg);
 }
 
+.contact-cta .btn {
+    margin: 0 var(--spacing-sm);
+}
+
 /* Footer */
 .footer {
     background-color: var(--primary-dark);
