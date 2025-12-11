@@ -1017,3 +1017,20 @@ a:hover {
         min-height: 200px;
     }
 }
+
+/* Confidentiality Notice */
+.confidentiality-notice {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--secondary-color);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-2xl) auto;
+    max-width: var(--container-max-width);
+    border-radius: var(--radius-md);
+}
+
+.confidentiality-notice p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+}
