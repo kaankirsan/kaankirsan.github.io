@@ -48,7 +48,7 @@ kaankirsan.github.io/
 4. **Kaynak Robotu ve Konumlandırıcılar**
    - PLC Programlama, HMI, Servo Kontrol
 
-5. **Üretim Tesisi Taşıyıcı Otomatisasyonu**
+5. **Üretim Tesisi Taşıyıcı Otomasyonu**
    - Siemens PLC, TIA Portal, Modbus RS-485
 
 6. **Başlık Testleri İçin Hareketli Hedef Sistemi**

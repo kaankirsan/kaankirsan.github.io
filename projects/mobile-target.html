@@ -18,7 +18,7 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="../index.html#home" class="logo-link">
-                    <img loading="lazy" decoding="async" src="../images/robot-logo.png" alt="Robot Logo" class="logo-icon">
+                    <img src="../images/robot-logo.png" alt="Robot Logo" class="logo-icon" fetchpriority="high" decoding="async">
                     <span class="logo-text">Kaan KIRŞAN</span>
                 </a>
             </div>
@@ -106,10 +106,10 @@
         <div class="container">
             <h2>Proje Galerisi</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><img loading="lazy" decoding="async" src="../images/projects/mobile-target-img-01.jpg" alt="Hareketli Hedef Sistemi"></div>
-                <div class="gallery-item"><img loading="lazy" decoding="async" src="../images/projects/mobile-target-img-02.jpg" alt="Servo Motor Kontrol"></div>
-                <div class="gallery-item"><img loading="lazy" decoding="async" src="../images/projects/mobile-target-img-03.jpg" alt="SCADA Arayüz"></div>
-                <div class="gallery-item"><img loading="lazy" decoding="async" src="../images/projects/mobile-target-img-04.jpg" alt="Güvenlik Devreleri"></div>
+                <div class="gallery-item"><img loading="lazy" decoding="async" src="../images/projects/mobile-target-img-01.jpg" alt="Hareketli Hedef Sistemi" data-placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNQ1jIBAAD1AIJ3HsfhAAAAAElFTkSuQmCC" style="background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNQ1jIBAAD1AIJ3HsfhAAAAAElFTkSuQmCC')"></div>
+                <div class="gallery-item"><img loading="lazy" decoding="async" src="../images/projects/mobile-target-img-02.jpg" alt="Servo Motor Kontrol" data-placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNQ1jIBAAD1AIJ3HsfhAAAAAElFTkSuQmCC" style="background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNQ1jIBAAD1AIJ3HsfhAAAAAElFTkSuQmCC')"></div>
+                <div class="gallery-item"><img loading="lazy" decoding="async" src="../images/projects/mobile-target-img-03.jpg" alt="SCADA Arayüz" data-placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNQ1jIBAAD1AIJ3HsfhAAAAAElFTkSuQmCC" style="background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNQ1jIBAAD1AIJ3HsfhAAAAAElFTkSuQmCC')"></div>
+                <div class="gallery-item"><img loading="lazy" decoding="async" src="../images/projects/mobile-target-img-04.jpg" alt="Güvenlik Devreleri" data-placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNQ1jIBAAD1AIJ3HsfhAAAAAElFTkSuQmCC" style="background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNQ1jIBAAD1AIJ3HsfhAAAAAElFTkSuQmCC')"></div>
             </div>
         </div>
     </section>
@@ -128,5 +128,22 @@
     </footer>
 
     <script src="../js/scripts.min.js" defer></script>
+
+    <!-- Blur-up placeholder loader -->
+    <script>
+    (function() {
+        function handleImageLoad(img) {
+            img.classList.add('loaded');
+        }
+        document.querySelectorAll('img[data-placeholder]').forEach(function(img) {
+            if (img.complete) {
+                handleImageLoad(img);
+            } else {
+                img.addEventListener('load', function() { handleImageLoad(img); });
+            }
+        });
+    })();
+    </script>
+
 </body>
 </html>

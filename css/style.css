@@ -1034,3 +1034,29 @@ a:hover {
     font-size: var(--font-size-sm);
     line-height: var(--line-height-relaxed);
 }
+
+/* ===========================================================
+   Blur-Up Placeholder System
+   - img[data-placeholder] uses a 1x1 base64 PNG as background-image
+   - CSS scales it up with background-size: cover and applies blur
+   - Once the real image loads, JS removes the blur and placeholder bg
+   =========================================================== */
+
+/* Base rule: all images with a placeholder attribute get the blur treatment */
+img[data-placeholder] {
+    background-size: cover;
+    background-position: center;
+    transition: filter 0.4s ease, opacity 0.4s ease;
+    filter: blur(8px);
+}
+
+/* Once loaded, the blur is removed via the .loaded class added by JS */
+img[data-placeholder].loaded {
+    filter: blur(0px);
+    background-image: none;
+}
+
+/* Video poster background colour fallback -- prevents white flash */
+.gallery-item video {
+    background-color: #1e2632;
+}
