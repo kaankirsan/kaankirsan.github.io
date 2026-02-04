@@ -1,0 +1,14 @@
+# GitHub Pages Jekyll config
+plugins: []
+markdown: kramdown
+exclude:
+  - .gitignore
+  - .git
+  - node_modules
+  - "*.sh"
+  
+# Disable caching
+keep_files: []
+
+# Build settings
+future: true
