@@ -28,7 +28,20 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="prefetch" href="projects/solarbot.html">
+    <link rel="prefetch" href="projects/container.html">
     <title>Kaan KIRŞAN | Elektrik Elektronik Mühendisi | Görüntü İşleme & Endüstriyel Otomasyon</title>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(r => {}).catch(e => {});
+        });
+      }
+    </script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -36,7 +49,7 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="#home" class="logo-link">
-                    <img src="images/robot-logo.png" alt="Robot Logo" class="logo-icon">
+                    <img loading="lazy" src="images/robot-logo.png" alt="Robot Logo" class="logo-icon">
                     <span class="logo-text">Kaan KIRŞAN</span>
                 </a>
             </div>
@@ -70,7 +83,7 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="images/profile.jpg" alt="Kaan KIRŞAN" class="profile-image">
+            <img loading="lazy" src="images/profile.jpg" alt="Kaan KIRŞAN" class="profile-image">
         </div>
     </section>
 
@@ -206,7 +219,7 @@
                 <a href="projects/solarbot.html" class="project-card-link">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/projects/solarbot-img-02.jpg" alt="Otonom Güneş Paneli Temizleme Robotu">
+                            <img loading="lazy" src="images/projects/solarbot-img-02.jpg" alt="Otonom Güneş Paneli Temizleme Robotu">
                             <div class="project-overlay">
                                 <span class="project-badge">Robotik</span>
                             </div>
@@ -228,7 +241,7 @@
                 <a href="projects/container.html" class="project-card-link">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/projects/container-img-03.jpg" alt="Güneş Konteyner Yönetim Sistemi">
+                            <img loading="lazy" src="images/projects/container-img-03.jpg" alt="Güneş Konteyner Yönetim Sistemi">
                             <div class="project-overlay">
                                 <span class="project-badge">IoT</span>
                             </div>
@@ -250,7 +263,7 @@
                 <a href="projects/testing.html" class="project-card-link">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/projects/testing-01.jpg" alt="Yakıt Test Birimlerinin Otomatisasyonu">
+                            <img loading="lazy" src="images/projects/testing-01.jpg" alt="Yakıt Test Birimlerinin Otomatisasyonu">
                             <div class="project-overlay">
                                 <span class="project-badge">Test</span>
                             </div>
@@ -272,7 +285,7 @@
                 <a href="projects/welding.html" class="project-card-link">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/projects/welding-img-02.jpg" alt="Kaynak Robotu ve Konumlandırıcılar">
+                            <img loading="lazy" src="images/projects/welding-img-02.jpg" alt="Kaynak Robotu ve Konumlandırıcılar">
                             <div class="project-overlay">
                                 <span class="project-badge">Otomasyon</span>
                             </div>
@@ -294,7 +307,7 @@
                 <a href="projects/warehouse.html" class="project-card-link">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/projects/warehouse-img-02.jpg" alt="Üretimde Taşıyıcı Otomatisasyon">
+                            <img loading="lazy" src="images/projects/warehouse-img-02.jpg" alt="Üretimde Taşıyıcı Otomatisasyon">
                             <div class="project-overlay">
                                 <span class="project-badge">Üretim</span>
                             </div>
@@ -316,7 +329,7 @@
                 <a href="projects/mobile-target.html" class="project-card-link">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/projects/mobile-target-img-01.jpg" alt="Başlık Testleri İçin Hareketli Hedef Sistemi">
+                            <img loading="lazy" src="images/projects/mobile-target-img-01.jpg" alt="Başlık Testleri İçin Hareketli Hedef Sistemi">
                             <div class="project-overlay">
                                 <span class="project-badge">Savunma</span>
                             </div>
@@ -338,7 +351,7 @@
                 <a href="projects/wagon-testing.html" class="project-card-link">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/projects/wagon-testing-img-01.jpg" alt="Vagon ve Şasi Dayanıklılık Testleri">
+                            <img loading="lazy" src="images/projects/wagon-testing-img-01.jpg" alt="Vagon ve Şasi Dayanıklılık Testleri">
                             <div class="project-overlay">
                                 <span class="project-badge">Test</span>
                             </div>
@@ -360,7 +373,7 @@
                 <a href="projects/troubleshooting.html" class="project-card-link">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/projects/troubleshooting-img-04.jpg" alt="Devreye Alma Hizmetleri">
+                            <img loading="lazy" src="images/projects/troubleshooting-img-04.jpg" alt="Devreye Alma Hizmetleri">
                             <div class="project-overlay">
                                 <span class="project-badge">Hizmetler</span>
                             </div>
@@ -382,7 +395,7 @@
                 <a href="projects/resistance-automation.html" class="project-card-link">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/projects/resistance-img-01.jpg" alt="Direnç Otomatisasyonu ve Güç Sistemleri">
+                            <img loading="lazy" src="images/projects/resistance-img-01.jpg" alt="Direnç Otomatisasyonu ve Güç Sistemleri">
                             <div class="project-overlay">
                                 <span class="project-badge">Elektriksel</span>
                             </div>
@@ -404,7 +417,7 @@
                 <a href="projects/webserver-setup.html" class="project-card-link">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/projects/webserver-01.jpg" alt="Web Sunucu Kurulumu">
+                            <img loading="lazy" src="images/projects/webserver-01.jpg" alt="Web Sunucu Kurulumu">
                             <div class="project-overlay">
                                 <span class="project-badge">Altyapı</span>
                             </div>
@@ -426,7 +439,7 @@
                 <a href="projects/exhibitions-training.html" class="project-card-link">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/projects/exhibitions-img-01.jpg" alt="Eğitim ve Fuarlar">
+                            <img loading="lazy" src="images/projects/exhibitions-img-01.jpg" alt="Eğitim ve Fuarlar">
                             <div class="project-overlay">
                                 <span class="project-badge">Eğitim</span>
                             </div>
@@ -448,7 +461,7 @@
                 <a href="projects/personal-projects.html" class="project-card-link">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="images/projects/personal-img-05.jpg" alt="Kişisel Projeler">
+                            <img loading="lazy" src="images/projects/personal-img-05.jpg" alt="Kişisel Projeler">
                             <div class="project-overlay">
                                 <span class="project-badge">Kişisel</span>
                             </div>
@@ -617,9 +630,9 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/main.js" defer></script>
-    <script src="js/navigation.js" defer></script>
-    <script src="js/animations.js" defer></script>
+    <script src="js/scripts.min.js" defer></script>
+    
+    
 </body>
 </html>
 <!-- Build trigger -->
