@@ -1,4 +1,5 @@
 const CACHE_NAME = 'portfolio-v1';
+const IMAGE_CACHE = 'portfolio-images-v1';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -13,7 +14,8 @@ const STATIC_ASSETS = [
   '/js/scripts.min.js',
   '/images/favicon.ico',
   '/images/robot-logo.png',
-  '/images/profile.jpg'
+  '/images/profile.jpg',
+  '/images/hero-bg.jpg'
 ];
 
 // Install event - cache assets
@@ -45,7 +47,7 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// Fetch event - cache first strategy for assets, network first for HTML
+// Fetch event - optimized caching strategies
 self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
@@ -53,10 +55,46 @@ self.addEventListener('fetch', event => {
   // Skip non-GET requests
   if (request.method !== 'GET') return;
 
-  // Cache first for static assets
+  // Images: aggressive caching (cache first, update in background)
+  if (request.destination === 'image') {
+    event.respondWith(
+      caches.match(request).then(response => {
+        // Return cached image immediately if available
+        if (response) {
+          // Optionally update cache in background (stale-while-revalidate)
+          fetch(request).then(freshResponse => {
+            if (freshResponse.ok) {
+              caches.open(IMAGE_CACHE).then(cache => {
+                cache.put(request, freshResponse);
+              });
+            }
+          }).catch(() => {});
+          return response;
+        }
+        // No cache? Fetch and cache
+        return fetch(request).then(response => {
+          if (response.ok) {
+            const cloned = response.clone();
+            caches.open(IMAGE_CACHE).then(cache => {
+              cache.put(request, cloned);
+            });
+          }
+          return response;
+        });
+      }).catch(() => {
+        // Serve placeholder SVG if offline
+        return new Response(
+          '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="#ddd" width="100" height="100"/></svg>',
+          { headers: { 'Content-Type': 'image/svg+xml' }, status: 200 }
+        );
+      })
+    );
+    return;
+  }
+
+  // CSS, JS, Fonts: cache first strategy
   if (request.destination === 'style' ||
       request.destination === 'script' ||
-      request.destination === 'image' ||
       request.destination === 'font') {
     event.respondWith(
       caches.match(request).then(response => {
@@ -67,7 +105,6 @@ self.addEventListener('fetch', event => {
           });
         });
       }).catch(() => {
-        // Return placeholder if offline
         return new Response('Offline - asset not cached', { status: 503 });
       })
     );
