@@ -1,161 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mobile Target System for Warhead Testing - Precision mobile target system for defense industry testing with automated movement and tracking">
-    <meta name="keywords" content="Defense Systems, Motion Control, Automation, PLC, Safety-Critical, SIL 2, Precision Control">
+    <meta name="description" content="Başlık Testleri İçin Hareketli Hedef Sistemi - Servo motor kontrolü, WinCC SCADA ve SIL 2 sertifikalı güvenlik sistemleri">
+    <meta name="keywords" content="Hareket Kontrolü, Servo Motor, SCADA, Savunma Testleri, PLC, SIL 2, Güvenlik Sistemleri">
     <meta name="author" content="Kaan KIRŞAN">
-    <title>Mobile Target System for Warhead Testing | Kaan KIRŞAN Portfolio</title>
+    <title>Başlık Testleri İçin Hareketli Hedef Sistemi | Kaan KIRŞAN</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project-detail.css">
     <link rel="stylesheet" href="../css/responsive.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <nav id="navbar" class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="../index.html" class="logo-link">
+                <a href="../index.html#home" class="logo-link">
                     <img src="../images/robot-logo.png" alt="Robot Logo" class="logo-icon">
                     <span class="logo-text">Kaan KIRŞAN</span>
                 </a>
             </div>
             <ul class="nav-menu">
-                <li><a href="../index.html" class="nav-link">Home</a></li>
-                <li><a href="../index.html#about" class="nav-link">About</a></li>
-                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
-                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
-                <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
-                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="../index.html#home" class="nav-link">Ana Sayfa</a></li>
+                <li><a href="../index.html#about" class="nav-link">Hakkımda</a></li>
+                <li><a href="../index.html#skills" class="nav-link">Beceriler</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projeler</a></li>
+                <li><a href="../index.html#experience" class="nav-link">Deneyim</a></li>
+                <li><a href="../index.html#contact" class="nav-link">İletişim</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
-    <!-- Project Header -->
-    <section class="project-header">
+    <section class="project-detail-hero">
         <div class="container">
-            <span class="project-badge">Defense</span>
-            <h1>Target System for Seeker Warhead Testing</h1>
-            <p class="project-intro">Excel-integrated system reading movement profiles from Excel. WinCC SCADA with servo motor control. Dual-axis motion system, predefined movements. Emergency safety with limit switches and software limits.</p>
-        </div>
-    </section>
-
-    <!-- Project Overview -->
-    <section class="project-overview">
-        <div class="container">
-            <div class="overview-grid">
-                <div class="overview-item">
-                    <h3>Technologies</h3>
-                    <div class="tech-list">
-                        <span class="tech-item">Motion Control</span>
-                        <span class="tech-item">Automation</span>
-                        <span class="tech-item">PLC</span>
-                        <span class="tech-item">Safety Systems</span>
-                        <span class="tech-item">Precision Tracking</span>
-                        <span class="tech-item">SIL 2 Certified</span>
-                    </div>
-                </div>
-                <div class="overview-item">
-                    <h3>Key Metrics</h3>
-                    <ul class="metrics-list">
-                        <li>SIL 2 Certified</li>
-                        <li>Precision Movement Control</li>
-                        <li>Automated Tracking</li>
-                        <li>Safety-Critical Design</li>
-                        <li>Defense Industry Standards</li>
-                    </ul>
-                </div>
+            <div class="project-header">
+                <span class="project-badge-large">Savunma</span>
+                <h1 class="project-title">Başlık Testleri İçin Hareketli Hedef Sistemi</h1>
+                <p class="project-summary">Excel entegratli hareket profilleri, WinCC SCADA sistemi ve servo motor kontrolü ile seeker başlık testleri için çift eksen hedef hareket sistemi. Güvenlik sınırları, acil durdurma ve SIL 2 sertifikalı güvenlik devreleri.</p>
+            </div>
+            <div class="project-metrics-grid">
+                <div class="metric-card"><span class="metric-value">SIL 2</span><span class="metric-label">Sertifika</span></div>
+                <div class="metric-card"><span class="metric-value">2 Eksen</span><span class="metric-label">Hareket Kontrolü</span></div>
+                <div class="metric-card"><span class="metric-value">Gerçek Zaman</span><span class="metric-label">SCADA İzleme</span></div>
             </div>
         </div>
     </section>
 
-    <!-- Project Details -->
-    <section class="project-details">
+    <section class="project-content-section">
         <div class="container">
-            <h2>Project Overview</h2>
-            <p>Engineered precision mobile target system for defense industry warhead testing applications requiring automated movement, position tracking, and comprehensive safety protocols. Implemented SIL 2 certified safety systems ensuring operational safety in high-risk testing environments. Designed robust motion control platform capable of executing complex movement patterns with high precision and repeatability essential for accurate testing procedures.</p>
+            <h2 class="section-heading">Proje Özeti</h2>
+            <div class="content-full">
+                <h3>Ne Yaptım</h3>
+                <p>Seeker başlık testleri için çift eksen servo motor kontrolü kullanan hareketli hedef sistemi geliştirdim. Excel uyumlu hareket profilleri oluşturarak WinCC SCADA sistemiyle bağladım. Güvenlik sınırları ve acil durdurma ile operatör güvenliğini sağladım. SIL 2 sertifikalı güvenlik devreleri ile sistem korumasını tesis ettim.</p>
 
-            <h2>Technical Approach</h2>
-            <p>The mobile target system was architected around a safety-critical PLC platform meeting SIL 2 (Safety Integrity Level 2) requirements for defense industry applications. The control architecture incorporated redundant safety circuits, comprehensive fault detection, and fail-safe operational modes ensuring personnel protection and equipment integrity during all testing scenarios.</p>
-
-            <p>Motion control systems utilized high-precision servo drives and feedback systems providing accurate position control essential for repeatable testing procedures. Multi-axis coordination enabled complex target movement patterns simulating realistic operational scenarios. Position accuracy within millimeters was achieved through closed-loop control with real-time position feedback and advanced motion profiling.</p>
-
-            <p>The safety system design included multiple safety zones, emergency stop systems, and automated hazard detection ensuring safe operation in testing environments. Comprehensive interlocking prevented operation during unsafe conditions, with detailed diagnostic information aiding troubleshooting and system validation.</p>
-
-            <p>Automated tracking capabilities integrated position sensors, encoders, and timing systems providing precise control over target presentation during testing sequences. Programmable test scenarios allowed operators to configure complex movement patterns, speeds, and timing sequences meeting diverse testing requirements.</p>
-
-            <p>The HMI provided operators with comprehensive system monitoring, test sequence programming, safety status indication, and diagnostic information. Detailed logging capabilities recorded all test parameters, system status, and operational events supporting test documentation and regulatory compliance requirements.</p>
-
-            <h2>Key Results & Impact</h2>
-            <p>Achieving SIL 2 certification validated the system's safety-critical design rigor, meeting stringent safety requirements for defense industry testing applications. This certification provided confidence to operators and regulatory authorities that the system incorporated appropriate safety measures for high-risk testing environments.</p>
-
-            <p>Precision motion control capabilities enabled accurate and repeatable testing procedures essential for valid warhead testing results. Position accuracy, speed control, and timing precision met demanding defense industry requirements for test equipment performance and reliability.</p>
-
-            <p>The automated tracking and programmable test sequences improved testing efficiency by reducing manual setup time and ensuring consistent test execution. Complex movement patterns could be programmed, validated, and executed repeatedly with high precision supporting comprehensive testing programs.</p>
-
-            <p>Safety system implementation achieved zero safety incidents during extensive testing operations, demonstrating the effectiveness of the safety-critical design approach. Comprehensive interlocking, hazard detection, and fail-safe modes protected personnel and equipment throughout all operational phases.</p>
-
-            <p>The project demonstrated expertise in safety-critical systems engineering, precision motion control, and regulatory compliance essential for defense industry applications where reliability, safety, and performance are paramount requirements.</p>
+                <h3>Temel Başarılar</h3>
+                <ul>
+                    <li>Çift eksen servo motor kontrolü</li>
+                    <li>Excel entegratli hareket profilleri</li>
+                    <li>WinCC SCADA ile gerçek zamanlı izleme</li>
+                    <li>SIL 2 sertifikalı güvenlik devreleri</li>
+                    <li>Güvenlik sınırları ve acil durdurma</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <!-- Project Gallery -->
+    <section class="project-content-section alternate">
+        <div class="container">
+            <h2 class="section-heading">Teknoloji Altyapısı</h2>
+            <div class="tech-stack-grid">
+                <div class="tech-category"><h4>Hareket Kontrolü</h4><div class="tech-list"><span class="tech-tag-detail">Servo Motorlar</span><span class="tech-tag-detail">Çift Eksen</span><span class="tech-tag-detail">Sürücüler</span></div></div>
+                <div class="tech-category"><h4>SCADA</h4><div class="tech-list"><span class="tech-tag-detail">WinCC</span><span class="tech-tag-detail">Gerçek Zaman İzleme</span><span class="tech-tag-detail">Excel Entegrasyon</span></div></div>
+                <div class="tech-category"><h4>Güvenlik</h4><div class="tech-list"><span class="tech-tag-detail">SIL 2 Sertifikalı</span><span class="tech-tag-detail">Acil Durdurma</span><span class="tech-tag-detail">Güvenlik Kilitleri</span></div></div>
+                <div class="tech-category"><h4>PLC</h4><div class="tech-list"><span class="tech-tag-detail">Kontrol Mantığı</span><span class="tech-tag-detail">Güvenli I/O</span><span class="tech-tag-detail">Hareket Planlama</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content-section">
+        <div class="container">
+            <h2 class="section-heading">Temel Özellikler ve Başarılar</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card"><h4>Hassas Hareket Kontrolü</h4><p>Excel entegratli hareket profilleri ile seeker başlık test gereksinimlerine uyarlanmış yüksek hassasiyetli çift eksen servo kontrol.</p></div>
+                <div class="highlight-card"><h4>SCADA İzleme</h4><p>WinCC SCADA üzerinden sistem durumu, konum geri besleme ve tüm operasyonların gerçek zamanlı izleme ve kayıt imkânı.</p></div>
+                <div class="highlight-card"><h4>SIL 2 Güvenlik</h4><p>Test ortamında operatör güvenliğini sağlayan SIL 2 sertifikalı güvenlik devreleri, acil durdurma ve güvenlik sınırları.</p></div>
+                <div class="highlight-card"><h4>Excel Entegrasyonu</h4><p>Test planlarının Excel'den doğrudan yüklenebilmesi ile hızlı ve kolay test senaryosu oluşturma ve yönetme imkânı.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content-section alternate">
+        <div class="container">
+            <h2 class="section-heading">Sonuçlar ve Etki</h2>
+            <div class="content-grid">
+                <div class="content-block"><h3>Sistem Yetkinlikleri</h3><ul><li>Çift eksen servo motor hareket kontrolü</li><li>Excel entegratli hareket profilleri</li><li>WinCC SCADA gerçek zamanlı izleme</li><li>SIL 2 sertifikalı güvenlik sistemi</li><li>Güvenlik sınırları ve acil durdurma</li></ul></div>
+                <div class="content-block"><h3>Operasyonel Etki</h3><ul><li>Test prosedürlerinde doğruluk ve güvenilirlik</li><li>Excel uyumlu test planlarıyla hız kazanma</li><li>Operatör güvenliğinin en yüksek düzeyde sağlanma</li><li>Gerçek zamanlı izleme ile sorun tespit ve giderme</li><li>Düzenleyici gereksinimlerle tam uyum</li></ul></div>
+            </div>
+        </div>
+    </section>
+
     <section class="project-gallery-section">
         <div class="container">
-            <h2>Project Gallery</h2>
+            <h2>Proje Galerisi</h2>
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="../images/projects/mobile-target-img-01.jpg" alt="Mobile Target System">
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/projects/mobile-target-img-02.png" alt="Mobile Target System">
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/projects/mobile-target-img-03.png" alt="Mobile Target System">
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/projects/mobile-target-img-04.png" alt="Mobile Target System">
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/projects/mobile-target-img-05.png" alt="Mobile Target System">
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/projects/mobile-target-img-06.png" alt="Mobile Target System">
-                </div>
-                <div class="gallery-item">
-                    <img src="../images/projects/mobile-target-img-07.png" alt="Mobile Target System">
-                </div>
+                <div class="gallery-item"><img src="../images/projects/mobile-target-img-01.jpg" alt="Hareketli Hedef Sistemi"></div>
+                <div class="gallery-item"><img src="../images/projects/mobile-target-img-02.jpg" alt="Servo Motor Kontrol"></div>
+                <div class="gallery-item"><img src="../images/projects/mobile-target-img-03.jpg" alt="SCADA Arayüz"></div>
+                <div class="gallery-item"><img src="../images/projects/mobile-target-img-04.jpg" alt="Güvenlik Devreleri"></div>
             </div>
         </div>
     </section>
 
     <div class="confidentiality-notice">
-        <p><em>All projects described in this CV have been shared with permission from Doka Mühendislik. Proprietary information, customer names, and sensitive technical specifications have been generalized to respect confidentiality agreements.</em></p>
+        <p><em>Bu CV'deki tüm projeler Doka Mühendislik'in izniyle paylaşılmıştır. Gizlilik anlaşmalarına saygı göstermek amacıyla tescilli bilgiler, müşteri adları ve hassas teknik ayrıntılar genelleştirilmiştir.</em></p>
     </div>
 
-    <!-- Back to Portfolio -->
-    <section class="back-section">
-        <div class="container">
-            <a href="../index.html#projects" class="btn btn-primary">← Back to Portfolio</a>
-        </div>
-    </section>
+    <section class="back-to-portfolio"><div class="container"><a href="../index.html#projects" class="btn-back">Portfolyoya Dön</a></div></section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 Kaan KIRŞAN. All rights reserved.</p>
-            <p>Built with HTML5, CSS3, and Vanilla JavaScript | Hosted on GitHub Pages</p>
+            <p>&copy; 2024 Kaan KIRŞAN. Tüm haklar saklıdır.</p>
+            <p>HTML5, CSS3 ve Vanilla JavaScript ile yapıldı | GitHub Pages'te barındırılıyor</p>
         </div>
     </footer>
 
     <script src="../js/main.js" defer></script>
     <script src="../js/navigation.js" defer></script>
-    <script src="../js/animations.js" defer></script>
 </body>
 </html>

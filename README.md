@@ -1,105 +1,105 @@
-# Kaan KIRŞAN - Portfolio Website
+# Kaan KIRŞAN - Portfolyo Web Sitesi
 
-Personal portfolio website showcasing robotics, IoT, and software engineering projects.
+Elektrik Elektronik Mühendislik, robotik, IoT ve yazılım mühendisliği projeleri dahil kişisel portfolyo web sitesi.
 
-## Website Features
+## Web Sitesi Özellikleri
 
-- Responsive design (mobile, tablet, desktop)
-- Dark/Light theme toggle
-- Smooth scroll navigation
-- Project showcase with detailed descriptions
-- Skills and technologies overview
-- Experience timeline
-- Contact information and social links
+- Responsive tasarım (mobil, tablet, masaüstü)
+- Karanlık/Açık tema geçiş
+- Düzgün kaydırma navigasyon
+- Ayrıntılı açıklama ile proje tanıtım
+- Beceriler ve teknolojiler genel görüş
+- Deneyim zaman çizelgesi
+- İletişim bilgileri ve sosyal medya bağlantıları
 
-## Project Structure
+## Proje Yapısı
 
 ```
 kaankirsan.github.io/
-├── index.html                # Main portfolio page
+├── index.html                # Ana portfolyo sayfa
 ├── css/
-│   ├── style.css            # Main stylesheet
-│   ├── responsive.css       # Responsive design rules
-│   └── variables.css        # CSS custom properties
+│   ├── style.css            # Ana stil dosyası
+│   ├── responsive.css       # Responsive tasarım kuralları
+│   └── variables.css        # CSS özel özellikler
 ├── js/
-│   ├── main.js              # Main JavaScript entry point
-│   ├── navigation.js        # Navigation and menu functionality
-│   └── animations.js        # Scroll animations and effects
+│   ├── main.js              # Ana JavaScript giriş noktası
+│   ├── navigation.js        # Navigasyon ve menu işlevsellik
+│   └── animations.js        # Kaydırma animasyon ve efektler
 ├── images/
-│   ├── profile.jpg          # Profile photo
-│   ├── projects/            # Project screenshots and GIFs
-│   └── icons/               # Technology icons
+│   ├── profile.jpg          # Profil fotoğrafı
+│   ├── projects/            # Proje ekran görüntüleri ve GIF'ler
+│   └── icons/               # Teknoloji ikonları
 ├── assets/
-│   └── resume/              # Resume and CV documents
-└── projects/                # Individual project pages (optional)
+│   └── resume/              # Özgeçmiş ve CV belgeleri
+└── projects/                # Bireysel proje sayfaları
 ```
 
-## Featured Projects
+## Öne Çıkan Projeler
 
-1. **SolarBot** - Autonomous Solar Panel Cleaning Robot
-   - Robotics, ROS 2, Python, C++, Flutter
+1. **SolarBot** - Özerk Güneş Paneli Temizleme Robotu
+   - Robotik, ROS 2, Python, C++, Flutter
 
-2. **Solar Container Management System**
-   - Flutter, Dart, Modbus, PLC Integration
+2. **Güneş Konteyner Yönetim Sistemi**
+   - Flutter, Dart, Modbus, PLC Entegrasyonu
 
-3. **Modbus Communication Testing Framework**
-   - Python, Industrial Automation, Fatek PLC
+3. **Jet Yakıt Test Birimi**
+   - Siemens PLC, WinCC Unified, Profinet, ATEX
 
-4. **Autonomous System**
-   - Flutter, Dart, UDP Communication
+4. **Kaynak Robotu ve Konumlandırıcılar**
+   - PLC Programlama, HMI, Servo Kontrol
 
-5. **Container PLC Control System**
-   - ISP Programming, HMI, Safety Systems
+5. **Üretim Tesisi Taşıyıcı Otomatisasyonu**
+   - Siemens PLC, TIA Portal, Modbus RS-485
 
-6. **Safety-Critical Motor Control**
-   - PLC Programming, Safety-Critical Systems
+6. **Başlık Testleri İçin Hareketli Hedef Sistemi**
+   - Hareket Kontrolü, WinCC SCADA, SIL 2 Güvenlik
 
-## Technologies Used
+## Kullanılan Teknolojiler
 
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Hosting**: GitHub Pages
-- **Version Control**: Git
+- **Barındırma**: GitHub Pages
+- **Sürüm Kontrolü**: Git
 
-## Getting Started
+## Başlangıç
 
-1. Clone the repository:
+1. Depoya klonlama:
    ```bash
    git clone https://github.com/Jrengineer/kaankirsan.github.io.git
    ```
 
-2. Navigate to the directory:
+2. Dizine navigasyon:
    ```bash
    cd kaankirsan.github.io
    ```
 
-3. Open `index.html` in your browser or serve with a local server:
+3. `index.html` dosyasını tarayıcıda açın veya yerel sunucu ile çalıştırın:
    ```bash
    python -m http.server 8000
    ```
 
-4. Visit `http://localhost:8000` in your browser
+4. Tarayıcınızda `http://localhost:8000` adresini ziyaret edin
 
-## Adding Images and Assets
+## Resim ve Varlık Ekleme
 
-- Place project images in `/images/projects/`
-- Add project GIFs in the same directory
-- Reference images in HTML using relative paths:
+- Proje resimlerini `/images/projects/` dizinine yerleştirin
+- Proje GIF'lerini aynı dizine ekleyin
+- Resimler HTML'de nispeti yollarla atıfta bulununuz:
   ```html
   <img src="images/projects/solarbot-demo.gif" alt="SolarBot Demo">
   ```
 
-## Deployment
+## Konuşlandırma
 
-The website is deployed to GitHub Pages.
+Web site GitHub Pages'te konuşlandırılmıştır.
 
-Live site: https://kaankirsan.github.io
+Canlı site: https://kaankirsan.github.io
 
-## Contact
+## İletişim
 
-- Email: kaan@example.com
-- GitHub: https://github.com/Jrengineer
-- LinkedIn: [Your LinkedIn Profile]
+- E-posta: kkirsan@dokamuh.com
+- GitHub: https://github.com/kaankirsan
+- LinkedIn: https://www.linkedin.com/in/kaan-kirsan-574b20196
 
 ---
 
-Last Updated: December 2024
+Son Güncelleme: Aralık 2024
