@@ -36,7 +36,7 @@ kaankirsan.github.io/
 
 ## Öne Çıkan Projeler
 
-1. **SolarBot** - Özerk Güneş Paneli Temizleme Robotu
+1. **SolarBot** - Otonom Güneş Paneli Temizleme Robotu
    - Robotik, ROS 2, Python, C++, Flutter
 
 2. **Güneş Konteyner Yönetim Sistemi**
