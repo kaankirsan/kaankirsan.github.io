@@ -302,5 +302,13 @@
     })();
     </script>
 
+    <!-- Service Worker Registration -->
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(r => {}).catch(e => {});
+    }
+    </script>
+
 </body>
 </html>
