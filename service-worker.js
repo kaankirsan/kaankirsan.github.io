@@ -1,6 +1,6 @@
-const CACHE_NAME = 'portfolio-v2';
-const IMAGE_CACHE = 'portfolio-images-v2';
-const VIDEO_CACHE = 'portfolio-video-v2';
+const CACHE_NAME = 'portfolio-v3';
+const IMAGE_CACHE = 'portfolio-images-v3';
+const VIDEO_CACHE = 'portfolio-video-v3';
 const ALL_CACHES  = [CACHE_NAME, IMAGE_CACHE, VIDEO_CACHE];
 
 const STATIC_ASSETS = [
@@ -133,25 +133,15 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Network first for HTML
+  // Network first for HTML (NO caching to ensure fresh content always)
   event.respondWith(
     fetch(request)
-      .then(response => {
-        if (response.ok) {
-          const clonedResponse = response.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(request, clonedResponse);
-          });
-        }
-        return response;
-      })
       .catch(() => {
-        return caches.match(request).then(response => {
-          return response || new Response(
-            '<!DOCTYPE html><html><body><h1>Offline</h1><p>You are offline. Please check your connection.</p></body></html>',
-            { headers: { 'Content-Type': 'text/html' } }
-          );
-        });
+        // Only show error page on true network failure
+        return new Response(
+          '<!DOCTYPE html><html><body><h1>Connection Error</h1><p>Unable to load page. Please check your connection.</p></body></html>',
+          { headers: { 'Content-Type': 'text/html' }, status: 503 }
+        );
       })
   );
 });
