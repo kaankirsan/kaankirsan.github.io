@@ -113,6 +113,8 @@ a:hover {
 .nav-logo {
     font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .logo-link {
@@ -121,6 +123,8 @@ a:hover {
     gap: var(--spacing-sm);
     text-decoration: none;
     transition: transform var(--transition-normal);
+    flex-wrap: nowrap;
+    min-width: 0;
 }
 
 .logo-link:hover {
@@ -147,18 +151,21 @@ a:hover {
     display: flex;
     flex-direction: column;
     line-height: 1.15;
+    min-width: 0;
 }
 
 .logo-name {
     color: var(--bg-white);
     font-size: 1.05rem;
     font-weight: var(--font-weight-bold);
+    white-space: nowrap;
 }
 
 .logo-title {
     color: rgba(255, 255, 255, 0.75);
     font-size: 0.78rem;
     font-weight: var(--font-weight-medium);
+    white-space: nowrap;
 }
 
 .logo-text {
