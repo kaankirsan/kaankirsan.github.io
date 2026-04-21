@@ -1344,3 +1344,28 @@ img[data-placeholder].loaded {
         display: none;
     }
 }
+
+/* Navbar identity desktop hardening */
+.logo-meta {
+    justify-content: center;
+}
+
+.logo-meta .logo-name,
+.logo-meta .logo-title {
+    display: block !important;
+    max-width: none;
+}
+
+.logo-meta .logo-name {
+    margin-bottom: 2px;
+}
+
+@media (min-width: 769px) {
+    .logo-link {
+        align-items: center;
+    }
+
+    .logo-meta {
+        min-width: 167px;
+    }
+}
