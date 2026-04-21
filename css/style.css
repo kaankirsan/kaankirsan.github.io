@@ -1123,10 +1123,17 @@ img[data-placeholder].loaded {
 }
 
 .badges-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--spacing-2xl);
-    align-items: stretch;
+    align-items: flex-start;
+}
+
+.badges-grid > .badge-base,
+.badges-grid > .social-badge {
+    flex: 0 1 320px;
+    max-width: 360px;
 }
 
 .social-badge {
