@@ -766,8 +766,52 @@ a:hover {
     color: var(--accent-color);
 }
 
-.contact-cta {
-    text-align: center;
+.social-section {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.contact-subsection-title {
+    color: var(--bg-white);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-xl);
+}
+
+.social-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-2xl);
+}
+
+.social-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.social-card .social-handle {
+    display: block;
+    color: var(--bg-white);
+    font-weight: var(--font-weight-medium);
+    word-break: break-word;
+}
+
+.social-card .social-note {
+    display: block;
+    margin-top: var(--spacing-sm);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: var(--font-size-sm);
+}
+
+.social-card:hover .social-note {
+    color: var(--bg-white);
+}
+
+.whatsapp-card {
+    border-left: 4px solid #25D366;
+}
+
+.whatsapp-card h3 {
+    color: #25D366;
 }
 
 .contact-cta p {
