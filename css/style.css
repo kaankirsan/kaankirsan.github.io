@@ -1060,3 +1060,36 @@ img[data-placeholder].loaded {
 .gallery-item video {
     background-color: #1e2632;
 }
+
+/* ===========================================================
+   LinkedIn Badge Container
+   =========================================================== */
+
+.linkedin-badge-container {
+    margin-top: var(--spacing-xl);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.linkedin-badge-container .badge-base {
+    display: inline-block;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+/* Responsive adjustments for LinkedIn badge */
+@media (max-width: 768px) {
+    .linkedin-badge-container {
+        margin-top: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .linkedin-badge-container {
+        margin-top: var(--spacing-md);
+        transform: scale(0.9);
+        transform-origin: center;
+    }
+}
