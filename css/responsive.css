@@ -72,14 +72,22 @@
 
 /* Mobile (480px and below) */
 @media (max-width: 480px) {
-    .logo-text {
-        font-size: var(--font-size-base);
+    .logo-meta {
+        gap: 2px;
+    }
+
+    .logo-name {
+        font-size: 0.92rem;
+    }
+
+    .logo-title {
+        font-size: 0.68rem;
     }
 
     .logo-icon {
-        width: 80px;
-        height: 80px;
-        padding: 16px;
+        width: 56px;
+        height: 56px;
+        padding: 0;
     }
 
     .hamburger {
@@ -246,14 +254,18 @@
         padding: var(--spacing-md) var(--spacing-sm);
     }
 
-    .logo-text {
-        font-size: var(--font-size-sm);
+    .logo-name {
+        font-size: 0.84rem;
+    }
+
+    .logo-title {
+        display: none;
     }
 
     .logo-icon {
-        width: 72px;
-        height: 72px;
-        padding: 14px;
+        width: 48px;
+        height: 48px;
+        padding: 0;
     }
 
     h1 { font-size: var(--font-size-2xl); }
