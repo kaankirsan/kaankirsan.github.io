@@ -135,6 +135,7 @@ a:hover {
     width: 96px;
     height: 96px;
     object-fit: cover;
+    object-position: center 22%;
     transition: transform var(--transition-normal);
     background-color: transparent;
     border-radius: 50%;
@@ -1288,3 +1289,58 @@ img[data-placeholder].loaded {
     }
 }
 
+
+/* Navbar identity responsive fix */
+@media (max-width: 768px) {
+    .nav-container {
+        gap: var(--spacing-sm);
+    }
+
+    .logo-link {
+        gap: 10px;
+        max-width: calc(100vw - 88px);
+    }
+
+    .logo-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .logo-meta {
+        overflow: hidden;
+    }
+
+    .logo-name,
+    .logo-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .logo-name {
+        font-size: 0.92rem;
+    }
+
+    .logo-title {
+        font-size: 0.68rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-link {
+        gap: 8px;
+        max-width: calc(100vw - 76px);
+    }
+
+    .logo-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .logo-name {
+        font-size: 0.86rem;
+    }
+
+    .logo-title {
+        display: none;
+    }
+}
