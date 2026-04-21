@@ -135,7 +135,8 @@ a:hover {
     background-color: transparent;
     border-radius: 50%;
     padding: 0;
-    box-shadow: 0 4px 16px rgba(31, 111, 235, 0.4);
+    border: 1px solid rgba(31, 111, 235, 0.35);
+    box-shadow: 0 0 0 1px rgba(31, 111, 235, 0.12);
 }
 
 .logo-link:hover .logo-icon {
@@ -1130,10 +1131,31 @@ img[data-placeholder].loaded {
     align-items: flex-start;
 }
 
-.badges-grid > .badge-base,
-.badges-grid > .social-badge {
+.badges-grid > .social-badge,
+.badges-grid > .linkedin-badge-frame-wrap {
     flex: 0 1 320px;
     max-width: 360px;
+}
+
+.linkedin-badge-frame-wrap {
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-lg);
+    padding: 10px;
+    box-shadow: var(--shadow-md);
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linkedin-badge-frame {
+    width: 100%;
+    max-width: 320px;
+    min-height: 104px;
+    border: 0;
+    background: transparent;
+    overflow: hidden;
 }
 
 .social-badge {
