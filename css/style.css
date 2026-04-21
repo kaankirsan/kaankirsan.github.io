@@ -135,8 +135,8 @@ a:hover {
     background-color: transparent;
     border-radius: 50%;
     padding: 0;
-    border: 1px solid rgba(31, 111, 235, 0.35);
-    box-shadow: 0 0 0 1px rgba(31, 111, 235, 0.12);
+    border: 1px solid rgba(31, 111, 235, 0.18);
+    box-shadow: none;
 }
 
 .logo-link:hover .logo-icon {
@@ -1131,31 +1131,9 @@ img[data-placeholder].loaded {
     align-items: flex-start;
 }
 
-.badges-grid > .social-badge,
-.badges-grid > .linkedin-badge-frame-wrap {
+.badges-grid > .social-badge {
     flex: 0 1 320px;
     max-width: 360px;
-}
-
-.linkedin-badge-frame-wrap {
-    background: #111;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: var(--radius-lg);
-    padding: 10px;
-    box-shadow: var(--shadow-md);
-    min-height: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.linkedin-badge-frame {
-    width: 100%;
-    max-width: 320px;
-    min-height: 104px;
-    border: 0;
-    background: transparent;
-    overflow: hidden;
 }
 
 .social-badge {
@@ -1210,6 +1188,20 @@ img[data-placeholder].loaded {
 
 .social-badge-whatsapp {
     border-left: 4px solid #25D366;
+}
+
+.social-badge-linkedin {
+    border-left: 4px solid #0A66C2;
+}
+
+.social-badge-linkedin .social-badge-icon {
+    background: #0A66C2;
+    font-weight: 700;
+    font-family: Arial, sans-serif;
+}
+
+.social-badge-linkedin h3 {
+    color: #70b5f9;
 }
 
 .social-badge-whatsapp .social-badge-icon {
