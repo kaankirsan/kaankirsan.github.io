@@ -24,7 +24,6 @@ All images are licensed under the Unsplash License:
 
 ### Durability Test Automation Platform
 - **testing-01.jpg**: Industrial testing equipment (Unsplash)
-- **testing-02.jpg**: Data analysis and monitoring (Unsplash)
 
 ### AS/RS Warehouse Automation
 - **warehouse-01.jpg**: Automated warehouse interior (Unsplash)
@@ -35,12 +34,8 @@ All images are licensed under the Unsplash License:
 - **sensor-robot-02.jpg**: Advanced robotics system (Unsplash)
 
 ### Safety-Critical Motor Control PLC V30
-- **safety-plc-01.jpg**: Industrial control systems (Unsplash)
-- **safety-plc-02.jpg**: PLC automation equipment (Unsplash)
 
 ### Modbus Communication Testing Framework
-- **modbus-testing-01.jpg**: Network communication systems (Unsplash)
-- **modbus-testing-02.jpg**: Data monitoring dashboard (Unsplash)
 
 ---
 
