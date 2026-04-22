@@ -25,11 +25,7 @@ All images are licensed under the Unsplash License:
 ### Durability Test Automation Platform
 - **testing-01.jpg**: Industrial testing equipment (Unsplash)
 
-### AS/RS Warehouse Automation
-- **warehouse-01.jpg**: Automated warehouse interior (Unsplash)
-- **warehouse-02.jpg**: Logistics and storage systems (Unsplash)
-
-### Multi-Sensor Autonomous Robot V19
+### Mobile Target
 - **sensor-robot-01.jpg**: Robotic technology (Unsplash)
 - **sensor-robot-02.jpg**: Advanced robotics system (Unsplash)
 
