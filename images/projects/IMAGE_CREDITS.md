@@ -25,9 +25,6 @@ All images are licensed under the Unsplash License:
 ### Durability Test Automation Platform
 - **testing-01.jpg**: Industrial testing equipment (Unsplash)
 
-### Mobile Target
-- **sensor-robot-01.jpg**: Robotic technology (Unsplash)
-- **sensor-robot-02.jpg**: Advanced robotics system (Unsplash)
 
 ### Safety-Critical Motor Control PLC V30
 
