@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- React is served from this repo rather than a CDN: support.js hides the page
+     until React resolves, so an unreachable CDN left the site permanently blank.
+     These must stay above support.js — it boots at parse time and short-circuits
+     its own loader when window.React and window.ReactDOM already exist. -->
+<script src="./assets/vendor/react.production.min.js"></script>
+<script src="./assets/vendor/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -599,6 +605,53 @@ class Component extends DCLogic {
     });
   }
 
+  videoObserver = null;
+  visibleVideos = null;
+  playTimer = null;
+
+  // Autoplay at most ONE clip - the most visible one - and only once the visitor
+  // has settled on it. The clips are 74-100 MB camera originals and three of them
+  // share a single flex row, so playing the whole row pulls hundreds of megabytes.
+  watchVideo(el) {
+    if (!("IntersectionObserver" in window)) return;
+    if (!this.visibleVideos) this.visibleVideos = new Map();
+    if (!this.videoObserver) {
+      this.videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.visibleVideos.set(entry.target, entry.intersectionRatio);
+          } else {
+            this.visibleVideos.delete(entry.target);
+            if (!entry.target.paused) entry.target.pause();
+          }
+        });
+        this.syncPlayback();
+      }, { threshold: [0.35, 0.6, 0.9] });
+    }
+    this.videoObserver.observe(el);
+  }
+
+  syncPlayback() {
+    let best = null;
+    let bestRatio = 0;
+    this.visibleVideos.forEach((ratio, vid) => {
+      if (!vid.isConnected) { this.visibleVideos.delete(vid); return; }
+      if (ratio > bestRatio) { bestRatio = ratio; best = vid; }
+    });
+    this.visibleVideos.forEach((ratio, vid) => {
+      if (vid !== best && !vid.paused) vid.pause();
+    });
+    if (this.playTimer) clearTimeout(this.playTimer);
+    if (!best || !best.paused || best.ended) return;
+    // Waiting out a short dwell is what keeps a fast scroll from starting -
+    // and therefore buffering - every clip it passes.
+    this.playTimer = setTimeout(() => {
+      if (!best.isConnected || !this.visibleVideos.has(best)) return;
+      const p = best.play();
+      if (p && p.catch) p.catch(() => {});
+    }, 500);
+  }
+
   measureGallery() {
     this.gallery().forEach((g) => {
       const src = g.src;
@@ -763,7 +816,30 @@ class Component extends DCLogic {
           const ar = known || "1.7778";
           return {
             label: v.label,
-            attach: (el) => { if (el && el.getAttribute("src") !== v.src) el.setAttribute("src", v.src); },
+            attach: (el) => {
+              if (!el) return;
+              if (el.getAttribute("src") !== v.src) {
+                el.setAttribute("src", v.src);
+                // sc-for keys by index, so React reuses these <video> nodes when
+                // the route changes. Re-pointing src leaves the node paused, and
+                // observe() on an already-observed element is a no-op - without
+                // this re-arm the clip sits frozen at 0:00 while fully on screen.
+                if (this.videoObserver) this.videoObserver.unobserve(el);
+                if (this.visibleVideos) this.visibleVideos.delete(el);
+              }
+              // `controls` is written bare in the template, and React drops a
+              // boolean prop whose value is the empty string - so the player has
+              // to be set up here or the video has no play button at all. Keyed
+              // on src so a re-render never undoes the visitor's unmute, while a
+              // genuinely different clip still starts muted.
+              if (el.dataset.vinit !== v.src) {
+                el.dataset.vinit = v.src;
+                el.controls = true;
+                el.muted = true;
+                el.playsInline = true;
+              }
+              this.watchVideo(el);
+            },
             bg: 'url("' + v.poster + '")',
             ar: ar,
             bgSize: known ? "100% 100%" : "contain",
