@@ -1,8 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- These live in the real <head>, not in <helmet>: helmet is hoisted by JS at
+     runtime, and link-preview crawlers do not run JS. Without them a shared link
+     unfurls as an untitled blank page. -->
+<title>Kaan Kırşan — Elektrik Elektronik Mühendisi</title>
+<meta name="description" content="Donanım tedariğinden pano tasarımına, yazılım mimarisinden saha testlerine kadar tüm süreci kuran bir Elektrik-Elektronik Mühendisi. Klasik endüstriyel otomasyonu yapay zekâ ve robotikle birleştiriyorum.">
+<meta name="theme-color" content="#0a0c10">
+<link rel="icon" type="image/png" href="./images/robot-logo.png">
+<link rel="apple-touch-icon" href="./images/robot-logo.png">
+<link rel="canonical" href="https://kaankirsan.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaan Kırşan">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://kaankirsan.github.io/">
+<meta property="og:title" content="Kaan Kırşan — Elektrik Elektronik Mühendisi">
+<meta property="og:description" content="PLC, SCADA ve robotik otomasyon projeleri; görüntü işleme ve otonom sistemler. 20+ proje, 6 yıl saha deneyimi.">
+<meta property="og:image" content="https://kaankirsan.github.io/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kaan Kırşan — Elektrik Elektronik Mühendisi">
+<meta name="twitter:description" content="PLC, SCADA ve robotik otomasyon projeleri; görüntü işleme ve otonom sistemler. 20+ proje, 6 yıl saha deneyimi.">
+<meta name="twitter:image" content="https://kaankirsan.github.io/images/og-image.jpg">
+<link rel="stylesheet" href="./assets/fonts/fonts.css">
 <!-- React is served from this repo rather than a CDN: support.js hides the page
      until React resolves, so an unreachable CDN left the site permanently blank.
      These must stay above support.js — it boots at parse time and short-circuits
@@ -16,9 +39,8 @@
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kaan Kırşan — Elektrik Elektronik Mühendisi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<!-- Fonts are self-hosted from assets/fonts/ and linked in the real <head>, so
+     nothing here needs to reach fonts.googleapis.com any more. -->
 <script src="project-details.js"></script>
 <style>
 :root {
@@ -612,8 +634,21 @@ class Component extends DCLogic {
   // Autoplay at most ONE clip - the most visible one - and only once the visitor
   // has settled on it. The clips are 74-100 MB camera originals and three of them
   // share a single flex row, so playing the whole row pulls hundreds of megabytes.
+  // Two groups get the poster and a play button instead of autoplay: visitors who
+  // asked the OS for reduced motion, and visitors on a metered or very slow link.
+  // Nothing is hidden from them - only the automatic start is skipped.
+  autoplayBlocked() {
+    try {
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return true;
+    } catch (e) {}
+    const c = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (c && (c.saveData === true || /(^|-)2g$/.test(c.effectiveType || ""))) return true;
+    return false;
+  }
+
   watchVideo(el) {
     if (!("IntersectionObserver" in window)) return;
+    if (this.autoplayBlocked()) return;
     if (!this.visibleVideos) this.visibleVideos = new Map();
     if (!this.videoObserver) {
       this.videoObserver = new IntersectionObserver((entries) => {

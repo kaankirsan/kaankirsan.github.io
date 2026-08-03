@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sayfa bulunamadı — Kaan Kırşan</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/images/robot-logo.png">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<style>
+  :root { --ac:#58a6ff; --bg:#0a0c10; --fg:#e6edf3; --fg3:#8b949e; --bd:rgba(255,255,255,0.08); --sf:rgba(255,255,255,0.05); }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+         background:var(--bg); color:var(--fg); font-family:'Space Grotesk',Helvetica,sans-serif;
+         padding:24px; -webkit-font-smoothing:antialiased; }
+  main { max-width:560px; }
+  .code { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em;
+          color:var(--ac); margin:0 0 18px; }
+  h1 { margin:0 0 14px; font-size:clamp(30px,5vw,44px); line-height:1.05; letter-spacing:-0.03em; font-weight:700; }
+  p { margin:0 0 28px; font-size:17px; line-height:1.6; color:var(--fg3); }
+  .row { display:flex; flex-wrap:wrap; gap:12px; }
+  a { display:inline-block; padding:13px 22px; border-radius:11px; text-decoration:none;
+      font-weight:500; font-size:15px; transition:transform .2s ease, border-color .2s ease; }
+  a:hover { transform:translateY(-2px); }
+  .primary { background:var(--ac); color:#08111e; }
+  .ghost { border:1px solid var(--bd); color:var(--fg); background:var(--sf); }
+</style>
+</head>
+<body>
+<main>
+  <p class="code">404 — SAYFA BULUNAMADI</p>
+  <h1 id="h">Aradığın sayfa taşınmış.</h1>
+  <p id="msg">Site yenilendi ve proje sayfaları tek sayfa içinde açılıyor. Aşağıdan projelere geçebilirsin.</p>
+  <div class="row">
+    <a class="primary" href="/#projeler">Projelere git</a>
+    <a class="ghost" href="/">Ana sayfa</a>
+  </div>
+</main>
+<script>
+(function () {
+  // The redesign retired /projects/<slug>.html in favour of in-page routes.
+  // Those URLs are indexed and bookmarked, so map the ones we recognise onto
+  // their new hash route instead of dead-ending the visitor.
+  var SLUGS = ["solarbot","container","testing","welding","warehouse","mobile-target",
+               "wagon-testing","troubleshooting","resistance-automation","webserver-setup",
+               "other-machines","exhibitions-training","personal-projects"];
+  var m = location.pathname.match(/\/projects\/([a-z0-9-]+)\.html$/i);
+  if (m && SLUGS.indexOf(m[1].toLowerCase()) !== -1) {
+    var target = "/#/p/" + m[1].toLowerCase();
+    document.getElementById("h").textContent = "Bu proje taşındı, yönlendiriliyorsun...";
+    document.getElementById("msg").textContent = "Otomatik gitmezsen aşağıdaki bağlantıyı kullan.";
+    var a = document.querySelector(".primary");
+    a.setAttribute("href", target);
+    a.textContent = "Projeye git";
+    location.replace(target);
+  }
+})();
+</script>
+</body>
+</html>
