@@ -9,7 +9,32 @@ window.PROJECT_DETAILS = {
     highlights: [["Otonom Navigasyon", "OAK-D derinlik kameralarıyla gerçek zamanlı engel tespiti ve SLAM tabanlı haritalama."], ["Görüntü İşleme", "Farklı saha koşullarında %95+ doğrulukla panel tespiti yapan YOLOv5/v8 hattı."], ["Mobil Kontrol", "Gerçek zamanlı telemetri ve uzaktan kontrol için Flutter uygulaması."], ["İnsan Takibi", "Manuel yönlendirme modunda kişi takip yetkinliği."]],
     results: [["Performans Göstergeleri", ["Gerçek dünya koşullarında %85 otonom çalışma", "Tüm senaryolarda %95+ panel algılama doğruluğu", "Smart BMS ile pil sistemi entegrasyonu", "OAK-D ile engel tespiti", "Flutter izleme ve kontrol uygulaması"]], ["İş Etkisi", ["Manuel temizleme ihtiyacının ortadan kalkmasıyla işgücü maliyeti azaldı", "Düzenli temizlikle panel verimi arttı", "İşçiler tehlikeli yüksekliklerden uzaklaştırıldı", "Her ölçekte güneş çiftliğine uygulanabilir çözüm"]]],
     gallery: [{"src":"images/projects/solarbot-01.jpg","label":"SB-F01"},{"src":"images/projects/solarbot-02.jpg","label":"SB-F02"},{"src":"images/projects/solarbot-img-01.jpg","label":"SB-F03"},{"src":"images/projects/solarbot-img-02.jpg","label":"SB-F04"},{"src":"images/projects/solarbot-img-04.jpg","label":"SB-F05"},{"src":"images/projects/solarbot-img-05.jpg","label":"SB-F06"},{"src":"images/projects/solarbot-img-06.jpg","label":"SB-F07"},{"src":"images/projects/solarbot-img-07.jpg","label":"SB-F08"}],
-    videos: [{"src":"https://kaankirsan.github.io/images/projects/solarbot-video-01.mp4","poster":"images/projects/solarbot-video-01-poster.jpg","label":"SB-V01"},{"src":"https://kaankirsan.github.io/images/projects/solarbot-video-02.mp4","poster":"images/projects/solarbot-video-02-poster.jpg","label":"SB-V02"},{"src":"https://kaankirsan.github.io/images/projects/solarbot-video-03_compressed.mp4","poster":"images/projects/solarbot-video-03_compressed-poster.jpg","label":"SB-V03"}]
+    videos: [{"src":"https://kaankirsan.github.io/images/projects/solarbot-video-01.mp4","poster":"images/projects/solarbot-video-01-poster.jpg","label":"SB-V01"},{"src":"https://kaankirsan.github.io/images/projects/solarbot-video-02.mp4","poster":"images/projects/solarbot-video-02-poster.jpg","label":"SB-V02"},{"src":"https://kaankirsan.github.io/images/projects/solarbot-video-03_compressed.mp4","poster":"images/projects/solarbot-video-03_compressed-poster.jpg","label":"SB-V03"}],
+    // Canli simulasyon demosu. Bu blok yalniz bu projede var; index.html
+    // icindeki bolum <sc-if detail.hasSim> ile sarili, diger projelerde cizilmez.
+    sim: {
+      intro: "Gercek robotun ROS 2 + Gazebo ortaminda calisan dijital ikizi. Operator arayuzu, gercek robottaki soket protokollerinin aynisini kullanir; yani ayni arayuz hem sahadaki robotu hem simulasyonu surer. Asagidaki adresler canli sistemden yayin yapar.",
+      note: "Canli demo yalnizca belirli saatlerde aciktir. Adresler yanit vermiyorsa demo o an kapali demektir; randevu icin iletisime gecebilirsiniz.",
+      password: "1234",
+      links: [
+        {
+          label: "Operator Arayuzu",
+          desc: "Robotu surun, kamerasini canli izleyin, batarya ve IMU telemetrisini gorun.",
+          url: "https://desktop-3sl48aj.tail6be8c.ts.net:8443/"
+        },
+        {
+          label: "Gazebo - 3B Simulasyon",
+          desc: "60x45 m gunes paneli sahasi: panel siralari, engel alani ve labirent. Fizik motoru gercek zamanli.",
+          url: "https://desktop-3sl48aj.tail6be8c.ts.net:8443/goruntu"
+        },
+        {
+          label: "RViz2 - Harita ve Navigasyon",
+          desc: "SLAM haritasi, costmap katmanlari, nokta bulutu ve lazer taramasi. 2D Goal Pose ile otonom hedef verilebilir.",
+          url: "https://desktop-3sl48aj.tail6be8c.ts.net:8443/harita"
+        }
+      ],
+      stack: ["ROS 2 Humble", "Gazebo Classic 11", "Nav2", "slam_toolbox", "Stereo derinlik -> PointCloud2", "WSL2 / Ubuntu 22.04"]
+    }
   },
   "container": {
     metrics: [["5000+", "Satır Kod"], ["Gerçek Zaman", "Veri İzleme"], ["iOS + Android", "Çok Platform"]],

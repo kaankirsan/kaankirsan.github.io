@@ -236,6 +236,41 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
         </sc-for>
       </div>
 
+      <sc-if value="{{ detail.hasSim }}" hint-placeholder-val="{{ false }}">
+        <div data-sec="simulasyon" style="margin-bottom: 56px;">
+          <h2 style="margin: 0 0 14px; font-size: 20px; font-weight: 600; letter-spacing: -0.015em;">Simülasyon Ortamı</h2>
+          <p style="margin: 0 0 22px; font-size: 14.5px; line-height: 1.7; color: var(--fg2); max-width: 760px;">{{ detail.sim.intro }}</p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 14px; margin-bottom: 20px;">
+            <sc-for list="{{ detail.sim.links }}" as="s" hint-placeholder-count="3">
+              <a href="{{ s.url }}" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; gap: 8px; padding: 20px 22px; border: 1px solid var(--bd); border-radius: 14px; background: var(--card); color: inherit; transition: border-color 0.25s ease, transform 0.25s ease;" style-hover="border-color: var(--ac); transform: translateY(-3px); color: inherit;">
+                <span style="display: flex; align-items: center; gap: 8px; font-size: 15.5px; font-weight: 600; letter-spacing: -0.01em;">
+                  <span style="color: var(--ac); font-size: 13px; line-height: 1;">▶</span>
+                  {{ s.label }}
+                </span>
+                <span style="font-size: 13.5px; line-height: 1.6; color: var(--fg3);">{{ s.desc }}</span>
+                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.04em; color: var(--ac); word-break: break-all;">{{ s.shown }}</span>
+              </a>
+            </sc-for>
+          </div>
+
+          <sc-if value="{{ detail.sim.hasPassword }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 13px 16px; border: 1px solid var(--bd); border-radius: 12px; background: var(--card); margin-bottom: 14px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; color: var(--fg3);">GİRİŞ ŞİFRESİ</span>
+              <code style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; color: var(--ac); padding: 3px 10px; border-radius: 7px; background: rgba(255,255,255,0.05); border: 1px solid var(--bd2);">{{ detail.sim.password }}</code>
+            </div>
+          </sc-if>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px;">
+            <sc-for list="{{ detail.sim.stack }}" as="t" hint-placeholder-count="6">
+              <span style="padding: 5px 11px; border: 1px solid var(--bd); border-radius: 999px; background: var(--card); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.03em; color: var(--fg3);">{{ t }}</span>
+            </sc-for>
+          </div>
+
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: var(--fg4); font-style: italic; max-width: 760px;">{{ detail.sim.note }}</p>
+        </div>
+      </sc-if>
+
       <p style="margin: 0 0 44px; font-size: 13px; line-height: 1.6; color: var(--fg4); font-style: italic; max-width: 720px;">Tüm projeler Doka Mühendislik'in izniyle paylaşılmıştır. Gizlilik anlaşmaları gereği tescilli bilgiler, müşteri adları ve hassas teknik ayrıntılar genelleştirilmiştir.</p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; padding-top: 34px; border-top: 1px solid var(--bd); margin-bottom: 56px;">
@@ -883,6 +918,26 @@ class Component extends DCLogic {
           };
         }),
         hasVideos: (d.videos || []).length > 0,
+        // Canli simulasyon bolumu - su an yalniz solarbot'ta var.
+        // hasSim false ise sablondaki <sc-if> blogu hic cizilmez, yani
+        // diger projeler etkilenmez.
+        hasSim: !!(d.sim && d.sim.links && d.sim.links.length),
+        sim: d.sim
+          ? {
+              intro: d.sim.intro || "",
+              note: d.sim.note || "",
+              password: d.sim.password || "",
+              hasPassword: !!d.sim.password,
+              stack: d.sim.stack || [],
+              links: (d.sim.links || []).map((l) => ({
+                label: l.label,
+                desc: l.desc || "",
+                url: l.url,
+                // Adres cubugunda gosterilecek kisa hali (sema ve son / atilir).
+                shown: String(l.url).replace(/^https?:\/\//, "").replace(/\/$/, "")
+              }))
+            }
+          : { intro: "", note: "", password: "", hasPassword: false, stack: [], links: [] },
         prevSlug: slugOf(prev.url), prevTitle: prev.title,
         nextSlug: slugOf(next.url), nextTitle: next.title,
         related: pool.map(withSlug)
