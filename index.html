@@ -169,6 +169,22 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
         </sc-for>
       </div>
 
+      <sc-if value="{{ detail.hasDemo }}" hint-placeholder-val="{{ true }}">
+        <div data-sec="demo" style="margin-bottom: 60px; max-width: 800px;">
+          <h2 style="margin: 0 0 16px; font-size: 20px; font-weight: 600; letter-spacing: -0.015em;">Canlı Demo — Erişim</h2>
+          <div style="border: 1px solid var(--bd); border-radius: 14px; padding: 22px; background: var(--card);">
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+              <a href="{{ detail.demo.url }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px; background: var(--ac); color: #0b0e13; font-weight: 600; font-size: 14px; letter-spacing: -0.01em;">Web Kontrol Merkezi ↗</a>
+              <sc-if value="{{ detail.demo.hasVr }}" hint-placeholder-val="{{ true }}">
+                <a href="{{ detail.demo.vr }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px; border: 1px solid var(--ac); color: var(--ac); font-weight: 600; font-size: 14px; letter-spacing: -0.01em;">VR Deneyimi (Quest 2) ↗</a>
+              </sc-if>
+            </div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--fg3); margin-bottom: 10px; word-break: break-all;">{{ detail.demo.url }}</div>
+            <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--fg3);">{{ detail.demo.note }}</p>
+          </div>
+        </div>
+      </sc-if>
+
       <h2 data-sec="teknoloji" style="margin: 0 0 20px; font-size: 20px; font-weight: 600; letter-spacing: -0.015em;">Teknoloji altyapısı</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 60px;">
         <sc-for list="{{ detail.tech }}" as="t" hint-placeholder-count="4">
@@ -594,7 +610,7 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
 <script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#58a6ff&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#4fd1c5&quot;,&quot;#58a6ff&quot;,&quot;#f0b429&quot;,&quot;#f97583&quot;],&quot;section&quot;:&quot;Görünüm&quot;},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Görünüm&quot;},&quot;animations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Görünüm&quot;}}">
 const BASE = "https://kaankirsan.github.io/projects/";
 const PROJECTS = [
-  { cat: "robotik", badge: "Robotik", url: BASE + "solarbot.html", img: "images/projects/solarbot-01.jpg", featured: true, title: "Otonom Güneş Paneli Temizleme Robotu", desc: "Derinlik kameraları, SLAM navigasyon ve %95+ YOLO doğruluğu ile panel tespiti yapan, %85 otonom çalışan robot.", tags: ["Python", "OpenCV", "SLAM", "Jetson Orin"], metric: "%85 otonom" },
+  { cat: "robotik", badge: "Robotik", url: BASE + "solarbot.html", img: "images/projects/solarbot-01.jpg", featured: true, title: "Otonom Güneş Paneli Temizleme Robotu", desc: "Derinlik kameraları, SLAM navigasyon ve %95+ YOLO doğruluğu ile panel tespiti yapan, %85 otonom çalışan robot. Canlı halefi: ROS 2 + Gazebo üzerinde web/VR'dan kontrol edilen Robot Sim.", tags: ["Python", "OpenCV", "SLAM", "ROS 2", "Jetson Orin"], metric: "%85 otonom" },
   { cat: "iot", badge: "IoT", url: BASE + "container.html", img: "images/projects/container-01.jpg", title: "Mobil Güneş Enerjisi Konteyneri", desc: "Modbus TCP üzerinden PLC izleme, hidrolik valf kontrolü, hava durumu entegrasyonu ve üretim raporlama için Flutter uygulaması.", tags: ["Flutter", "Dart", "Modbus"], metric: "5000+ satır" },
   { cat: "test", badge: "Test", url: BASE + "testing.html", img: "images/projects/testing-01.jpg", featured: true, title: "Jet Yakıtı Test Ünitesi", desc: "WinCC Unified HMI ile Siemens PLC ve Profinet üzerinden 0.0001 L/dak akış ve 0.01 bar basınç hassasiyeti.", tags: ["Siemens PLC", "WinCC", "ATEX"], metric: "0.0001 L/dak" },
   { cat: "otomasyon", badge: "Otomasyon", url: BASE + "welding.html", img: "images/projects/welding-img-01.jpg", featured: true, title: "ABB Kaynak Robotu Entegrasyonu", desc: "Çok eksenli servo kontrol, PID ayarlama, güvenlik kilitleri ve kapsamlı PLC/HMI mimarisi ile robot hücresi.", tags: ["PLC", "HMI", "Robotik"], metric: "%40 verim" },
@@ -872,6 +888,10 @@ class Component extends DCLogic {
         summary: d.summary,
         metrics: d.metrics.map((m) => ({ v: m[0], l: m[1] })),
         body: d.body.map((b) => ({ h: b[0], p: b[1] })),
+        hasDemo: !!d.demo,
+        demo: d.demo
+          ? { url: d.demo.url, vr: d.demo.vr || "", hasVr: !!d.demo.vr, note: d.demo.note || "" }
+          : { url: "", vr: "", hasVr: false, note: "" },
         tech: d.tech.map((t) => ({ h: t[0], items: t[1] })),
         highlights: d.highlights.map((h) => ({ h: h[0], p: h[1] })),
         results: d.results.map((r) => ({ h: r[0], items: r[1] })),
