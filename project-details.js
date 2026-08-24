@@ -6,11 +6,6 @@ window.PROJECT_DETAILS = {
       ["Ne Yaptım", "Gerçek zamanlı engel tespiti ve kaçınma için OAK-D derinlik kameraları kullanan otonom navigasyon sistemi geliştirdim. SLAM algoritmaları çevre haritalarını oluştururken robot navigasyonunu sağlıyor. YOLOv5/v8 kullanan görüntü işleme hattı güneş panellerini %95+ doğrulukla tespit ediyor. Flutter mobil uygulama gerçek zamanlı telemetri ve uzaktan kontrol sunuyor; Smart BMS güç dağıtımını ve izlemeyi yönetiyor."],
       ["Canlı Simülasyon Halefi: Robot Sim", "Projenin devamı olarak aynı otonomi yaklaşımını depo temalı tam bir simülasyona taşıdım: ROS 2 Humble + Gazebo üzerinde paletli bir robot, üzerinde 6 eksenli UR5e kol ve gripper ile tamamen otonom nesne toplama-taşıma (pick & place) yapıyor. Nav2 otonom sürüş, gerçek zamanlı doluluk haritalama, OpenCV nesne tanıma, görev kuyruğu, batarya modeli ve otonom şarj istasyonu içeriyor. Kontrol merkezi telefona kurulabilen bir PWA; ayrıca Oculus Quest 2 ile WebXR üzerinden deponun dijital ikizi içinde robotu VR'da sürmek ve kola hedef vermek mümkün. Tamamı tek WebSocket üzerinden, şifre korumalı bir Tailscale adresinde yayınlanıyor."]
     ],
-    demo: {
-      url: "https://acer.tail6be8c.ts.net:8443",
-      vr: "https://acer.tail6be8c.ts.net:8443/vr.html",
-      note: "Simülasyon sunucusu talep üzerine açılır ve şifre korumalıdır — canlı deneme (web veya VR) için benimle iletişime geçin."
-    },
     tech: [["Donanım", ["Jetson Nano/Orin", "OAK-D Kamera", "Smart BMS"]], ["Görüntü İşleme", ["Python", "OpenCV", "YOLOv5/v8", "SLAM"]], ["İletişim", ["RS-485", "UDP"]], ["Yazılım", ["Flutter", "Linux"]]],
     highlights: [["Otonom Navigasyon", "OAK-D derinlik kameralarıyla gerçek zamanlı engel tespiti ve SLAM tabanlı haritalama."], ["Görüntü İşleme", "Farklı saha koşullarında %95+ doğrulukla panel tespiti yapan YOLOv5/v8 hattı."], ["Mobil Kontrol", "Gerçek zamanlı telemetri ve uzaktan kontrol için Flutter uygulaması."], ["İnsan Takibi", "Manuel yönlendirme modunda kişi takip yetkinliği."]],
     results: [["Performans Göstergeleri", ["Gerçek dünya koşullarında %85 otonom çalışma", "Tüm senaryolarda %95+ panel algılama doğruluğu", "Smart BMS ile pil sistemi entegrasyonu", "OAK-D ile engel tespiti", "Flutter izleme ve kontrol uygulaması"]], ["İş Etkisi", ["Manuel temizleme ihtiyacının ortadan kalkmasıyla işgücü maliyeti azaldı", "Düzenli temizlikle panel verimi arttı", "İşçiler tehlikeli yüksekliklerden uzaklaştırıldı", "Her ölçekte güneş çiftliğine uygulanabilir çözüm"]]],
@@ -19,27 +14,32 @@ window.PROJECT_DETAILS = {
     // Canli simulasyon demosu. Bu blok yalniz bu projede var; index.html
     // icindeki bolum <sc-if detail.hasSim> ile sarili, diger projelerde cizilmez.
     sim: {
-      intro: "Gercek robotun ROS 2 + Gazebo ortaminda calisan dijital ikizi. Operator arayuzu, gercek robottaki soket protokollerinin aynisini kullanir; yani ayni arayuz hem sahadaki robotu hem simulasyonu surer. Asagidaki adresler canli sistemden yayin yapar.",
+      intro: "Projenin canli simulasyon halefi Robot Sim: ROS 2 + Gazebo uzerinde depo temali sahada paletli robot + 6 eksenli UR5e kol. Tarayicidan surulur, haritaya tiklanarak otonom hedef verilir, nesne secilip tam otonom pick & place gorevi baslatilir; Oculus Quest 2 ile deponun dijital ikizi icinde VR kontrol de mumkun. Asagidaki adresler canli sistemden yayin yapar.",
       note: "Canli demo yalnizca belirli saatlerde aciktir. Adresler yanit vermiyorsa demo o an kapali demektir; randevu icin iletisime gecebilirsiniz.",
       password: "1234",
       links: [
         {
-          label: "Operator Arayuzu",
-          desc: "Robotu surun, kamerasini canli izleyin, batarya ve IMU telemetrisini gorun.",
-          url: "https://desktop-3sl48aj.tail6be8c.ts.net:8443/"
+          label: "Kontrol Merkezi (PWA)",
+          desc: "Cift joystickli surus ekrani, canli on + bilek kamerasi, gercek zamanli harita (hedef isareti + rota), robot kol kontrol sayfasi ve otonom gorev kuyrugu.",
+          url: "https://acer.tail6be8c.ts.net:8443/"
+        },
+        {
+          label: "VR - Oculus Quest 2 (WebXR)",
+          desc: "Deponun dijital ikizi icinde dur, robotu cubuklarla sur, kolu tut-surukle-birak ile hedefe gonder. PC tarayicisinda duz 3B onizleme olarak da acilir.",
+          url: "https://acer.tail6be8c.ts.net:8443/vr.html"
         },
         {
           label: "Gazebo - 3B Simulasyon",
-          desc: "60x45 m gunes paneli sahasi: panel siralari, engel alani ve labirent. Fizik motoru gercek zamanli.",
-          url: "https://desktop-3sl48aj.tail6be8c.ts.net:8443/goruntu"
+          desc: "Depo sahasi: raflar, platformlar, tasinabilir nesneler, sarj istasyonu ve robot. Fizik motoru gercek zamanli.",
+          url: "https://acer.tail6be8c.ts.net:8443/goruntu"
         },
         {
           label: "RViz2 - Harita ve Navigasyon",
-          desc: "SLAM haritasi, costmap katmanlari, nokta bulutu ve lazer taramasi. 2D Goal Pose ile otonom hedef verilebilir.",
-          url: "https://desktop-3sl48aj.tail6be8c.ts.net:8443/harita"
+          desc: "Gercek zamanli doluluk haritasi, costmap katmanlari, nokta bulutu ve lazer taramasi.",
+          url: "https://acer.tail6be8c.ts.net:8443/harita"
         }
       ],
-      stack: ["ROS 2 Humble", "Gazebo Classic 11", "Nav2", "slam_toolbox", "Stereo derinlik -> PointCloud2", "WSL2 / Ubuntu 22.04"]
+      stack: ["ROS 2 Humble", "Gazebo Classic 11", "Nav2", "UR5e 6 eksen kol", "Gercek zamanli haritalama", "WebXR (Quest 2)", "WSL2 / Ubuntu 22.04"]
     }
   },
   "container": {
