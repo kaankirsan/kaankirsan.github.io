@@ -128,7 +128,7 @@ window.PROJECT_DETAILS = {
     tech: [["Kontrol", ["Siemens PLC", "PID Kontrol", "TIA Portal"]], ["Güç Elektroniği", ["Direnç Elemanları", "Transformatörler", "Güç Dağıtımı"]], ["Sıcaklık", ["Termokupl", "RTD Sensörler", "Isı Yönetimi"]], ["Güvenlik", ["Yangına Dayanıklı", "Isı Koruması", "Acil Durdurma"]]],
     highlights: [["Hassas PID Kontrol", "±%1 toleranslı sıcaklık kontrolü sağlayan PID algoritmaları."], ["Enerji Optimizasyonu", "Akıllı ısı yönetimi ve kontrol stratejileriyle kauçuk işlemede %20 enerji tasarrufu."], ["Yangına Dayanıklı Tasarım", "Yüksek ısı ortamlarında güvenli çalışma için dayanıklı malzeme ve tasarım."], ["Askeri Nitelik", "Askeri uygulamalara uygun güvenilirlik ve performans standartları."]],
     results: [["Sistem Performansı", ["±%1 toleranslı sıcaklık kontrolü", "%20 enerji tüketim azaltımı", "40+ sistem kurulumu tamamlandı", "Askeri ve endüstriyel standartlara uyum"]], ["İş Etkisi", ["Enerji maliyetlerinde belirgin azalma", "Üretim kalitesi ve tutarlılığında artış", "Operatör güvenliğinin sağlanması", "Uygulanabilir tasarımla hızlı kurulum"]]],
-    gallery: [{"src":"images/projects/resistance-01.jpg","label":"REZ-F01"},{"src":"images/projects/resistance-02.jpg","label":"REZ-F02"}],
+    gallery: [{"src":"images/projects/resistance-01.jpg","label":"REZ-F01"}],
     videos: [{"src":"https://kaankirsan.github.io/images/projects/resistance-video-01.mp4","poster":"images/projects/resistance-video-01-poster.jpg","label":"REZ-V01"}]
   },
   "webserver-setup": {
