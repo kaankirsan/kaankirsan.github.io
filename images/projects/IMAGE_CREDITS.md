@@ -19,7 +19,6 @@ All images are licensed under the Unsplash License:
 - **container-02.jpg**: Data analytics dashboard (Unsplash)
 
 ### ABB Welding Cell Motor Integration
-- **welding-01.jpg**: Industrial robotic arm (Unsplash)
 - **welding-02.jpg**: Manufacturing automation (Unsplash)
 
 ### Durability Test Automation Platform
