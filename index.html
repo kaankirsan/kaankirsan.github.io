@@ -488,7 +488,7 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
     <div data-reveal>
       <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; color: var(--ac); margin-bottom: 14px;">01 / SANAL FABRİKA · VR</div>
       <h2 style="margin: 0 0 22px; font-size: clamp(32px, 4.2vw, 54px); letter-spacing: -0.03em; line-height: 1.02; font-weight: 700;">Makinelerimi çalışırken görün</h2>
-      <p style="margin: 0 0 26px; font-size: 17px; line-height: 1.7; color: var(--fg2); max-width: 540px; text-wrap: pretty;">Sahada kurduğum 19 makineyi ve Ar-Ge projelerimi (sunucu odası, elektrikli bisiklet, üniversite İHA ve elektrikli araç) tarayıcıda gezilebilen, üç hollü bir 3B fabrikada topladım. Mekanizmalar çalışıyor, operatörler iş akışına göre hareket ediyor ve her makine kendi kontrol panelinden kumanda edilebiliyor: bilgisayarda, telefonda ya da Oculus Quest 2 ile VR'da.</p>
+      <p style="margin: 0 0 26px; font-size: 17px; line-height: 1.7; color: var(--fg2); max-width: 540px; text-wrap: pretty;">Sahada kurduğum 19 makineyi ve Ar-Ge projelerimi (sunucu odası, elektrikli bisiklet, üniversite İHA ve MAVERA elektrikli aracı) tarayıcıda gezilebilen, üç hollü bir 3B fabrikada topladım. Mekanizmalar çalışıyor, operatörler iş akışına göre hareket ediyor ve her makine kendi kontrol panelinden kumanda edilebiliyor: bilgisayarda, telefonda ya da Oculus Quest 2 ile VR'da.</p>
       <div style="display: grid; gap: 10px; margin-bottom: 32px; max-width: 560px;">
         <sc-for list="{{ fabrikaOzellik }}" as="o" hint-placeholder-count="4">
           <div style="display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: start;">
@@ -685,11 +685,12 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
       <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--fg3); letter-spacing: 0.06em; margin-bottom: 8px;">LİSANS</div>
       <h3 style="margin: 0 0 4px; font-size: 24px; font-weight: 600; letter-spacing: -0.02em;">Elektrik-Elektronik Mühendisliği</h3>
       <div style="color: var(--fg3); font-size: 15px; margin-bottom: 16px;">Eskişehir Osmangazi Üniversitesi</div>
-      <p style="margin: 0 0 18px; color: var(--fg2); font-size: 15px; line-height: 1.65; max-width: 720px;">Endüstriyel otomasyon ve kontrol sistemleri odağı. Letonya, Polonya ve Litvanya'daki Erasmus programlarıyla uluslararası deneyim; üniversite İHA takımında aktif görev.</p>
+      <p style="margin: 0 0 18px; color: var(--fg2); font-size: 15px; line-height: 1.65; max-width: 720px;">Endüstriyel otomasyon ve kontrol sistemleri odağı. Letonya, Polonya ve Litvanya'daki Erasmus programlarıyla uluslararası deneyim; üniversite İHA takımında ve TÜBİTAK Efficiency Challenge'a katılan MAVERA elektrikli araç takımında görev.</p>
       <div style="display: flex; flex-wrap: wrap; gap: 8px;">
         <span style="padding: 6px 13px; border-radius: 999px; border: 1px solid var(--bd2); font-size: 12.5px; color: var(--fg2);">Endüstriyel Otomasyon Odağı</span>
         <span style="padding: 6px 13px; border-radius: 999px; border: 1px solid var(--bd2); font-size: 12.5px; color: var(--fg2);">Erasmus · Letonya, Polonya, Litvanya</span>
         <span style="padding: 6px 13px; border-radius: 999px; border: 1px solid var(--bd2); font-size: 12.5px; color: var(--fg2);">İHA Takım Üyesi</span>
+        <span style="padding: 6px 13px; border-radius: 999px; border: 1px solid var(--bd2); font-size: 12.5px; color: var(--fg2);">Efficiency Challenge · MAVERA</span>
       </div>
     </div>
   </div>
@@ -778,7 +779,7 @@ const PROJECTS = [
   { cat: "iot", badge: "Altyapı", url: BASE + "webserver-setup.html", img: "images/projects/webserver-kapak.jpg", title: "Web Sunucu Kurulumu ve Yapılandırma", desc: "Endüstriyel veri görselleştirme, kurumsal web siteleri (%99 uptime), e-posta sistemi ve depolama çözümleri için 5+ sunucu.", tags: ["Linux", "Docker", "Nginx"], metric: "5+ sunucu" },
   { cat: "otomasyon", badge: "Üretim", url: BASE + "other-machines.html", img: "images/projects/other-machines-img-01.jpg", title: "Diğer Makineler", desc: "Farklı üretim makineleri için PLC/HMI revizyonları ve genel otomasyon iyileştirmeleriyle çevrim süreleri optimize edildi.", tags: ["PLC", "HMI", "Optimizasyon"], metric: "30+ makine" },
   { cat: "kisisel", badge: "Eğitim", url: BASE + "exhibitions-training.html", img: "images/projects/exhibitions-img-01.jpg", title: "Fuarlar, Sunum ve Eğitimler", desc: "3+ endüstri fuarında teknik sunum, tedarikçi anlaşmaları ve üniversite öğrencilerine PLC programlama eğitimi.", tags: ["Sunum", "Atölye", "Eğitim"], metric: "3+ fuar" },
-  { cat: "kisisel", badge: "Kişisel · Ar-Ge", url: BASE + "elektrikli-bisiklet.html", img: "images/projects/personal-img-06.jpg", title: "Elektrikli Bisiklet Dönüşümü", desc: "Sıradan bir dağ bisikletini 500 W göbek motoru, özel lityum pil paketi ve BMS ile elektrikliye çevirdim; iki sürümde aşama aşama geliştirdim: 30 km/h hız, 45 km menzil.", tags: ["500W BLDC", "Li-ion + BMS", "Kontrolcü"], metric: "45 km menzil" },
+  { cat: "kisisel", badge: "Kişisel · Ar-Ge", url: BASE + "elektrikli-bisiklet.html", img: "images/projects/personal-img-06.jpg", title: "Elektrikli Bisiklet Dönüşümü", desc: "Sıradan bir dağ bisikletini 500 W arka göbek motoru ve 48 V jel akü paketiyle elektrikliye çevirdim; iki sürümde aşama aşama geliştirdim: 30 km/h hız, 45 km menzil.", tags: ["500W göbek motoru", "48V jel akü", "Kontrolcü"], metric: "45 km menzil" },
   { cat: "kisisel", badge: "Kişisel", url: BASE + "personal-projects.html", img: "images/projects/personal-img-09.jpg", title: "Kişisel Projeler", desc: "500W elektrikli bisiklet (30 km/h, 45 km menzil), ESP32 ev otomasyonu, otomasyon araçları, kişisel NAS ve 3D baskı.", tags: ["ESP32", "IoT", "3D Baskı"], metric: "5 proje" }
 ];
 
@@ -816,7 +817,7 @@ const FABRIKA_MAKINELER = [
   ["disacma", "Diş açma", "Diş Açma ve Ayıklama Makinesi"], ["yikama", "Klişe yıkama", "Klişe Yıkama Makinesi"],
   ["pompatest", "Pompa testi", "Pompa Test Makinesi"], ["sunucu", "Sunucu odası", "Sunucu Odası · Web & Veri Altyapısı"],
   ["ebisiklet", "E-bisiklet", "Elektrikli Bisiklet Dönüşümü"], ["iha", "Üniversite İHA", "Üniversite İHA Projesi"],
-  ["earac", "Elektrikli araç", "Üniversite Elektrikli Araç Projesi"]
+  ["earac", "MAVERA", "MAVERA Elektrikli Araç"]
 ];
 
 // ---- Görsel/video web sürümleri (images/web/, scratchpad pf-optimize.py ile üretilir; README'de anlatılıyor).
@@ -1324,13 +1325,13 @@ class Component extends DCLogic {
         hasFabrika: !(d.makineler && d.makineler.length),
         fabrika: (d.fabrika && d.fabrika.length ? d.fabrika : [{ id: "", ad: "" }]).map((f) => ({
           url: fabrikaUrl(f.id),
-          etiket: f.id ? "Sanal fabrikada gez" : (f.ad || "Sanal fabrikayı gez")
+          etiket: f.id ? (d.fabrika.length > 1 ? "Fabrikada: " + f.ad : "Sanal fabrikada gez") : (f.ad || "Sanal fabrikayı gez")
         })),
         fabrikaBaslik: d.fabrika && d.fabrika.length && d.fabrika[0].id
           ? d.fabrika.map((f) => f.ad).join(" · ") + " — 3B modeli"
           : (route === "sanal-fabrika" ? "Fabrika şu an yayında" : "Diğer makinelerim sanal fabrikada"),
         fabrikaMetin: d.fabrika && d.fabrika.length && d.fabrika[0].id
-          ? "Bu projenin kabataslak 3B modeli sanal fabrikada çalışır halde: mekanizmaları izleyebilir, kontrol panelinden kumanda edebilirsiniz. Bilgisayarda, telefonda ya da Quest 2 ile VR'da açılır."
+          ? (d.fabrika.length > 1 ? "Bu projelerin" : "Bu projenin") + " kabataslak 3B modeli sanal fabrikada çalışır halde: mekanizmaları izleyebilir, kontrol panelinden kumanda edebilirsiniz. Bilgisayarda, telefonda ya da Quest 2 ile VR'da açılır."
           : (route === "sanal-fabrika"
             ? "Kurulum gerektirmez: bilgisayarda, telefonda ya da Quest 2 tarayıcısında açıp gezebilirsiniz."
             : "Bu projenin 3B modeli yok; sahada kurduğum makinelerin ve Ar-Ge projelerimin çalıştığı sanal fabrikayı tarayıcıda ya da VR'da gezebilirsiniz."),
@@ -1423,7 +1424,7 @@ class Component extends DCLogic {
       ],
       fabrikaOzellik: [
         "Fotoğraf ve videolardan modellenen 19 makine; kaynak hücresi, konveyör hattı, presler, test makineleri",
-        "C holünde Ar-Ge & BT: sunucu odası, elektrikli bisiklet, üniversite İHA ve elektrikli araç",
+        "C holünde Ar-Ge & BT: sunucu odası, elektrikli bisiklet, üniversite İHA ve MAVERA elektrikli aracı",
         "Her makinede canlı kontrol paneli, HMI ekranı, trend grafikleri ve arıza senaryoları",
         "Kurulumsuz VR: Quest 2 tarayıcısında linki aç, “VR'a gir”",
         "three.js + WebXR; geometri birleştirme (~%42) ve ekran boyutuna göre LOD (~%48) ile çok daha az çizim çağrısı"
