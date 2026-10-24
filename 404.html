@@ -44,7 +44,7 @@
   // their new hash route instead of dead-ending the visitor.
   var SLUGS = ["sanal-fabrika","solarbot","container","testing","welding","warehouse","mobile-target",
                "wagon-testing","troubleshooting","resistance-automation","webserver-setup",
-               "other-machines","exhibitions-training","personal-projects"];
+               "other-machines","exhibitions-training","personal-projects","elektrikli-bisiklet"];
   var m = location.pathname.match(/\/projects\/([a-z0-9-]+)\.html$/i);
   if (m && SLUGS.indexOf(m[1].toLowerCase()) !== -1) {
     var target = "/#/p/" + m[1].toLowerCase();

@@ -145,7 +145,7 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
 [data-scada][data-s="test"] .kk-lamba { background: #f0b429; box-shadow: 0 0 9px rgba(240,180,41,0.65); animation: blink 1.1s ease-in-out infinite; }
 [data-scada][data-s="idle"] { color: var(--fg4) !important; }
 [data-oee]::after { content: "%" attr(data-v); }
-[data-calisan]::after { content: attr(data-v) " / 19"; }
+[data-calisan]::after { content: attr(data-v) " / 23"; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   html { scroll-behavior: auto; }
@@ -468,7 +468,7 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
         <div style="position: absolute; left: 0; right: 0; top: 0; height: 12%; background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--ac) 20%, transparent), transparent); animation: scan 5.5s linear infinite; pointer-events: none;"></div>
         <span style="position: absolute; top: 14px; left: 14px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: rgba(8,10,14,0.78); border: 1px solid rgba(255,255,255,0.16); backdrop-filter: blur(6px); font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; color: #e6edf3;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #3fb950; animation: blink 2s ease-in-out infinite;"></span>CANLI 3B · VR</span>
         <div style="position: absolute; left: 18px; right: 18px; bottom: 16px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px;">
-          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(230,237,243,0.88); letter-spacing: 0.06em; line-height: 1.6;">// SANAL FABRİKA<br>19 MAKİNE · ÇALIŞIR HALDE</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(230,237,243,0.88); letter-spacing: 0.06em; line-height: 1.6;">// SANAL FABRİKA<br>23 MAKİNE VE PROJE · ÇALIŞIR HALDE</span>
           <span style="flex: none; padding: 8px 14px; border-radius: 9px; background: var(--ac); color: var(--onac); font-size: 13px; font-weight: 600;">Fabrikaya gir ↗</span>
         </div>
       </a>
@@ -488,7 +488,7 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
     <div data-reveal>
       <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; color: var(--ac); margin-bottom: 14px;">01 / SANAL FABRİKA · VR</div>
       <h2 style="margin: 0 0 22px; font-size: clamp(32px, 4.2vw, 54px); letter-spacing: -0.03em; line-height: 1.02; font-weight: 700;">Makinelerimi çalışırken görün</h2>
-      <p style="margin: 0 0 26px; font-size: 17px; line-height: 1.7; color: var(--fg2); max-width: 540px; text-wrap: pretty;">Sahada kurduğum 19 makineyi tarayıcıda gezilebilen bir 3B fabrikada topladım. Mekanizmalar çalışıyor, operatörler iş akışına göre hareket ediyor ve her makine kendi kontrol panelinden kumanda edilebiliyor: bilgisayarda, telefonda ya da Oculus Quest 2 ile VR'da.</p>
+      <p style="margin: 0 0 26px; font-size: 17px; line-height: 1.7; color: var(--fg2); max-width: 540px; text-wrap: pretty;">Sahada kurduğum 19 makineyi ve Ar-Ge projelerimi (sunucu odası, elektrikli bisiklet, üniversite İHA ve elektrikli araç) tarayıcıda gezilebilen, üç hollü bir 3B fabrikada topladım. Mekanizmalar çalışıyor, operatörler iş akışına göre hareket ediyor ve her makine kendi kontrol panelinden kumanda edilebiliyor: bilgisayarda, telefonda ya da Oculus Quest 2 ile VR'da.</p>
       <div style="display: grid; gap: 10px; margin-bottom: 32px; max-width: 560px;">
         <sc-for list="{{ fabrikaOzellik }}" as="o" hint-placeholder-count="4">
           <div style="display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: start;">
@@ -519,10 +519,10 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
       <div ref="{{ scadaRef }}" style="border: 1px solid var(--bd); border-radius: 14px; background: var(--card); padding: 14px 14px 12px;">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.08em; color: var(--fg3);">
           <span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #3fb950; animation: blink 2s ease-in-out infinite;"></span>MAKİNE DURUMU · CANLI</span>
-          <span>ÇALIŞAN <b data-calisan data-v="17" style="color: var(--fg); font-weight: 500;"></b> · OEE <b data-oee data-v="86" style="color: var(--ac); font-weight: 500;"></b></span>
+          <span>ÇALIŞAN <b data-calisan data-v="21" style="color: var(--fg); font-weight: 500;"></b> · OEE <b data-oee data-v="86" style="color: var(--ac); font-weight: 500;"></b></span>
         </div>
         <div data-r="scada" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px;">
-          <sc-for list="{{ scada }}" as="c" hint-placeholder-count="19">
+          <sc-for list="{{ scada }}" as="c" hint-placeholder-count="23">
             <a href="{{ c.url }}" target="_blank" rel="noopener" data-scada title="{{ c.ad }} · sanal fabrikada aç" style="display: flex; align-items: center; gap: 8px; padding: 7px 9px; border-radius: 8px; background: var(--sf2); border: 1px solid var(--bd); color: var(--fg2); font-size: 12.5px; min-width: 0; transition: border-color 0.2s ease, background 0.2s ease;" style-hover="border-color: var(--ac); background: var(--sf); color: var(--fg);">
               <span class="kk-lamba"></span>
               <span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ c.kisa }}</span>
@@ -765,7 +765,7 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
 <script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#58a6ff&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#4fd1c5&quot;,&quot;#58a6ff&quot;,&quot;#f0b429&quot;,&quot;#f97583&quot;],&quot;section&quot;:&quot;Görünüm&quot;},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Görünüm&quot;},&quot;animations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Görünüm&quot;}}">
 const BASE = "https://kaankirsan.github.io/projects/";
 const PROJECTS = [
-  { cat: "iot", badge: "3B · VR", url: BASE + "sanal-fabrika.html", img: "images/fabrika/fabrika-koridor.webp", title: "Sanal Fabrika (VR)", desc: "Sahada kurduğum 19 makinenin tarayıcıda ve Quest 2'de gezilebilen 3B modelleri: çalışan mekanizmalar, canlı kontrol panelleri ve SCADA ekranları.", tags: ["three.js", "WebXR", "JavaScript"], metric: "19 makine" },
+  { cat: "iot", badge: "3B · VR", url: BASE + "sanal-fabrika.html", img: "images/fabrika/fabrika-koridor.webp", title: "Sanal Fabrika (VR)", desc: "Sahada kurduğum 19 makine ve 4 Ar-Ge projesinin tarayıcıda ve Quest 2'de gezilebilen 3B modelleri: çalışan mekanizmalar, canlı kontrol panelleri ve SCADA ekranları.", tags: ["three.js", "WebXR", "JavaScript"], metric: "23 istasyon" },
   { cat: "robotik", badge: "Robotik", url: BASE + "solarbot.html", img: "images/projects/solarbot-img-02.jpg", featured: true, title: "Otonom Güneş Paneli Temizleme Robotu", desc: "Derinlik kameraları, SLAM navigasyon ve %95+ YOLO doğruluğu ile panel tespiti yapan, %85 otonom çalışan robot. Canlı halefi: ROS 2 + Gazebo üzerinde web/VR'dan kontrol edilen Robot Sim.", tags: ["Python", "OpenCV", "SLAM", "ROS 2", "Jetson Orin"], metric: "%85 otonom" },
   { cat: "iot", badge: "IoT", url: BASE + "container.html", img: "images/projects/container-img-02.jpg", title: "Mobil Güneş Enerjisi Konteyneri", desc: "Modbus TCP üzerinden PLC izleme, hidrolik valf kontrolü, hava durumu entegrasyonu ve üretim raporlama için Flutter uygulaması.", tags: ["Flutter", "Dart", "Modbus"], metric: "5000+ satır" },
   { cat: "test", badge: "Test", url: BASE + "testing.html", img: "images/projects/testing-img-02.png", featured: true, title: "Jet Yakıtı Test Ünitesi", desc: "WinCC Unified HMI ile Siemens PLC ve Profinet üzerinden 0.0001 L/dak akış ve 0.01 bar basınç hassasiyeti.", tags: ["Siemens PLC", "WinCC", "ATEX"], metric: "0.0001 L/dak" },
@@ -778,7 +778,8 @@ const PROJECTS = [
   { cat: "iot", badge: "Altyapı", url: BASE + "webserver-setup.html", img: "images/projects/webserver-kapak.jpg", title: "Web Sunucu Kurulumu ve Yapılandırma", desc: "Endüstriyel veri görselleştirme, kurumsal web siteleri (%99 uptime), e-posta sistemi ve depolama çözümleri için 5+ sunucu.", tags: ["Linux", "Docker", "Nginx"], metric: "5+ sunucu" },
   { cat: "otomasyon", badge: "Üretim", url: BASE + "other-machines.html", img: "images/projects/other-machines-img-01.jpg", title: "Diğer Makineler", desc: "Farklı üretim makineleri için PLC/HMI revizyonları ve genel otomasyon iyileştirmeleriyle çevrim süreleri optimize edildi.", tags: ["PLC", "HMI", "Optimizasyon"], metric: "30+ makine" },
   { cat: "kisisel", badge: "Eğitim", url: BASE + "exhibitions-training.html", img: "images/projects/exhibitions-img-01.jpg", title: "Fuarlar, Sunum ve Eğitimler", desc: "3+ endüstri fuarında teknik sunum, tedarikçi anlaşmaları ve üniversite öğrencilerine PLC programlama eğitimi.", tags: ["Sunum", "Atölye", "Eğitim"], metric: "3+ fuar" },
-  { cat: "kisisel", badge: "Kişisel", url: BASE + "personal-projects.html", img: "images/projects/personal-img-04.jpg", title: "Kişisel Projeler", desc: "500W elektrikli bisiklet (30 km/h, 45 km menzil), ESP32 ev otomasyonu, otomasyon araçları, kişisel NAS ve 3D baskı.", tags: ["ESP32", "IoT", "3D Baskı"], metric: "5 proje" }
+  { cat: "kisisel", badge: "Kişisel · Ar-Ge", url: BASE + "elektrikli-bisiklet.html", img: "images/projects/personal-img-06.jpg", title: "Elektrikli Bisiklet Dönüşümü", desc: "Sıradan bir dağ bisikletini 500 W göbek motoru, özel lityum pil paketi ve BMS ile elektrikliye çevirdim; iki sürümde aşama aşama geliştirdim: 30 km/h hız, 45 km menzil.", tags: ["500W BLDC", "Li-ion + BMS", "Kontrolcü"], metric: "45 km menzil" },
+  { cat: "kisisel", badge: "Kişisel", url: BASE + "personal-projects.html", img: "images/projects/personal-img-09.jpg", title: "Kişisel Projeler", desc: "500W elektrikli bisiklet (30 km/h, 45 km menzil), ESP32 ev otomasyonu, otomasyon araçları, kişisel NAS ve 3D baskı.", tags: ["ESP32", "IoT", "3D Baskı"], metric: "5 proje" }
 ];
 
 const CATS = [
@@ -813,7 +814,9 @@ const FABRIKA_MAKINELER = [
   ["yangin", "Kovan hattı", "Yangın Tüpü Kovanı Hattı"], ["sacpres", "Sac presi", "Sac Şekillendirme Presi"],
   ["sasi", "Şase pozisyoneri", "Tren Şasesi Pozisyoneri"], ["taslama", "Yüzey taşlama", "Yüzey Taşlama Makinesi"],
   ["disacma", "Diş açma", "Diş Açma ve Ayıklama Makinesi"], ["yikama", "Klişe yıkama", "Klişe Yıkama Makinesi"],
-  ["pompatest", "Pompa testi", "Pompa Test Makinesi"]
+  ["pompatest", "Pompa testi", "Pompa Test Makinesi"], ["sunucu", "Sunucu odası", "Sunucu Odası · Web & Veri Altyapısı"],
+  ["ebisiklet", "E-bisiklet", "Elektrikli Bisiklet Dönüşümü"], ["iha", "Üniversite İHA", "Üniversite İHA Projesi"],
+  ["earac", "Elektrikli araç", "Üniversite Elektrikli Araç Projesi"]
 ];
 
 // ---- Görsel/video web sürümleri (images/web/, scratchpad pf-optimize.py ile üretilir; README'de anlatılıyor).
@@ -1185,7 +1188,7 @@ class Component extends DCLogic {
     (this._temizle = this._temizle || []).push(() => { cancelAnimationFrame(raf); if (io) io.disconnect(); window.removeEventListener("resize", rz); });
   }
 
-  // ---- Mini SCADA: 19 makinenin durum lambaları (sanal fabrikadaki ana ekranın küçük kopyası).
+  // ---- Mini SCADA: 23 istasyonun durum lambaları (sanal fabrikadaki ana ekranın küçük kopyası).
   // React'in yönetmediği data-s / data-v öznitelikleri değişir; metinler CSS ::after ile basılır.
   scadaPanel(el) {
     if (!el || el.dataset.kur) return;
@@ -1327,10 +1330,10 @@ class Component extends DCLogic {
           ? d.fabrika.map((f) => f.ad).join(" · ") + " — 3B modeli"
           : (route === "sanal-fabrika" ? "Fabrika şu an yayında" : "Diğer makinelerim sanal fabrikada"),
         fabrikaMetin: d.fabrika && d.fabrika.length && d.fabrika[0].id
-          ? "Bu makinenin kabataslak 3B modeli sanal fabrikada çalışır halde: mekanizmaları izleyebilir, kontrol panelinden kumanda edebilirsiniz. Bilgisayarda, telefonda ya da Quest 2 ile VR'da açılır."
+          ? "Bu projenin kabataslak 3B modeli sanal fabrikada çalışır halde: mekanizmaları izleyebilir, kontrol panelinden kumanda edebilirsiniz. Bilgisayarda, telefonda ya da Quest 2 ile VR'da açılır."
           : (route === "sanal-fabrika"
             ? "Kurulum gerektirmez: bilgisayarda, telefonda ya da Quest 2 tarayıcısında açıp gezebilirsiniz."
-            : "Bu projenin 3B modeli yok; sahada kurduğum 19 makinenin çalıştığı sanal fabrikayı tarayıcıda ya da VR'da gezebilirsiniz."),
+            : "Bu projenin 3B modeli yok; sahada kurduğum makinelerin ve Ar-Ge projelerimin çalıştığı sanal fabrikayı tarayıcıda ya da VR'da gezebilirsiniz."),
         hasMachines: !!(d.makineler && d.makineler.length),
         machines: (d.makineler || []).map((m, i) => ({
           ad: m.ad, p: m.p, kod: m.kod || [], no: String(i + 1).padStart(2, "0"), url: fabrikaUrl(m.id)
@@ -1420,9 +1423,10 @@ class Component extends DCLogic {
       ],
       fabrikaOzellik: [
         "Fotoğraf ve videolardan modellenen 19 makine; kaynak hücresi, konveyör hattı, presler, test makineleri",
+        "C holünde Ar-Ge & BT: sunucu odası, elektrikli bisiklet, üniversite İHA ve elektrikli araç",
         "Her makinede canlı kontrol paneli, HMI ekranı, trend grafikleri ve arıza senaryoları",
         "Kurulumsuz VR: Quest 2 tarayıcısında linki aç, “VR'a gir”",
-        "three.js + WebXR; geometri birleştirme ile ~%42 daha az çizim çağrısı"
+        "three.js + WebXR; geometri birleştirme (~%42) ve ekran boyutuna göre LOD (~%48) ile çok daha az çizim çağrısı"
       ],
       fabrikaKareler: [
         { img: "images/fabrika/fabrika-ui-fk1000-k.webp", ad: "FK-1000 V3", url: fabrikaUrl("fk1000") },
