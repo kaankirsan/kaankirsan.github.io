@@ -201,13 +201,13 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
       </div>
 
       <sc-if value="{{ detail.hasFabrika }}" hint-placeholder-val="{{ true }}">
-        <div data-sec="fabrika" data-r="fabcta" style="display: grid; grid-template-columns: 1fr auto; gap: 18px 30px; align-items: center; padding: 24px 26px; margin: -26px 0 56px; border: 1px solid color-mix(in srgb, var(--ac) 42%, var(--bd)); border-radius: 16px; background: linear-gradient(120deg, color-mix(in srgb, var(--ac) 13%, transparent), var(--card) 62%);">
-          <div>
+        <div data-sec="fabrika" data-r="fabcta" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px 30px; align-items: center; padding: 24px 26px; margin: -26px 0 56px; border: 1px solid color-mix(in srgb, var(--ac) 42%, var(--bd)); border-radius: 16px; background: linear-gradient(120deg, color-mix(in srgb, var(--ac) 13%, transparent), var(--card) 62%);">
+          <div style="flex: 1 1 340px; min-width: 0;">
             <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--ac); margin-bottom: 8px;">◈ SANAL FABRİKA · 3B / VR</div>
             <div style="font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3;">{{ detail.fabrikaBaslik }}</div>
             <p style="margin: 6px 0 0; font-size: 14.5px; line-height: 1.6; color: var(--fg2); max-width: 620px;">{{ detail.fabrikaMetin }}</p>
           </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; flex: 0 1 auto;">
             <sc-for list="{{ detail.fabrika }}" as="f" hint-placeholder-count="1">
               <a href="{{ f.url }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 20px; border-radius: 11px; background: var(--ac); color: var(--onac); font-weight: 600; font-size: 14.5px; white-space: nowrap; transition: transform 0.22s ease, box-shadow 0.22s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 12px 30px color-mix(in srgb, var(--ac) 32%, transparent); color: var(--onac);">{{ f.etiket }} ↗</a>
             </sc-for>
