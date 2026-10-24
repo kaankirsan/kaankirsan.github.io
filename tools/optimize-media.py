@@ -1,6 +1,6 @@
 # Portföyde gösterilen görsel/videoların web sürümlerini üretir (orijinallere dokunmaz).
 #   python -I tools/optimize-media.py [gorsel|video|hepsi]   (Pillow + ffmpeg gerekir)
-# Çıktı: images/web/<ad>-800.webp, <ad>-1600.webp (galeri/ışık kutusu), <ad>-720.mp4 (video), <ad>-poster.webp
+# Çıktı: images/web/<ad>-800.webp, <ad>-1600.webp (galeri/ışık kutusu), <ad>-web.mp4 (uzun kenar ≤960 px H.264)
 import os, re, sys, subprocess, json
 from PIL import Image
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # depo kökü
@@ -34,18 +34,12 @@ if mod in ('video', 'hepsi'):
         src = os.path.join(KOK, v.replace('/', os.sep))
         if not os.path.exists(src): print('YOK', v); continue
         ad = os.path.splitext(os.path.basename(v))[0]
-        out = os.path.join(WEB, f'{ad}-720.mp4')
+        out = os.path.join(WEB, f'{ad}-web.mp4')
         if not (os.path.exists(out) and os.path.getmtime(out) > os.path.getmtime(src)):
             subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', src,
-                '-vf', "scale='if(gte(iw,ih),min(1280,iw),-2)':'if(gte(iw,ih),-2,min(1280,ih))',fps=30",
-                '-c:v', 'libx264', '-preset', 'medium', '-crf', '27', '-pix_fmt', 'yuv420p', '-profile:v', 'high',
+                '-vf', "scale='if(gte(iw,ih),min(960,iw),-2)':'if(gte(iw,ih),-2,min(960,ih))',fps=30",
+                '-c:v', 'libx264', '-preset', 'medium', '-crf', '29', '-pix_fmt', 'yuv420p', '-profile:v', 'high',
                 '-c:a', 'aac', '-b:a', '96k', '-ac', '2', '-movflags', '+faststart', out], check=True)
         vo += kb(src); vs += kb(out)
         print(f'  {ad}: {kb(src)//1024} MB -> {kb(out)/1024:.1f} MB', flush=True)
     print(f'videolar: {len(videolar)} adet, {vo//1024} MB -> {vs//1024} MB')
-    # posterler
-    for p in sorted(set(re.findall(r'images/projects/[A-Za-z0-9_.-]+-poster\.jpg', metin))):
-        src = os.path.join(KOK, p.replace('/', os.sep)); ad = os.path.splitext(os.path.basename(p))[0]
-        out = os.path.join(WEB, f'{ad}.webp')
-        if os.path.exists(src) and not os.path.exists(out):
-            im = Image.open(src).convert('RGB'); im.thumbnail((1280, 1280)); im.save(out, 'WEBP', quality=78, method=6)

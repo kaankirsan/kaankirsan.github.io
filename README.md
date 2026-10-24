@@ -20,7 +20,7 @@ assets/vendor/        React (yerel kopya; CDN'e bağımlı değil)
 assets/fonts/         Space Grotesk, IBM Plex Mono (yerel)
 assets/*.pdf          CV: Kaan_Kırşan_Detailed_CV.pdf (TR, eski bağlantılar için ad korunur), Kaan_Kirsan_CV_EN.pdf
 images/projects/      Orijinal proje fotoğrafları ve videoları
-images/web/           Web sürümleri: <ad>-800.webp, <ad>-1600.webp, <ad>-720.mp4 (sayfa bunları yükler)
+images/web/           Web sürümleri: <ad>-800.webp, <ad>-1600.webp, <ad>-web.mp4 (sayfa bunları yükler)
 images/fabrika/       Sanal fabrika ekran görüntüleri ve hero videosu
 404.html              Eski /projects/<slug>.html adreslerini #/p/<slug>'a yönlendirir
 service-worker.js     Eski önbellek service worker'ını temizleyip kendini kaldıran "kill switch"
@@ -30,7 +30,7 @@ tools/optimize-media.py  images/web/ sürümlerini üretir
 ## Yeni görsel / video eklerken
 
 1. Dosyayı `images/projects/` altına koy, `project-details.js` içinde galeriye/videolara ekle.
-2. Web sürümlerini üret (görseller WebP 800/1600 px, videolar 720p H.264):
+2. Web sürümlerini üret (görseller WebP 800/1600 px, videolar uzun kenar ≤960 px H.264):
    `python -I tools/optimize-media.py hepsi` (Pillow + ffmpeg gerekir; yalnız eksik/eskimiş sürümleri üretir).
    Web sürümü yoksa sayfa otomatik olarak orijinal dosyayı gösterir, yalnızca daha yavaş yüklenir.
 
