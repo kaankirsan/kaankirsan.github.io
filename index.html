@@ -1093,7 +1093,9 @@ class Component extends DCLogic {
     let gorunur = false;
     const baslat = () => {
       el.preload = "auto";
-      el.src = "images/fabrika/fabrika-hero.mp4";   // H.264 ~1.3 MB, 12 s döngü
+      // AV1 (~0.8 MB, H.264'ten daha keskin) çalınabiliyorsa o; değilse H.264 (~1.5 MB). 12 s döngü.
+      const av1 = el.canPlayType && el.canPlayType('video/mp4; codecs="av01.0.04M.08"') === "probably";
+      el.src = av1 ? "images/fabrika/fabrika-hero-av1.mp4" : "images/fabrika/fabrika-hero.mp4";
       if (gorunur || !("IntersectionObserver" in window)) oynat();
     };
     const sonra = () => setTimeout(() => (window.requestIdleCallback ? requestIdleCallback(baslat, { timeout: 1500 }) : baslat()), 250);
