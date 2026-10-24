@@ -161,7 +161,7 @@ window.PROJECT_DETAILS = {
     tech: [["Kontrol", ["Siemens PLC", "PID Kontrol", "TIA Portal"]], ["Güç Elektroniği", ["Direnç Elemanları", "Transformatörler", "Güç Dağıtımı"]], ["Sıcaklık", ["Termokupl", "RTD Sensörler", "Isı Yönetimi"]], ["Güvenlik", ["Yangına Dayanıklı", "Isı Koruması", "Acil Durdurma"]]],
     highlights: [["Hassas PID Kontrol", "±%1 toleranslı sıcaklık kontrolü sağlayan PID algoritmaları."], ["Enerji Optimizasyonu", "Akıllı ısı yönetimi ve kontrol stratejileriyle kauçuk işlemede %20 enerji tasarrufu."], ["Yangına Dayanıklı Tasarım", "Yüksek ısı ortamlarında güvenli çalışma için dayanıklı malzeme ve tasarım."], ["Askeri Nitelik", "Askeri uygulamalara uygun güvenilirlik ve performans standartları."]],
     results: [["Sistem Performansı", ["±%1 toleranslı sıcaklık kontrolü", "%20 enerji tüketim azaltımı", "40+ sistem kurulumu tamamlandı", "Askeri ve endüstriyel standartlara uyum"]], ["İş Etkisi", ["Enerji maliyetlerinde belirgin azalma", "Üretim kalitesi ve tutarlılığında artış", "Operatör güvenliğinin sağlanması", "Uygulanabilir tasarımla hızlı kurulum"]]],
-    gallery: [{"src":"images/projects/resistance-01.jpg","label":"REZ-F01"}],
+    gallery: [],
     videos: [{"src":"images/projects/resistance-video-01.mp4","poster":"images/projects/resistance-video-01-poster.jpg","label":"REZ-V01"}]
   },
   "webserver-setup": {
@@ -171,7 +171,7 @@ window.PROJECT_DETAILS = {
     tech: [["İşletim Sistemi", ["Linux", "Ubuntu", "Sistem Yönetimi"]], ["Konteynerleştirme", ["Docker", "Docker Compose", "Image Yönetimi"]], ["Web Sunucu", ["Nginx", "Yük Dengeleme", "Ters Vekil"]], ["Güvenlik", ["SSL/TLS", "VPN", "Güvenlik Duvarı"]]],
     highlights: [["Endüstriyel Veri Görselleştirme", "Otomasyon verilerinin tarayıcı üzerinden izlenmesi için özel platform."], ["Docker Dağıtımı", "Bağımsızlık ve kolay ölçeklenme için konteyner tabanlı üretim ortamı."], ["Yüksek Erişilebilirlik", "Yük dengeleme, yedekleme ve otomatik yeniden başlatmayla 5 yıl %99 uptime."], ["Güvenli İletişim", "SSL/TLS şifreleme, VPN ile uzaktan erişim ve güvenlik duvarı kuralları."]],
     results: [["Sistem Yetkinlikleri", ["5+ web sunucusu kurulumu ve yönetimi", "Docker konteyner tabanlı dağıtım", "Nginx yük dengeleme ve ters vekil", "Özel e-posta ve uygun maliyetli depolama"]], ["İş Etkisi", ["Endüstriyel verilere web üzerinden erişim", "5 yıl boyunca %99 hizmet sürekliliği", "Google Ads ile makine satışlarında %100 artış", "İç ve dış müşteriler için dijital altyapı"]]],
-    gallery: [{"src":"images/projects/webserver-01.jpg","label":"SRVR-F01"},{"src":"images/projects/webserver-02.jpg","label":"SRVR-F02"},{"src":"images/projects/website-01.jpg","label":"SRVR-F03"},{"src":"images/projects/website-02.jpg","label":"SRVR-F04"}],
+    gallery: [],
     videos: []
   },
   "exhibitions-training": {
@@ -182,7 +182,7 @@ window.PROJECT_DETAILS = {
     tech: [["Fuarlar", ["Teknik Sunum", "Ürün Tanıtımı"]], ["Eğitim", ["PLC Programlama", "Uygulamalı Atölye", "Öğrenci Eğitimi"]], ["İş Geliştirme", ["Tedarikçi Anlaşmaları", "Müşteri İlişkileri"]], ["Uluslararası", ["Çok Kültürlü İletişim", "Uluslararası Deneyim"]]],
     highlights: [["Teknik Sunum", "Otomasyon çözümlerini farklı teknik seviyedeki kitlelere aktarma."], ["Eğitim", "Üniversite öğrencilerine PLC programlama eğitimi ve uygulamalı atölyeler."], ["İş Geliştirme", "Fuarlarda ürün tanıtımı, müşteri iletişimi ve tedarikçi ilişkileri."], ["Çok Kültürlü İletişim", "Farklı kültürlerden katılımcılarla etkili iletişim."]],
     results: [["Temel Başarılar", ["3+ fuarda başarılı teknik sunum", "Tedarikçi anlaşmalarının sağlanması", "Üniversite öğrencilerine PLC eğitimi", "Ürün tanıtımı ve pazarlama"]]],
-    gallery: [{"src":"images/projects/exhibitions-img-01.jpg","label":"FUAR-F01"},{"src":"images/projects/training-01.jpg","label":"FUAR-F02"},{"src":"images/projects/training-02.jpg","label":"FUAR-F03"}],
+    gallery: [{"src":"images/projects/exhibitions-img-01.jpg","label":"FUAR-F01"}],
     videos: []
   },
   "other-machines": {
@@ -219,7 +219,7 @@ window.PROJECT_DETAILS = {
     tech: [["Gömülü", ["ESP32", "STM32", "Arduino"]], ["Güç", ["500W BLDC Motor", "Lityum Pil Paketi", "BMS"]], ["Yazılım", ["Python", "Otomasyon Scriptleri", "REST API"]], ["Üretim", ["3D Baskı", "CAD", "Mekanik Montaj"]]],
     highlights: [["Elektrikli Bisiklet", "500W motor, özel pil paketi ve BMS ile 30 km/h hız, 45 km menzil."], ["Ev Otomasyonu", "ESP32 tabanlı sensör ve röle düğümleriyle yerel kontrol."], ["Kişisel NAS", "Ev ağı için depolama ve yedekleme sunucusu."], ["3D Baskı", "Prototip ve mekanik parça üretimi."]],
     results: [["Öne Çıkanlar", ["5 tamamlanmış kişisel proje", "Donanım + yazılım uçtan uca tasarım", "Gerçek kullanımda test edilmiş sistemler"]]],
-    gallery: [{"src":"images/projects/personal-img-01.jpg","label":"KSL-F01"},{"src":"images/projects/personal-img-02.jpg","label":"KSL-F02"},{"src":"images/projects/personal-img-03.jpg","label":"KSL-F03"},{"src":"images/projects/personal-img-04.jpg","label":"KSL-F04"},{"src":"images/projects/personal-img-05.jpg","label":"KSL-F05"},{"src":"images/projects/hobbies-02.jpg","label":"KSL-F06"},{"src":"images/projects/personal-img-06.jpg","label":"KSL-F07"},{"src":"images/projects/personal-img-09.jpg","label":"KSL-F08"},{"src":"images/projects/personal-img-07.jpg","label":"KSL-F09"},{"src":"images/projects/personal-img-08.jpg","label":"KSL-F10"},{"src":"images/projects/personal-img-10.jpg","label":"KSL-F11"}],
+    gallery: [{"src":"images/projects/personal-img-01.jpg","label":"KSL-F01"},{"src":"images/projects/personal-img-03.jpg","label":"KSL-F03"},{"src":"images/projects/personal-img-04.jpg","label":"KSL-F04"},{"src":"images/projects/personal-img-05.jpg","label":"KSL-F05"},{"src":"images/projects/personal-img-06.jpg","label":"KSL-F07"},{"src":"images/projects/personal-img-09.jpg","label":"KSL-F08"},{"src":"images/projects/personal-img-07.jpg","label":"KSL-F09"},{"src":"images/projects/personal-img-08.jpg","label":"KSL-F10"},{"src":"images/projects/personal-img-10.jpg","label":"KSL-F11"}],
     videos: [{"src":"images/projects/personal-video-01.mp4","poster":"images/projects/personal-video-01-poster.jpg","label":"KSL-V01"},{"src":"images/projects/personal-video-02.mp4","poster":"images/projects/personal-video-02-poster.jpg","label":"KSL-V02"}]
   }
 };
