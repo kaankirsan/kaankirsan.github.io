@@ -1,105 +1,46 @@
-# Kaan KIRŞAN - Portfolyo Web Sitesi
+# Kaan Kırşan — Portfolyo
 
-Elektrik Elektronik Mühendislik, robotik, IoT ve yazılım mühendisliği projeleri dahil kişisel portfolyo web sitesi.
+Canlı site: **https://kaankirsan.github.io** · Sanal fabrika: **https://kaankirsan.github.io/fabrika/** (ayrı depo: `kaankirsan/fabrika`)
 
-## Web Sitesi Özellikleri
+Elektrik Elektronik Mühendisi portfolyosu: endüstriyel otomasyon, robotik ve test sistemleri projeleri; her projeden
+sanal fabrikadaki 3B modeline (`/fabrika/?m=<makine>`) geçiş.
 
-- Responsive tasarım (mobil, tablet, masaüstü)
-- Karanlık/Açık tema geçiş
-- Düzgün kaydırma navigasyon
-- Ayrıntılı açıklama ile proje tanıtım
-- Beceriler ve teknolojiler genel görüş
-- Deneyim zaman çizelgesi
-- İletişim bilgileri ve sosyal medya bağlantıları
-
-## Proje Yapısı
+## Yapı
 
 ```
-kaankirsan.github.io/
-├── index.html                # Ana portfolyo sayfa
-├── css/
-│   ├── style.css            # Ana stil dosyası
-│   ├── responsive.css       # Responsive tasarım kuralları
-│   └── variables.css        # CSS özel özellikler
-├── js/
-│   ├── main.js              # Ana JavaScript giriş noktası
-│   ├── navigation.js        # Navigasyon ve menu işlevsellik
-│   └── animations.js        # Kaydırma animasyon ve efektler
-├── images/
-│   ├── profile.jpg          # Profil fotoğrafı
-│   ├── projects/            # Proje ekran görüntüleri ve GIF'ler
-│   └── icons/               # Teknoloji ikonları
-├── assets/
-│   └── resume/              # Özgeçmiş ve CV belgeleri
-└── projects/                # Bireysel proje sayfaları
+index.html            Tek sayfa: şablon (<x-dc>) + bileşen mantığı (<script type="text/x-dc">)
+                      - PROJECTS: kart listesi (başlık, kategori, kart görseli)
+                      - FABRIKA_MAKINELER: sanal fabrikadaki makine kimlikleri
+project-details.js    window.PROJECT_DETAILS: proje detay sayfaları (#/p/<slug>)
+                      - fabrika: [{ id, ad }]  -> "Sanal fabrikada gez" düğmesi (?m=id)
+                      - makineler: [...]        -> Diğer Makineler kataloğu
+                      - sim: {...}              -> canlı demo / simülasyon bağlantıları
+support.js            Şablon çalışma zamanı (üretilmiş dosya, elle düzenlenmez)
+assets/vendor/        React (yerel kopya; CDN'e bağımlı değil)
+assets/fonts/         Space Grotesk, IBM Plex Mono (yerel)
+assets/*.pdf          CV: Kaan_Kırşan_Detailed_CV.pdf (TR, eski bağlantılar için ad korunur), Kaan_Kirsan_CV_EN.pdf
+images/projects/      Orijinal proje fotoğrafları ve videoları
+images/web/           Web sürümleri: <ad>-800.webp, <ad>-1600.webp, <ad>-720.mp4 (sayfa bunları yükler)
+images/fabrika/       Sanal fabrika ekran görüntüleri ve hero videosu
+404.html              Eski /projects/<slug>.html adreslerini #/p/<slug>'a yönlendirir
+service-worker.js     Eski önbellek service worker'ını temizleyip kendini kaldıran "kill switch"
+tools/optimize-media.py  images/web/ sürümlerini üretir
 ```
 
-## Öne Çıkan Projeler
+## Yeni görsel / video eklerken
 
-1. **SolarBot** - Otonom Güneş Paneli Temizleme Robotu
-   - Robotik, ROS 2, Python, C++, Flutter
+1. Dosyayı `images/projects/` altına koy, `project-details.js` içinde galeriye/videolara ekle.
+2. Web sürümlerini üret (görseller WebP 800/1600 px, videolar 720p H.264):
+   `python -I tools/optimize-media.py hepsi` (Pillow + ffmpeg gerekir; yalnız eksik/eskimiş sürümleri üretir).
+   Web sürümü yoksa sayfa otomatik olarak orijinal dosyayı gösterir, yalnızca daha yavaş yüklenir.
 
-2. **Güneş Konteyner Yönetim Sistemi**
-   - Flutter, Dart, Modbus, PLC Entegrasyonu
+## Yerelde çalıştırma
 
-3. **Jet Yakıt Test Birimi**
-   - Siemens PLC, WinCC Unified, Profinet, ATEX
+```
+python -m http.server 8080
+```
+ve `http://localhost:8080/` (bir üst klasördeki `siteyi-baslat.bat` aynısını yapar).
 
-4. **Kaynak Robotu ve Konumlandırıcılar**
-   - PLC Programlama, HMI, Servo Kontrol
+## Yayın
 
-5. **Üretim Tesisi Taşıyıcı Otomasyonu**
-   - Siemens PLC, TIA Portal, Modbus RS-485
-
-6. **Başlık Testleri İçin Hareketli Hedef Sistemi**
-   - Hareket Kontrolü, WinCC SCADA, SIL 2 Güvenlik
-
-## Kullanılan Teknolojiler
-
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Barındırma**: GitHub Pages
-- **Sürüm Kontrolü**: Git
-
-## Başlangıç
-
-1. Depoya klonlama:
-   ```bash
-   git clone https://github.com/Jrengineer/kaankirsan.github.io.git
-   ```
-
-2. Dizine navigasyon:
-   ```bash
-   cd kaankirsan.github.io
-   ```
-
-3. `index.html` dosyasını tarayıcıda açın veya yerel sunucu ile çalıştırın:
-   ```bash
-   python -m http.server 8000
-   ```
-
-4. Tarayıcınızda `http://localhost:8000` adresini ziyaret edin
-
-## Resim ve Varlık Ekleme
-
-- Proje resimlerini `/images/projects/` dizinine yerleştirin
-- Proje GIF'lerini aynı dizine ekleyin
-- Resimler HTML'de nispeti yollarla atıfta bulununuz:
-  ```html
-  <img src="images/projects/solarbot-demo.gif" alt="SolarBot Demo">
-  ```
-
-## Konuşlandırma
-
-Web site GitHub Pages'te konuşlandırılmıştır.
-
-Canlı site: https://kaankirsan.github.io
-
-## İletişim
-
-- E-posta: kkirsan@dokamuh.com
-- GitHub: https://github.com/kaankirsan
-- LinkedIn: https://www.linkedin.com/in/kaan-kirsan-574b20196
-
----
-
-Son Güncelleme: Aralık 2024
+`main` dalına push → GitHub Pages 1–2 dakika içinde yayınlar.

@@ -6,6 +6,8 @@ exclude:
   - .git
   - node_modules
   - "*.sh"
+  - tools
+  - README.md
   
 # Disable caching
 keep_files: []
