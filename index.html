@@ -43,6 +43,38 @@
 <script src="./assets/vendor/react.production.min.js"></script>
 <script src="./assets/vendor/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
+<!-- Visit counter (GoatCounter: no cookies, no stored IPs, nothing shown to visitors).
+     Project pages are hash routes, so they are sent as /p/<slug>, also when a project
+     link is opened directly. Clicks on the CV, e-mail and outbound links count as
+     events; the factory counts its own visits. A ?ref=<name> on a shared link shows up
+     as that visit's source. Own visits: open /#toggle-goatcounter once per browser. -->
+<script>
+(function () {
+  function proje() { var m = location.hash.match(/^#\/p\/([a-z0-9-]+)/i); return m ? m[1].toLowerCase() : ""; }
+  window.goatcounter = { path: function (p) { var s = proje(); return s ? "/p/" + s : p; } };
+  function say(v) { var g = window.goatcounter; if (g && g.count) try { g.count(v); } catch (e) {} }
+  window.addEventListener("hashchange", function () {
+    if (location.hash === "#toggle-goatcounter") return location.reload();   // count.js only checks it on load
+    var s = proje();
+    if (s) say({ path: "/p/" + s, title: "Proje · " + s });
+  });
+  function tik(e) {
+    if (e.type === "auxclick" && e.button !== 1) return;
+    var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+    if (!a) return;
+    var h = a.getAttribute("href"), ad = "";
+    if (/_EN\.pdf$/i.test(h)) ad = "cv-en";
+    else if (/CV\.pdf$/i.test(h)) ad = "cv-tr";
+    else if (/^mailto:/i.test(h)) ad = "e-posta";
+    else if (/linkedin\.com/i.test(h)) ad = "linkedin";
+    else if (/^https?:/i.test(h) && a.hostname !== location.hostname) ad = a.hostname.replace(/^www\./, "");
+    if (ad) say({ path: "tik/" + ad, title: (a.textContent || ad).replace(/\s+/g, " ").trim().slice(0, 80), event: true });
+  }
+  document.addEventListener("click", tik, true);
+  document.addEventListener("auxclick", tik, true);
+})();
+</script>
+<script data-goatcounter="https://kaankirsan.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <x-dc>
