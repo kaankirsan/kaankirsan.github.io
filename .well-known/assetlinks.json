@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.kaankirsan.fabrika",
+      "sha256_cert_fingerprints": [
+        "8A:8B:89:9E:48:71:D2:5F:CE:F1:D1:B5:12:4F:BE:58:CD:02:36:3D:05:47:85:41:F0:97:45:11:11:E0:BB:D1"
+      ]
+    }
+  }
+]

@@ -1,6 +1,9 @@
 # GitHub Pages Jekyll config
 plugins: []
 markdown: kramdown
+# Jekyll nokta ile başlayan klasörleri atlar; Quest uygulaması (sanal fabrika TWA) doğrulaması için şart
+include:
+  - .well-known
 exclude:
   - .gitignore
   - .git
