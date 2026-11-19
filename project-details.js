@@ -113,7 +113,8 @@ window.PROJECT_DETAILS = {
     highlights: [["Uçtan Uca Teslim", "Elektrik ve pano tasarımı, PLC programı, kontrol yazılımı ve sahada devreye alma tek elden."], ["Fazlı Test Senaryoları", "Pompalar tanımlı fazlarda çalıştırılır; her fazda ölçümler kabul sınırlarıyla karşılaştırılır."], ["Canlı İzleme ve Alarm", "Modbus TCP üzerinden anlık ölçümler ve sınır aşımlarında alarm."], ["Raporlama", "Her test için PDF ve Excel test raporu."]],
     results: [["Teknik Teslimler", ["Elektrik şemaları ve test panosu", "Delta DVP-SE PLC programı (ISPSoft)", "Flutter Windows kontrol ve izleme uygulaması", "PDF / Excel test raporları"]], ["Sahada", ["Yakıt ve yağ pompası aynı sehpada test edilir", "OK / NOK kararı ölçüme dayalı ve kayıtlı", "Her test için izlenebilir rapor"]]],
     gallery: [{"src":"images/projects/pompa-test-img-01.jpg","label":"PT-F01 · Kabin: kayar kapılı test bölmesi ve kiosk"},{"src":"images/projects/pompa-test-img-02.jpg","label":"PT-F02 · Yandan: 220 V pano, sıcaklık göstergeleri ve kısma volanları"},{"src":"images/projects/pompa-test-img-03.jpg","label":"PT-F03 · Kiosk: kontrol yazılımı ve Delta HMI manuel ekranı"},{"src":"images/fabrika/fabrika-ui-pompatest.webp","label":"PT-F04 · Sanal fabrika: makinenin 3B modeli"}],
-    videos: []
+    // Kaynak video Google Fotoğraflar'daki 609 MB / 60 fps orijinalden: dik, 720 px, 30 fps, metadata'sız (GitHub 100 MB sınırı).
+    videos: [{"src":"images/projects/pompa-test-video-01.mp4","poster":"images/projects/pompa-test-video-01-poster.jpg","label":"PT-V01 · Kontrol yazılımı ve Delta HMI tanıtımı"}]
   },
   "welding": {
     fabrika: [{ id: "kaynak", ad: "Kaynak Robotu Hücresi" }],
