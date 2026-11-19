@@ -99,7 +99,8 @@ window.PROJECT_DETAILS = {
     gallery: [{"src":"images/projects/testing-img-01.png","label":"JYT-F02"},{"src":"images/projects/testing-img-02.png","label":"JYT-F03"},{"src":"images/projects/testing-img-03.png","label":"JYT-F04"},{"src":"images/projects/testing-img-04.png","label":"JYT-F05"},{"src":"images/projects/testing-img-05.png","label":"JYT-F06"},{"src":"images/projects/testing-img-06.png","label":"JYT-F07"},{"src":"images/projects/testing-img-07.png","label":"JYT-F08"},{"src":"images/projects/testing-img-08.png","label":"JYT-F09"},{"src":"images/projects/testing-img-09.png","label":"JYT-F10"}],
     videos: []
   },
-  // Kaynak: CV (07_Portfolyo_Web, 2026-11) + sanal fabrikadaki pompatest modeli. Müşteri adı yazılmaz.
+  // Kaynak: CV (07_Portfolyo_Web, 2026-11) + sanal fabrikadaki pompatest modeli + saha fotoğrafları (07.07.2026, EXIF/GPS silindi).
+  // Metinde müşteri adı yazılmaz; fotoğraflar Kaan'ın isteğiyle olduğu gibi (ekranlarda ad okunuyor).
   "pompa-test": {
     fabrika: [{ id: "pompatest", ad: "Pompa Test Makinesi" }],
     metrics: [["2", "Pompa Aynı Anda"], ["5", "Ölçüm Türü"], ["OK / NOK", "Kayıtlı Karar"]],
@@ -111,7 +112,7 @@ window.PROJECT_DETAILS = {
     tech: [["Kontrol", ["Delta DVP-SE", "ISPSoft", "Delta HMI"]], ["Ölçüm", ["Türbin Debimetre", "Pt100", "Basınç", "Titreşim", "Devir"]], ["Haberleşme", ["RS-485 Modbus RTU", "Modbus TCP"]], ["Yazılım", ["Flutter (Windows)", "PDF / Excel Raporlama", "Alarm Yönetimi"]]],
     highlights: [["Uçtan Uca Teslim", "Elektrik ve pano tasarımı, PLC programı, kontrol yazılımı ve sahada devreye alma tek elden."], ["Fazlı Test Senaryoları", "Pompalar tanımlı fazlarda çalıştırılır; her fazda ölçümler kabul sınırlarıyla karşılaştırılır."], ["Canlı İzleme ve Alarm", "Modbus TCP üzerinden anlık ölçümler ve sınır aşımlarında alarm."], ["Raporlama", "Her test için PDF ve Excel test raporu."]],
     results: [["Teknik Teslimler", ["Elektrik şemaları ve test panosu", "Delta DVP-SE PLC programı (ISPSoft)", "Flutter Windows kontrol ve izleme uygulaması", "PDF / Excel test raporları"]], ["Sahada", ["Yakıt ve yağ pompası aynı sehpada test edilir", "OK / NOK kararı ölçüme dayalı ve kayıtlı", "Her test için izlenebilir rapor"]]],
-    gallery: [],
+    gallery: [{"src":"images/projects/pompa-test-img-01.jpg","label":"PT-F01 · Kabin: kayar kapılı test bölmesi ve kiosk"},{"src":"images/projects/pompa-test-img-02.jpg","label":"PT-F02 · Yandan: 220 V pano, sıcaklık göstergeleri ve kısma volanları"},{"src":"images/projects/pompa-test-img-03.jpg","label":"PT-F03 · Kiosk: kontrol yazılımı ve Delta HMI manuel ekranı"},{"src":"images/fabrika/fabrika-ui-pompatest.webp","label":"PT-F04 · Sanal fabrika: makinenin 3B modeli"}],
     videos: []
   },
   "welding": {
