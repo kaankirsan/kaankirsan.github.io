@@ -29,7 +29,7 @@ window.PROJECT_DETAILS = {
   "solarbot": {
     fabrika: [{ id: "solarbot", ad: "SolarBot" }],
     metrics: [["%85", "Otonom Çalışma"], ["%95+", "Algılama Doğruluğu"], ["OAK-D", "Derinlik Kamera"]],
-    summary: "85%+ otonom çalışma oranı elde eden güneş paneli temizleme robotu; engel tespiti için derinlik kameraları, SLAM ile navigasyon ve harita oluşturma, %95+ doğrulukla YOLO tabanlı panel tespiti ve insan takip yetkinliği. Smart BMS entegre pil sistemi.",
+    summary: "%85+ otonom çalışma oranı elde eden güneş paneli temizleme robotu; engel tespiti için derinlik kameraları, SLAM ile navigasyon ve harita oluşturma, %95+ doğrulukla YOLO tabanlı panel tespiti ve insan takip yetkinliği. Smart BMS entegre pil sistemi.",
     body: [
       ["Ne Yaptım", "Gerçek zamanlı engel tespiti ve kaçınma için OAK-D derinlik kameraları kullanan otonom navigasyon sistemi geliştirdim. SLAM algoritmaları çevre haritalarını oluştururken robot navigasyonunu sağlıyor. YOLOv5/v8 kullanan görüntü işleme hattı güneş panellerini %95+ doğrulukla tespit ediyor. Flutter mobil uygulama gerçek zamanlı telemetri ve uzaktan kontrol sunuyor; Smart BMS güç dağıtımını ve izlemeyi yönetiyor."],
       ["Canlı Simülasyon Halefi: Robot Sim", "Projenin devamı olarak aynı otonomi yaklaşımını depo temalı tam bir simülasyona taşıdım: ROS 2 Humble + Gazebo üzerinde paletli bir robot, üzerinde 6 eksenli UR5e kol ve gripper ile tamamen otonom nesne toplama-taşıma (pick & place) yapıyor. Nav2 otonom sürüş, gerçek zamanlı doluluk haritalama, OpenCV nesne tanıma, görev kuyruğu, batarya modeli ve otonom şarj istasyonu içeriyor. Kontrol merkezi telefona kurulabilen bir PWA; ayrıca Oculus Quest 2 ile WebXR üzerinden deponun dijital ikizi içinde robotu VR'da sürmek ve kola hedef vermek mümkün. Tamamı tek WebSocket üzerinden, şifre korumalı bir Tailscale adresinde yayınlanıyor."]
@@ -97,6 +97,21 @@ window.PROJECT_DETAILS = {
     highlights: [["Hassas Akış Kontrolü", "Orantılı valfleri düzenleyen, 0.0001 L/dak hassasiyet sağlayan PID algoritmaları."], ["Basınç Yönetimi", "0.01 bar doğrulukla yüksek hassasiyetli basınç kontrolü."], ["WinCC Unified HMI", "Profinet üzerinden izleme, kontrol ve veri görselleştirme için web + yerel arayüz."], ["Patlama Korunmalı Tasarım", "Tehlikeli yakıt test ortamı için sertifikalı sensör ve panolar."]],
     results: [["Teknik Başarılar", ["0.0001 L/dak akış ölçüm hassasiyeti", "0.01 bar basınç kontrol doğruluğu", "Orantılı valf düzenleme için PID kontrol", "Yangın tespit ve koruma sistemleri"]], ["Sistem Yetkinlikleri", ["Yerel ve uzaktan çalışma için WinCC Unified HMI", "Siemens PLC ile Profinet iletişimi", "Unimass akış sensörü entegrasyonu", "Gerçek zamanlı veri kaydı ve eğilim analizi"]]],
     gallery: [{"src":"images/projects/testing-img-01.png","label":"JYT-F02"},{"src":"images/projects/testing-img-02.png","label":"JYT-F03"},{"src":"images/projects/testing-img-03.png","label":"JYT-F04"},{"src":"images/projects/testing-img-04.png","label":"JYT-F05"},{"src":"images/projects/testing-img-05.png","label":"JYT-F06"},{"src":"images/projects/testing-img-06.png","label":"JYT-F07"},{"src":"images/projects/testing-img-07.png","label":"JYT-F08"},{"src":"images/projects/testing-img-08.png","label":"JYT-F09"},{"src":"images/projects/testing-img-09.png","label":"JYT-F10"}],
+    videos: []
+  },
+  // Kaynak: CV (07_Portfolyo_Web, 2026-11) + sanal fabrikadaki pompatest modeli. Müşteri adı yazılmaz.
+  "pompa-test": {
+    fabrika: [{ id: "pompatest", ad: "Pompa Test Makinesi" }],
+    metrics: [["2", "Pompa Aynı Anda"], ["5", "Ölçüm Türü"], ["OK / NOK", "Kayıtlı Karar"]],
+    summary: "Raylı sistem araçları sektörü için yakıt ve yağ pompalarını test eden sehpayı elektrik ve pano tasarımından PLC programına ve Windows kontrol yazılımına kadar geliştirip devreye aldım. Debi, sıcaklık, basınç, titreşim ve devir ölçülür; fazlı test senaryolarının sonunda her pompa OK / NOK ayrılır ve test raporu PDF/Excel olarak üretilir.",
+    body: [
+      ["Ne Yaptım", "Sehpanın elektrik şemalarını ve panosunu tasarladım, Delta DVP-SE PLC'yi ISPSoft ile programladım ve kontrol yazılımını Flutter ile Windows uygulaması olarak geliştirdim. Ölçüm cihazları RS-485 Modbus RTU üzerinden okunuyor; uygulama PLC'yle Modbus TCP üzerinden haberleşerek testi yönetiyor ve değerleri canlı gösteriyor."],
+      ["Test Akışı", "Operatör yakıt ve yağ pompasını fikstüre bağlayıp kapıyı kapatır; test fazlar halinde ilerler ve her fazda türbin debimetre, Pt100, basınç, titreşim ve devir değerleri izlenir. Sınır aşımında alarm verilir; test bitince pompa OK / NOK ayrılır, sonuç raporla birlikte kaydedilir."]
+    ],
+    tech: [["Kontrol", ["Delta DVP-SE", "ISPSoft", "Delta HMI"]], ["Ölçüm", ["Türbin Debimetre", "Pt100", "Basınç", "Titreşim", "Devir"]], ["Haberleşme", ["RS-485 Modbus RTU", "Modbus TCP"]], ["Yazılım", ["Flutter (Windows)", "PDF / Excel Raporlama", "Alarm Yönetimi"]]],
+    highlights: [["Uçtan Uca Teslim", "Elektrik ve pano tasarımı, PLC programı, kontrol yazılımı ve sahada devreye alma tek elden."], ["Fazlı Test Senaryoları", "Pompalar tanımlı fazlarda çalıştırılır; her fazda ölçümler kabul sınırlarıyla karşılaştırılır."], ["Canlı İzleme ve Alarm", "Modbus TCP üzerinden anlık ölçümler ve sınır aşımlarında alarm."], ["Raporlama", "Her test için PDF ve Excel test raporu."]],
+    results: [["Teknik Teslimler", ["Elektrik şemaları ve test panosu", "Delta DVP-SE PLC programı (ISPSoft)", "Flutter Windows kontrol ve izleme uygulaması", "PDF / Excel test raporları"]], ["Sahada", ["Yakıt ve yağ pompası aynı sehpada test edilir", "OK / NOK kararı ölçüme dayalı ve kayıtlı", "Her test için izlenebilir rapor"]]],
+    gallery: [],
     videos: []
   },
   "welding": {
@@ -211,7 +226,7 @@ window.PROJECT_DETAILS = {
       { ad: "Blok Döndürme Fikstürü", id: "fikstur", kod: ["MKN-F02", "MKN-F03", "MKN-F04"], p: "Motor bloğunu CNC'ye yerleştirmeden önce 90° deviren pnömatik fikstür. Vinç ham bloğu fikstüre koyar, devrilen bloğu alır; fikstür başa döner ve yeni blok gelir." },
       { ad: "Yüzey Taşlama Makinesi", id: "taslama", kod: ["MKN-V09", "MKN-F08"], p: "Yüzey taşlama makinesi için PLC ve Delta HMI ile otomatik çevrim: manyetik tabla, hidrolik, su ve yağ kontrolü; dalma ve finish tur sayıları ile dalma oranı ekrandan ayarlanır." },
       { ad: "Klişe Yıkama Makinesi", id: "yikama", kod: ["MKN-F09", "MKN-F10", "MKN-F11"], p: "Baskı klişelerini temizleyen makine: boydan boya gezen fırça ve su/hava nozulları ile yıkama, durulama ve kurutma çevrimleri; kapak kapanmadan çalışmaz. HMI'da çevrim sayıları ve manuel fırça komutları." },
-      { ad: "Pompa Test Makinesi", id: "pompatest", kod: [], p: "İki DC pompayı aynı anda test eden kabin: sıcaklık, basınç, debi ve titreşim ölçülür, sonuç OK / NOK. Operatörler sürekli pompa bağlar, testler kiosk ekranından izlenir." },
+      { ad: "Pompa Test Makinesi", id: "pompatest", kod: [], p: "İki DC pompayı (yakıt + yağ) aynı anda test eden kabin: sıcaklık, basınç, debi ve titreşim ölçülür, sonuç OK / NOK. Operatörler sürekli pompa bağlar, testler kiosk ekranından izlenir. Ayrıntılar: Yakıt/Yağ Pompa Test Sehpası proje sayfası." },
       { ad: "FK-1000 V3 Panel Temizleme Robotu", id: "fk1000", kod: ["MKN-F05"], p: "Doka'nın yarı otomatik güneş paneli temizleme robotu (1000 mm fırça, 26 kg): panel üstünde gidip gelir, kenar sensörüyle yön değiştirir, operatör telsizle eşlik eder. Fuarlarda da sergilendi." }
     ],
     tech: [["PLC Sistemleri", ["Siemens S7-1200/1500", "Delta DVP", "Fatek", "Omron CP/NJ"]], ["Programlama & HMI", ["TIA Portal", "WinCC Unified", "Delta DOPSoft", "Structured Text", "Ladder"]], ["İletişim", ["Modbus RTU/TCP", "Profinet", "Ethernet/IP", "RS232/485"]], ["Sürücüler & Hareket", ["VFD Kontrolü", "Servo Sistemler", "Hidrolik", "Pnömatik"]]],
@@ -237,8 +252,8 @@ window.PROJECT_DETAILS = {
   },
   "personal-projects": {
     fabrika: [{ id: "ebisiklet", ad: "Elektrikli Bisiklet" }, { id: "iha", ad: "Üniversite İHA" }, { id: "earac", ad: "MAVERA Elektrikli Araç" }],
-    metrics: [["5", "Proje"], ["500W", "Elektrikli Bisiklet"], ["45 km", "Menzil"]],
-    summary: "500W elektrikli bisiklet (30 km/h hız, 45 km menzil), üniversitede İHA ve MAVERA elektrikli araç (TÜBİTAK Efficiency Challenge) takımları, ESP32 ev otomasyonu, sosyal medya otomasyon araçları, kişisel NAS cihazı ve 3D baskı projeleri.",
+    metrics: [["5", "Proje"], ["2", "Üniversite Takımı"], ["≈2 m", "İHA Kanat Açıklığı"]],
+    summary: "Üniversitede İHA ve MAVERA elektrikli araç (TÜBİTAK Efficiency Challenge) takımları, paletli RC robot, ESP32 ev otomasyonu, sosyal medya otomasyon araçları, kişisel NAS cihazı ve 3D baskı projeleri. Elektrikli bisiklet dönüşümü ayrı proje sayfasında anlatılıyor.",
     body: [["Ne Yaptım", "Mesai dışında donanım ve yazılımı bir arada tuttuğum kişisel projeler geliştiriyorum: 500W arka göbek motoru ve 48V jel akü paketiyle kurduğum elektrikli bisiklet (ayrı proje sayfasında aşama aşama); ESP32 tabanlı ev otomasyonu; içerik ve sosyal medya için otomasyon araçları; kendi NAS cihazım ve 3D baskıyla ürettiğim mekanik parçalar."], ["Üniversite Takımları", "Üniversitede iki takımda yer aldım: hazır alınmış, yaklaşık 2 m kanat açıklıklı sabit kanat bir İHA ile çalışan İHA takımı ve 4 tekerli elektrikli aracıyla TÜBİTAK Efficiency Challenge'a katılan MAVERA takımı. İkisinin de modeli sanal fabrikanın C holünde; MAVERA aracının gövdesi takımın fotoğrafından modellendi."]],
     tech: [["Gömülü", ["ESP32", "STM32", "Arduino"]], ["Güç", ["500W BLDC Göbek Motoru", "48V Jel Akü Paketi", "Elektrikli Araç (EV) Takımı"]], ["Yazılım", ["Python", "Otomasyon Scriptleri", "REST API"]], ["Üretim", ["3D Baskı", "CAD", "Mekanik Montaj"]]],
     highlights: [["Elektrikli Bisiklet", "500W arka göbek motoru ve 48V jel akü paketiyle 30 km/h hız, 45 km menzil."], ["Üniversite Takımları", "Sabit kanat İHA (≈2 m) ve MAVERA elektrikli aracıyla TÜBİTAK Efficiency Challenge."], ["Ev Otomasyonu", "ESP32 tabanlı sensör ve röle düğümleriyle yerel kontrol."], ["Kişisel NAS", "Ev ağı için depolama ve yedekleme sunucusu."], ["3D Baskı", "Prototip ve mekanik parça üretimi."]],

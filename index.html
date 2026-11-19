@@ -56,7 +56,8 @@
   window.addEventListener("hashchange", function () {
     if (location.hash === "#toggle-goatcounter") return location.reload();   // count.js only checks it on load
     var s = proje();
-    if (s) say({ path: "/p/" + s, title: "Proje · " + s });
+    // Sayfa, sekme başlığını proje adına çeviriyor (aynı olayın sonraki dinleyicisi): bir tur beklenir.
+    if (s) setTimeout(function () { say({ path: "/p/" + s, title: document.title }); }, 0);
   });
   function tik(e) {
     if (e.type === "auxclick" && e.button !== 1) return;
@@ -142,7 +143,6 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
 }
 @media (max-width: 940px) {
   [data-r="two"] { grid-template-columns: 1fr !important; gap: 36px !important; }
-  [data-r="heroart"] { order: -1; }
 }
 @media (max-width: 1080px) {
   [data-r="navlinks"] { display: none !important; }
@@ -160,6 +160,13 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
   [data-r="herovid"] { height: 270px !important; }
   [data-r="scada"] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   [data-r="navsub"] { display: none !important; }
+  #home[data-r="sec"] { padding-top: 104px !important; }   /* başlık önde: sabit menünün altında nefes payı */
+  /* Proje detayı: üç metrik kutusu telefonda alt alta değil yan yana */
+  [data-r="metrics"] { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 8px !important; margin-bottom: 44px !important; }
+  [data-r="metrics"] > div { padding: 14px 11px !important; border-radius: 12px !important; }
+  [data-r="metricv"] { font-size: 19px !important; overflow-wrap: anywhere; }
+  [data-r="metricl"] { font-size: 9.5px !important; letter-spacing: 0.03em !important; line-height: 1.35; }
+  [data-r="cover"] { aspect-ratio: 16 / 10 !important; border-radius: 14px !important; }
 }
 /* ---- 2026-10 revizyon: erişilebilirlik, kaydırma animasyonu, kart eğimi, sanal fabrika ---- */
 :focus-visible { outline: 2px solid var(--ac); outline-offset: 3px; }
@@ -221,13 +228,19 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
 
     <div data-r="detailbody" style="max-width: 1040px; margin: 0 auto; padding: 56px 28px 90px;">
       <h1 data-sec="ozet" style="margin: 0 0 22px; font-size: clamp(32px, 4.6vw, 54px); line-height: 1.04; letter-spacing: -0.03em; font-weight: 700; max-width: 820px;">{{ detail.title }}</h1>
-      <p style="margin: 0 0 40px; font-size: 18px; line-height: 1.65; color: var(--fg2); max-width: 760px; text-wrap: pretty;">{{ detail.summary }}</p>
+      <p style="margin: 0 0 36px; font-size: 18px; line-height: 1.65; color: var(--fg2); max-width: 760px; text-wrap: pretty;">{{ detail.summary }}</p>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 56px;">
+      <!-- Kapak: projenin kart görseli; ilk fotoğraf artık galeriye kadar beklemiyor -->
+      <div data-r="cover" style="position: relative; aspect-ratio: 21 / 9; margin: 0 0 14px; border-radius: 18px; overflow: hidden; border: 1px solid var(--bd); background: var(--imgbg);">
+        <!-- loading="lazy" şart: şablon React'ten önce düz HTML olarak ayrıştırılıyor; lazy olmayan <img> "{{ … }}" adresini çekmeye kalkar -->
+        <img src="{{ detail.coverSrc }}" onError="{{ detail.coverErr }}" alt="{{ detail.title }}" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+
+      <div data-r="metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 56px;">
         <sc-for list="{{ detail.metrics }}" as="m" hint-placeholder-count="3">
           <div style="border: 1px solid var(--bd); border-radius: 14px; padding: 22px; background: var(--card);">
-            <div style="font-size: 30px; font-weight: 700; letter-spacing: -0.03em; color: var(--ac); line-height: 1.1;">{{ m.v }}</div>
-            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--fg3); margin-top: 8px;">{{ m.l }}</div>
+            <div data-r="metricv" style="font-size: 30px; font-weight: 700; letter-spacing: -0.03em; color: var(--ac); line-height: 1.1;">{{ m.v }}</div>
+            <div data-r="metricl" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--fg3); margin-top: 8px;">{{ m.l }}</div>
           </div>
         </sc-for>
       </div>
@@ -483,11 +496,11 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
           <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--fg3); letter-spacing: 0.06em; margin-top: 2px;">ANA PROJE</div>
         </div>
         <div>
-          <div style="font-size: 38px; font-weight: 700; letter-spacing: -0.03em; color: var(--ac);" data-count="85" data-suffix="%">85%</div>
+          <div style="font-size: 38px; font-weight: 700; letter-spacing: -0.03em; color: var(--ac);" data-count="85" data-prefix="%">%85</div>
           <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--fg3); letter-spacing: 0.06em; margin-top: 2px;">OTONOM ÇALIŞMA</div>
         </div>
         <div>
-          <div style="font-size: 38px; font-weight: 700; letter-spacing: -0.03em; color: var(--ac);" data-count="40" data-suffix="%">40%</div>
+          <div style="font-size: 38px; font-weight: 700; letter-spacing: -0.03em; color: var(--ac);" data-count="40" data-prefix="%">%40</div>
           <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--fg3); letter-spacing: 0.06em; margin-top: 2px;">VERİMLİLİK ARTIŞI</div>
         </div>
       </div>
@@ -756,10 +769,10 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
       <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; color: var(--ac); margin-bottom: 14px;">08 / İLETİŞİM</div>
       <h2 style="margin: 0 0 18px; font-size: clamp(32px, 4.6vw, 58px); letter-spacing: -0.03em; line-height: 1.02; font-weight: 700; max-width: 620px;">Bir sonraki sistemi birlikte kuralım</h2>
       <p style="margin: 0 0 36px; color: var(--fg2); font-size: 17px; line-height: 1.6; max-width: 520px;">Serbest çalışma, danışmanlık ve tam zamanlı fırsatlara açığım.</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; max-width: 860px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px;">
         <a href="mailto:kaankirsan@outlook.com" style="display: flex; flex-direction: column; gap: 5px; padding: 20px; border: 1px solid var(--bd); border-radius: 14px; background: var(--card); transition: transform 0.25s ease, border-color 0.25s ease;" style-hover="transform: translateY(-4px); border-color: var(--ac);">
           <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--fg3);">E-POSTA</span>
-          <span style="font-size: 16px; color: var(--fg); font-weight: 500;">kaankirsan@outlook.com</span>
+          <span style="font-size: 16px; color: var(--fg); font-weight: 500; overflow-wrap: anywhere;">kaankirsan@outlook.com</span>
         </a>
         <a href="tel:+905364405727" style="display: flex; flex-direction: column; gap: 5px; padding: 20px; border: 1px solid var(--bd); border-radius: 14px; background: var(--card); transition: transform 0.25s ease, border-color 0.25s ease;" style-hover="transform: translateY(-4px); border-color: var(--ac);">
           <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--fg3);">TELEFON</span>
@@ -768,6 +781,10 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
         <a href="https://wa.me/905364405727" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 5px; padding: 20px; border: 1px solid var(--bd); border-radius: 14px; background: var(--card); transition: transform 0.25s ease, border-color 0.25s ease;" style-hover="transform: translateY(-4px); border-color: var(--ac);">
           <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--fg3);">WHATSAPP</span>
           <span style="font-size: 16px; color: var(--fg); font-weight: 500;">Direkt mesaj</span>
+        </a>
+        <a href="https://tr.linkedin.com/in/kaan-kirsan" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 5px; padding: 20px; border: 1px solid var(--bd); border-radius: 14px; background: var(--card); transition: transform 0.25s ease, border-color 0.25s ease;" style-hover="transform: translateY(-4px); border-color: var(--ac);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--fg3);">LINKEDIN</span>
+          <span style="font-size: 16px; color: var(--fg); font-weight: 500;">in/kaan-kirsan ↗</span>
         </a>
         <a href="assets/Kaan_K%C4%B1r%C5%9Fan_Detailed_CV.pdf" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 5px; padding: 20px; border: 1px solid var(--bd); border-radius: 14px; background: var(--card); transition: transform 0.25s ease, border-color 0.25s ease;" style-hover="transform: translateY(-4px); border-color: var(--ac);">
           <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--fg3);">CV · TÜRKÇE</span>
@@ -780,6 +797,10 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
         <a href="https://github.com/kaankirsan" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 5px; padding: 20px; border: 1px solid var(--bd); border-radius: 14px; background: var(--card); transition: transform 0.25s ease, border-color 0.25s ease;" style-hover="transform: translateY(-4px); border-color: var(--ac);">
           <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--fg3);">GITHUB</span>
           <span style="font-size: 16px; color: var(--fg); font-weight: 500;">@kaankirsan</span>
+        </a>
+        <a href="https://kaankirsan.github.io/fabrika/" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 5px; padding: 20px; border: 1px solid color-mix(in srgb, var(--ac) 40%, var(--bd)); border-radius: 14px; background: linear-gradient(135deg, color-mix(in srgb, var(--ac) 12%, transparent), var(--card) 70%); transition: transform 0.25s ease, border-color 0.25s ease;" style-hover="transform: translateY(-4px); border-color: var(--ac);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--ac);">◈ SANAL FABRİKA · VR</span>
+          <span style="font-size: 16px; color: var(--fg); font-weight: 500;">Fabrikaya gir ↗</span>
         </a>
       </div>
     </div>
@@ -801,7 +822,8 @@ const PROJECTS = [
   { cat: "iot", badge: "3B · VR", url: BASE + "sanal-fabrika.html", img: "images/fabrika/fabrika-koridor.webp", title: "Sanal Fabrika (VR)", desc: "Sahada kurduğum 19 makine ve 4 Ar-Ge projesinin tarayıcıda ve Quest 2'de gezilebilen 3B modelleri: çalışan mekanizmalar, canlı kontrol panelleri ve SCADA ekranları.", tags: ["three.js", "WebXR", "JavaScript"], metric: "23 istasyon" },
   { cat: "robotik", badge: "Robotik", url: BASE + "solarbot.html", img: "images/projects/solarbot-img-02.jpg", featured: true, title: "Otonom Güneş Paneli Temizleme Robotu", desc: "Derinlik kameraları, SLAM navigasyon ve %95+ YOLO doğruluğu ile panel tespiti yapan, %85 otonom çalışan robot. Canlı halefi: ROS 2 + Gazebo üzerinde web/VR'dan kontrol edilen Robot Sim.", tags: ["Python", "OpenCV", "SLAM", "ROS 2", "Jetson Orin"], metric: "%85 otonom" },
   { cat: "iot", badge: "IoT", url: BASE + "container.html", img: "images/projects/container-img-02.jpg", title: "Mobil Güneş Enerjisi Konteyneri", desc: "Modbus TCP üzerinden PLC izleme, hidrolik valf kontrolü, hava durumu entegrasyonu ve üretim raporlama için Flutter uygulaması.", tags: ["Flutter", "Dart", "Modbus"], metric: "5000+ satır" },
-  { cat: "test", badge: "Test", url: BASE + "testing.html", img: "images/projects/testing-img-02.png", featured: true, title: "Jet Yakıtı Test Ünitesi", desc: "WinCC Unified HMI ile Siemens PLC ve Profinet üzerinden 0.0001 L/dak akış ve 0.01 bar basınç hassasiyeti.", tags: ["Siemens PLC", "WinCC", "ATEX"], metric: "0.0001 L/dak" },
+  { cat: "test", badge: "Test", url: BASE + "testing.html", img: "images/projects/testing-kapak.png", featured: true, title: "Jet Yakıtı Test Ünitesi", desc: "WinCC Unified HMI ile Siemens PLC ve Profinet üzerinden 0.0001 L/dak akış ve 0.01 bar basınç hassasiyeti.", tags: ["Siemens PLC", "WinCC", "ATEX"], metric: "0.0001 L/dak" },
+  { cat: "test", badge: "Test", url: BASE + "pompa-test.html", img: "images/fabrika/fabrika-ui-pompatest.webp", title: "Yakıt/Yağ Pompa Test Sehpası", desc: "Raylı sistem araçları için yakıt ve yağ pompalarını aynı anda test eden sehpa: Delta PLC, RS-485 Modbus RTU ölçümü, Flutter Windows kontrol yazılımı ve PDF/Excel raporlama.", tags: ["Delta PLC", "Modbus", "Flutter"], metric: "2 pompa · OK/NOK" },
   { cat: "otomasyon", badge: "Otomasyon", url: BASE + "welding.html", img: "images/projects/welding-img-02.jpg", featured: true, title: "ABB Kaynak Robotu Entegrasyonu", desc: "Çok eksenli servo kontrol, PID ayarlama, güvenlik kilitleri ve kapsamlı PLC/HMI mimarisi ile robot hücresi.", tags: ["PLC", "HMI", "Robotik"], metric: "%40 verim" },
   { cat: "otomasyon", badge: "Üretim", url: BASE + "warehouse.html", img: "images/projects/warehouse-img-02.jpg", title: "Konveyör Otomasyon Sistemleri", desc: "Üç tesiste 500+ I/O noktası ve 20 AC sürücü için Modbus iletişimi; iş gücü verimi iki katına çıktı.", tags: ["Siemens PLC", "TIA Portal", "Modbus"], metric: "%99.5 uptime" },
   { cat: "savunma", badge: "Savunma", url: BASE + "mobile-target.html", img: "images/projects/mobile-target-img-01.jpg", title: "Arayıcı Başlık Testi Hedef Sistemi", desc: "Excel entegre hareket profilleri, WinCC SCADA ve servo motor kontrolü ile çift eksenli hedef hareket sistemi.", tags: ["Hareket Kontrolü", "SCADA", "PLC"], metric: "SIL 2" },
@@ -812,7 +834,7 @@ const PROJECTS = [
   { cat: "otomasyon", badge: "Üretim", url: BASE + "other-machines.html", img: "images/projects/other-machines-img-01.jpg", title: "Diğer Makineler", desc: "Farklı üretim makineleri için PLC/HMI revizyonları ve genel otomasyon iyileştirmeleriyle çevrim süreleri optimize edildi.", tags: ["PLC", "HMI", "Optimizasyon"], metric: "30+ makine" },
   { cat: "kisisel", badge: "Eğitim", url: BASE + "exhibitions-training.html", img: "images/projects/exhibitions-img-01.jpg", title: "Fuarlar, Sunum ve Eğitimler", desc: "3+ endüstri fuarında teknik sunum, tedarikçi anlaşmaları ve üniversite öğrencilerine PLC programlama eğitimi.", tags: ["Sunum", "Atölye", "Eğitim"], metric: "3+ fuar" },
   { cat: "kisisel", badge: "Kişisel · Ar-Ge", url: BASE + "elektrikli-bisiklet.html", img: "images/projects/personal-img-06.jpg", title: "Elektrikli Bisiklet Dönüşümü", desc: "Sıradan bir dağ bisikletini 500 W arka göbek motoru ve 48 V jel akü paketiyle elektrikliye çevirdim; iki sürümde aşama aşama geliştirdim: 30 km/h hız, 45 km menzil.", tags: ["500W göbek motoru", "48V jel akü", "Kontrolcü"], metric: "45 km menzil" },
-  { cat: "kisisel", badge: "Kişisel", url: BASE + "personal-projects.html", img: "images/projects/personal-img-09.jpg", title: "Kişisel Projeler", desc: "500W elektrikli bisiklet (30 km/h, 45 km menzil), ESP32 ev otomasyonu, otomasyon araçları, kişisel NAS ve 3D baskı.", tags: ["ESP32", "IoT", "3D Baskı"], metric: "5 proje" }
+  { cat: "kisisel", badge: "Kişisel", url: BASE + "personal-projects.html", img: "images/projects/personal-img-09.jpg", title: "Kişisel Projeler", desc: "Üniversite İHA ve MAVERA elektrikli araç takımları, paletli RC robot, ESP32 ev otomasyonu, otomasyon araçları, kişisel NAS ve 3D baskı.", tags: ["ESP32", "IoT", "3D Baskı"], metric: "5 proje" }
 ];
 
 const CATS = [
@@ -833,6 +855,7 @@ const PROCESS = [
 ];
 
 function slugOf(url) { return url.split("/").pop().replace(".html", ""); }
+const SAYFA_BASLIGI = "Kaan Kırşan — Elektrik Elektronik Mühendisi";
 
 // ---- Sanal fabrika (kaankirsan.github.io/fabrika): her proje sayfasından ilgili makineye ?m=<id> ile gidilir
 const FABRIKA = "https://kaankirsan.github.io/fabrika/";
@@ -985,11 +1008,19 @@ class Component extends DCLogic {
     const route = m ? m[1] : "";
     const fm = h.match(/^#projeler\?f=([a-z]+)/i);
     const next = { route: route, menu: false };
+    const acikti = !!this.state.route;
     if (route !== this.state.route) next.lightbox = -1;
     if (fm && fm[1] !== this.state.filter) next.filter = fm[1];
     this.setState(next);
+    const kart = route ? PROJECTS.find((p) => slugOf(p.url) === route) : null;
+    document.title = kart ? kart.title + " — Kaan Kırşan" : SAYFA_BASLIGI;
+    const anlik = (y) => { try { window.scrollTo({ top: y, behavior: "instant" }); } catch (e) { window.scrollTo(0, y); } };
     if (route) {
-      window.scrollTo(0, 0);
+      // Sayfa içinden açıldıysa kapanınca aynı yere dönülür (doğrudan linkle gelende kayıt yok: #projeler'e iner).
+      if (!acikti && this._yuklendi) this._donusY = window.scrollY;
+      // Detay kendi kaydırmasıyla açık: arkadaki sayfa kilitlenir (çift kaydırma çubuğu ve arka plan kayması olmaz).
+      document.documentElement.style.overflow = "hidden";
+      anlik(0);
       setTimeout(() => {
         // Detay kaplaması (position: fixed, kendi kaydırması var) projeler arasında aynı düğüm kalır:
         // "Sonraki proje"den gelince yeni sayfa en alttan açılmasın.
@@ -999,11 +1030,29 @@ class Component extends DCLogic {
         this._sonRota = route;
         this.measureGallery(); this.measureVideos();
       }, 0);
-    } else this._sonRota = "";
+    } else {
+      this._sonRota = "";
+      document.documentElement.style.overflow = "";
+      if (acikti && this._donusY != null) {
+        const y = this._donusY;
+        this._donusY = null;
+        // #projeler çıpasına atlamanın ardından çalışsın diye bir kare beklenir.
+        requestAnimationFrame(() => anlik(y));
+      } else if (acikti) {
+        // Doğrudan linkle gelinmişti: çıpa atlaması sayfa kilitliyken boşa gider, kilit açılınca hedefe inilir.
+        const id = h.replace(/^#/, "").split("?")[0];
+        const hedef = id ? document.getElementById(id) : null;
+        if (hedef) requestAnimationFrame(() => anlik(hedef.getBoundingClientRect().top + window.scrollY));
+      }
+    }
   };
 
   onKey = (e) => {
-    if (this.state.lightbox < 0) return;
+    if (this.state.lightbox < 0) {
+      // Proje detayı açıkken Esc = "Projelere dön"
+      if (e.key === "Escape" && this.state.route) location.hash = "#projeler";
+      return;
+    }
     if (e.key === "Escape") this.setState({ lightbox: -1 });
     else if (e.key === "ArrowRight") this.step(1);
     else if (e.key === "ArrowLeft") this.step(-1);
@@ -1029,6 +1078,7 @@ class Component extends DCLogic {
 
   componentDidMount() {
     this.syncRoute();
+    this._yuklendi = true;
     window.addEventListener("hashchange", this.syncRoute);
     window.addEventListener("keydown", this.onKey);
 
@@ -1103,6 +1153,7 @@ class Component extends DCLogic {
   }
 
   componentWillUnmount() {
+    document.documentElement.style.overflow = "";
     window.removeEventListener("hashchange", this.syncRoute);
     window.removeEventListener("keydown", this.onKey);
     window.removeEventListener("scroll", this._onScroll);
@@ -1256,13 +1307,14 @@ class Component extends DCLogic {
     if (!this.statsEl) return;
     this.statsEl.querySelectorAll("[data-count]").forEach((el) => {
       const target = parseInt(el.getAttribute("data-count"), 10);
+      const prefix = el.getAttribute("data-prefix") || "";   // Türkçe yüzde: "%85"
       const suffix = el.getAttribute("data-suffix") || "";
       const dur = 1400;
       const t0 = performance.now();
       const step = (t) => {
         const k = Math.min((t - t0) / dur, 1);
         const eased = 1 - Math.pow(1 - k, 3);
-        el.textContent = Math.round(target * eased) + suffix;
+        el.textContent = prefix + Math.round(target * eased) + suffix;
         if (k < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
@@ -1295,6 +1347,8 @@ class Component extends DCLogic {
       detail = {
         title: src.title,
         badge: src.badge,
+        coverSrc: webImg(src.img, 1600),
+        coverErr: yedekle(src.img),
         summary: d.summary,
         metrics: d.metrics.map((m) => ({ v: m[0], l: m[1] })),
         body: d.body.map((b) => ({ h: b[0], p: b[1] })),
@@ -1471,12 +1525,14 @@ class Component extends DCLogic {
       scada: FABRIKA_MAKINELER.map((m) => ({ kisa: m[1], ad: m[2], url: fabrikaUrl(m[0]) })),
       progressRef: (el) => { this.progressEl = el; },
       skills: [
-        { title: "Endüstriyel Otomasyon", items: ["Siemens S7-1200/1500", "TIA Portal", "WinCC Unified", "Delta DVP", "Omron", "Fatek", "HMI", "SCADA"] },
+        { title: "Endüstriyel Otomasyon", items: ["Siemens S7-1200/1500", "TIA Portal", "WinCC Unified", "Delta DVP", "Omron", "Fatek", "Allen-Bradley", "HMI", "SCADA"] },
         { title: "Robotik & Gömülü", items: ["ROS 2", "Jetson Nano/Orin", "ABB Robot", "STM32", "ESP32", "Raspberry Pi", "OAK-D"] },
         { title: "Görüntü İşleme", items: ["OpenCV", "YOLOv5/v8", "SLAM", "Nesne Tespiti", "Derinlik Kamerası"] },
         { title: "Programlama", items: ["Python", "C#", "C/C++", "Dart", "JavaScript", "Bash", "PowerShell"] },
         { title: "İletişim Protokolleri", items: ["Modbus RTU/TCP", "Profinet", "RS232/485", "TCP/IP", "UDP"] },
         { title: "Elektriksel Tasarım", items: ["EPLAN", "Pano Tasarımı", "BoM", "Kablaj", "Arıza Giderme"] },
+        { title: "Bakım & Enerji", items: ["Planlı / Önleyici Bakım", "Termografi & Titreşim", "OEE · MTBF/MTTR", "Pano Yük & Kablo Kesiti", "Şalter · Sigorta · Kontaktör", "Kompanzasyon", "Trafo · OG · UPS", "LOTO"] },
+        { title: "Yalın Üretim & Kalite", items: ["Kaizen", "5S", "PDCA", "Poka-Yoke", "SMED", "Kanban", "FMEA", "8D · Ishikawa", "ISO 9001 / IATF 16949"] },
         { title: "Donanım", items: ["BMS", "Yük Hücresi", "LVDT", "Termokupl", "PT100", "3D Baskı", "Sensörler"] },
         { title: "Yazılım & Altyapı", items: ["Flutter", "Git", "Docker", "Linux CLI", "REST API", "Nginx", "SSL/TLS", "VPN"] },
         { title: "3B & Simülasyon", items: ["three.js", "WebXR", "Oculus Quest 2", "Gazebo", "Dijital ikiz", "Canvas HMI"] },
@@ -1484,13 +1540,15 @@ class Component extends DCLogic {
       ],
       achievements: [
         "Jetson Orin Nano, OpenCV, YOLO ve SLAM ile otonom güneş paneli temizleme robotu geliştirdim; gerçek zamanlı navigasyon ve engel tespitiyle %85 otonom çalışma sağladım.",
-        "Çok eksenli servo kontrol, PID ayarlama ve kapsamlı PLC/HMI mimarisiyle lazer kaynak robotu hücresini entegre ederek üretim verimini %40 artırdım.",
+        "ABB robot ve hassas pozisyonerli kaynak hücresinin entegrasyonunu yönettim; servo kontrol, PID ayarı, PLC/HMI mimarisi ve güvenlik kilitleriyle üretim verimini %40 artırdım.",
         "Siemens PLC, WinCC Unified ve patlama korumalı sertifikalı bileşenlerle 0.0001 L/dak hassasiyetinde jet yakıt test birimini tasarladım ve devreye aldım.",
+        "Raylı sistem araçları için yakıt/yağ pompa test sehpasını elektrik ve pano tasarımından PLC (Delta DVP-SE) ve Flutter Windows kontrol yazılımına kadar geliştirip devreye aldım; Modbus RTU/TCP ile canlı izleme, fazlı test senaryoları ve PDF/Excel raporlama.",
         "Hidrolik güç üniteleri ve 50+ otomatik test senaryosuyla düzenleyici uyumu sağlayan boji test makinesi kurdum.",
         "Üç tesiste konveyör otomasyonu uygulayarak 500+ I/O ve 20 AC sürücü için Modbus iletişimi yapılandırdım; iş gücü verimini ikiye katladım.",
         "Modbus TCP üzerinden gerçek zamanlı PLC izleme ve hidrolik valf kontrolü sağlayan Flutter uygulamasıyla mobil güneş enerji konteyneri geliştirdim.",
         "Lityum pil paketleri, RS-485 Smart BMS entegrasyonu, SOC/SOH telemetri ve hücre dengeleme dahil enerji depolama sistemi tasarımını yönettim.",
-        "5+ web sunucusu kurup yönettim; kurumsal siteyi 5 yıl boyunca %99 uptime ile ayakta tuttum ve Google Ads ile makine satışlarını %100 artırdım."
+        "5+ web sunucusu kurup yönettim; kurumsal siteyi 5 yıl boyunca %99 uptime ile ayakta tuttum ve Google Ads ile makine satışlarını %100 artırdım.",
+        "2020–2022 arasında maden ve mineral işleme ile beyaz eşya fabrikalarında doğrudan bakım yürüttüm; sonrasında projelerle birlikte hat ve pano revizyonları, yeni kumanda panoları, motor, VFD, konveyör ve yardımcı tesis arızalarında desteği sürdürdüm."
       ],
       facts: [
         { k: "KONUM", v: "Eskişehir, Türkiye" },
