@@ -496,12 +496,12 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
           <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--fg3); letter-spacing: 0.06em; margin-top: 2px;">ANA PROJE</div>
         </div>
         <div>
-          <div style="font-size: 38px; font-weight: 700; letter-spacing: -0.03em; color: var(--ac);" data-count="85" data-prefix="%">%85</div>
-          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--fg3); letter-spacing: 0.06em; margin-top: 2px;">OTONOM ÇALIŞMA</div>
+          <div style="font-size: 38px; font-weight: 700; letter-spacing: -0.03em; color: var(--ac);" data-count="500" data-suffix="+">500+</div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--fg3); letter-spacing: 0.06em; margin-top: 2px;">I/O NOKTASI</div>
         </div>
         <div>
-          <div style="font-size: 38px; font-weight: 700; letter-spacing: -0.03em; color: var(--ac);" data-count="40" data-prefix="%">%40</div>
-          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--fg3); letter-spacing: 0.06em; margin-top: 2px;">VERİMLİLİK ARTIŞI</div>
+          <div style="font-size: 38px; font-weight: 700; letter-spacing: -0.03em; color: var(--ac);" data-count="50" data-suffix="+">50+</div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--fg3); letter-spacing: 0.06em; margin-top: 2px;">TEST SENARYOSU</div>
         </div>
       </div>
     </div>
@@ -820,17 +820,17 @@ button[data-chip="true"] { background: var(--ac) !important; color: var(--onac) 
 const BASE = "https://kaankirsan.github.io/projects/";
 const PROJECTS = [
   { cat: "iot", badge: "3B · VR", url: BASE + "sanal-fabrika.html", img: "images/fabrika/fabrika-koridor.webp", title: "Sanal Fabrika (VR)", desc: "Sahada kurduğum 19 makine ve 4 Ar-Ge projesinin tarayıcıda ve Quest 2'de gezilebilen 3B modelleri: çalışan mekanizmalar, canlı kontrol panelleri ve SCADA ekranları.", tags: ["three.js", "WebXR", "JavaScript"], metric: "23 istasyon" },
-  { cat: "robotik", badge: "Robotik", url: BASE + "solarbot.html", img: "images/projects/solarbot-img-02.jpg", featured: true, title: "Otonom Güneş Paneli Temizleme Robotu", desc: "Derinlik kameraları, SLAM navigasyon ve %95+ YOLO doğruluğu ile panel tespiti yapan, %85 otonom çalışan robot. Canlı halefi: ROS 2 + Gazebo üzerinde web/VR'dan kontrol edilen Robot Sim.", tags: ["Python", "OpenCV", "SLAM", "ROS 2", "Jetson Orin"], metric: "%85 otonom" },
+  { cat: "robotik", badge: "Robotik", url: BASE + "solarbot.html", img: "images/projects/solarbot-img-02.jpg", featured: true, title: "Otonom Güneş Paneli Temizleme Robotu", desc: "Derinlik kameraları, SLAM navigasyon ve YOLO tabanlı panel tespiti yapan otonom robot. Canlı halefi: ROS 2 + Gazebo üzerinde web/VR'dan kontrol edilen Robot Sim.", tags: ["Python", "OpenCV", "SLAM", "ROS 2", "Jetson Orin"], metric: "SLAM · YOLO" },
   { cat: "iot", badge: "IoT", url: BASE + "container.html", img: "images/projects/container-img-02.jpg", title: "Mobil Güneş Enerjisi Konteyneri", desc: "Modbus TCP üzerinden PLC izleme, hidrolik valf kontrolü, hava durumu entegrasyonu ve üretim raporlama için Flutter uygulaması.", tags: ["Flutter", "Dart", "Modbus"], metric: "5000+ satır" },
   { cat: "test", badge: "Test", url: BASE + "testing.html", img: "images/projects/testing-kapak.png", featured: true, title: "Jet Yakıtı Test Ünitesi", desc: "WinCC Unified HMI ile Siemens PLC ve Profinet üzerinden 0.0001 L/dak akış ve 0.01 bar basınç hassasiyeti.", tags: ["Siemens PLC", "WinCC", "ATEX"], metric: "0.0001 L/dak" },
   { cat: "test", badge: "Test", url: BASE + "pompa-test.html", img: "images/projects/pompa-test-img-01.jpg", title: "Yakıt/Yağ Pompa Test Sehpası", desc: "Raylı sistem araçları için yakıt ve yağ pompalarını aynı anda test eden sehpa: Delta PLC, RS-485 Modbus RTU ölçümü, Flutter Windows kontrol yazılımı ve PDF/Excel raporlama.", tags: ["Delta PLC", "Modbus", "Flutter"], metric: "2 pompa · OK/NOK" },
-  { cat: "otomasyon", badge: "Otomasyon", url: BASE + "welding.html", img: "images/projects/welding-img-02.jpg", featured: true, title: "ABB Kaynak Robotu Entegrasyonu", desc: "Çok eksenli servo kontrol, PID ayarlama, güvenlik kilitleri ve kapsamlı PLC/HMI mimarisi ile robot hücresi.", tags: ["PLC", "HMI", "Robotik"], metric: "%40 verim" },
-  { cat: "otomasyon", badge: "Üretim", url: BASE + "warehouse.html", img: "images/projects/warehouse-img-02.jpg", title: "Konveyör Otomasyon Sistemleri", desc: "Üç tesiste 500+ I/O noktası ve 20 AC sürücü için Modbus iletişimi; iş gücü verimi iki katına çıktı.", tags: ["Siemens PLC", "TIA Portal", "Modbus"], metric: "%99.5 uptime" },
+  { cat: "otomasyon", badge: "Otomasyon", url: BASE + "welding.html", img: "images/projects/welding-img-02.jpg", featured: true, title: "ABB Kaynak Robotu Entegrasyonu", desc: "Çok eksenli servo kontrol, PID ayarlama, güvenlik kilitleri ve kapsamlı PLC/HMI mimarisi ile robot hücresi.", tags: ["PLC", "HMI", "Robotik"], metric: "ABB · S7-1200" },
+  { cat: "otomasyon", badge: "Üretim", url: BASE + "warehouse.html", img: "images/projects/warehouse-img-02.jpg", title: "Konveyör Otomasyon Sistemleri", desc: "Üç tesiste 500+ I/O noktası ve 20 AC sürücü için Modbus iletişimi.", tags: ["Siemens PLC", "TIA Portal", "Modbus"], metric: "500+ I/O" },
   { cat: "savunma", badge: "Savunma", url: BASE + "mobile-target.html", img: "images/projects/mobile-target-img-01.jpg", title: "Arayıcı Başlık Testi Hedef Sistemi", desc: "Excel entegre hareket profilleri, WinCC SCADA ve servo motor kontrolü ile çift eksenli hedef hareket sistemi.", tags: ["Hareket Kontrolü", "SCADA", "PLC"], metric: "SIL 2" },
   { cat: "test", badge: "Test", url: BASE + "wagon-testing.html", img: "images/projects/wagon-testing-img-01.jpg", title: "Boji Test Makinesi", desc: "50+ otomatik test senaryosu, yük hücresi entegrasyonu ve çok sensörlü veri toplama ile hidrolik test sistemi.", tags: ["PLC", "HMI", "Yük Hücresi"], metric: "50+ koşul" },
   { cat: "otomasyon", badge: "Hizmet", url: BASE + "troubleshooting.html", img: "images/projects/troubleshooting-img-01.jpg", title: "Sistem Revizyonları ve Bakım", desc: "Hidrolik makinelerde kablolama, sensör ve program hataları çözüldü; eski PLC/HMI revize edilip programlar sıfırdan yazıldı.", tags: ["Arıza Giderme", "Saha Servisi"], metric: "30+ tesis" },
-  { cat: "otomasyon", badge: "Elektriksel", url: BASE + "resistance-automation.html", img: "images/projects/resistance-video-01-poster.jpg", title: "Rezistans Otomasyon ve Güç Sistemleri", desc: "Askeri ve endüstriyel PID kontrol sistemleri; ±%1 tolerans, kauçuk işlemede %20 enerji tasarrufu, yangına dayanıklı tasarım.", tags: ["Siemens PLC", "Güç Elektroniği"], metric: "40+ kurulum" },
-  { cat: "iot", badge: "Altyapı", url: BASE + "webserver-setup.html", img: "images/projects/webserver-kapak.jpg", title: "Web Sunucu Kurulumu ve Yapılandırma", desc: "Endüstriyel veri görselleştirme, kurumsal web siteleri (%99 uptime), e-posta sistemi ve depolama çözümleri için 5+ sunucu.", tags: ["Linux", "Docker", "Nginx"], metric: "5+ sunucu" },
+  { cat: "otomasyon", badge: "Elektriksel", url: BASE + "resistance-automation.html", img: "images/projects/resistance-video-01-poster.jpg", title: "Rezistans Otomasyon ve Güç Sistemleri", desc: "Askeri ve endüstriyel PID kontrol sistemleri; ±%1 tolerans, kauçuk işleme uygulamaları, yangına dayanıklı tasarım.", tags: ["Siemens PLC", "Güç Elektroniği"], metric: "40+ kurulum" },
+  { cat: "iot", badge: "Altyapı", url: BASE + "webserver-setup.html", img: "images/projects/webserver-kapak.jpg", title: "Web Sunucu Kurulumu ve Yapılandırma", desc: "Endüstriyel veri görselleştirme, kurumsal web siteleri, e-posta sistemi ve depolama çözümleri için 5+ sunucu.", tags: ["Linux", "Docker", "Nginx"], metric: "5+ sunucu" },
   { cat: "otomasyon", badge: "Üretim", url: BASE + "other-machines.html", img: "images/projects/other-machines-img-01.jpg", title: "Diğer Makineler", desc: "Farklı üretim makineleri için PLC/HMI revizyonları ve genel otomasyon iyileştirmeleriyle çevrim süreleri optimize edildi.", tags: ["PLC", "HMI", "Optimizasyon"], metric: "30+ makine" },
   { cat: "kisisel", badge: "Eğitim", url: BASE + "exhibitions-training.html", img: "images/projects/exhibitions-img-01.jpg", title: "Fuarlar, Sunum ve Eğitimler", desc: "3+ endüstri fuarında teknik sunum, tedarikçi anlaşmaları ve üniversite öğrencilerine PLC programlama eğitimi.", tags: ["Sunum", "Atölye", "Eğitim"], metric: "3+ fuar" },
   { cat: "kisisel", badge: "Kişisel · Ar-Ge", url: BASE + "elektrikli-bisiklet.html", img: "images/projects/personal-img-06.jpg", title: "Elektrikli Bisiklet Dönüşümü", desc: "Sıradan bir dağ bisikletini 500 W arka göbek motoru ve 48 V jel akü paketiyle elektrikliye çevirdim; iki sürümde aşama aşama geliştirdim: 30 km/h hız, 45 km menzil.", tags: ["500W göbek motoru", "48V jel akü", "Kontrolcü"], metric: "45 km menzil" },
@@ -1539,15 +1539,15 @@ class Component extends DCLogic {
         { title: "Kurumsal", items: ["SAP", "Paydaş Yönetimi", "Proje Yönetimi", "Teknik Sunum", "Takım Çalışması"] }
       ],
       achievements: [
-        "Jetson Orin Nano, OpenCV, YOLO ve SLAM ile otonom güneş paneli temizleme robotu geliştirdim; gerçek zamanlı navigasyon ve engel tespitiyle %85 otonom çalışma sağladım.",
-        "ABB robot ve hassas pozisyonerli kaynak hücresinin entegrasyonunu yönettim; servo kontrol, PID ayarı, PLC/HMI mimarisi ve güvenlik kilitleriyle üretim verimini %40 artırdım.",
+        "Jetson Orin Nano, OpenCV, YOLO ve SLAM ile otonom güneş paneli temizleme robotu geliştirdim; gerçek zamanlı navigasyon ve engel tespiti ekledim.",
+        "ABB robot ve hassas pozisyonerli kaynak hücresinin entegrasyonunu yönettim; servo kontrol, PID ayarı, PLC/HMI mimarisi ve güvenlik kilitlerini kurdum.",
         "Siemens PLC, WinCC Unified ve patlama korumalı sertifikalı bileşenlerle 0.0001 L/dak hassasiyetinde jet yakıt test birimini tasarladım ve devreye aldım.",
         "Raylı sistem araçları için yakıt/yağ pompa test sehpasını elektrik ve pano tasarımından PLC (Delta DVP-SE) ve Flutter Windows kontrol yazılımına kadar geliştirip devreye aldım; Modbus RTU/TCP ile canlı izleme, fazlı test senaryoları ve PDF/Excel raporlama.",
         "Hidrolik güç üniteleri ve 50+ otomatik test senaryosuyla düzenleyici uyumu sağlayan boji test makinesi kurdum.",
-        "Üç tesiste konveyör otomasyonu uygulayarak 500+ I/O ve 20 AC sürücü için Modbus iletişimi yapılandırdım; iş gücü verimini ikiye katladım.",
+        "Üç tesiste konveyör otomasyonu uygulayarak 500+ I/O ve 20 AC sürücü için Modbus iletişimi yapılandırdım.",
         "Modbus TCP üzerinden gerçek zamanlı PLC izleme ve hidrolik valf kontrolü sağlayan Flutter uygulamasıyla mobil güneş enerji konteyneri geliştirdim.",
         "Lityum pil paketleri, RS-485 Smart BMS entegrasyonu, SOC/SOH telemetri ve hücre dengeleme dahil enerji depolama sistemi tasarımını yönettim.",
-        "5+ web sunucusu kurup yönettim; kurumsal siteyi 5 yıl boyunca %99 uptime ile ayakta tuttum ve Google Ads ile makine satışlarını %100 artırdım.",
+        "5+ web sunucusu kurup yönettim; kurumsal siteyi ayakta tuttum ve makine satışları için Google Ads kampanyaları yürüttüm.",
         "2020–2022 arasında maden ve mineral işleme ile beyaz eşya fabrikalarında doğrudan bakım yürüttüm; sonrasında projelerle birlikte hat ve pano revizyonları, yeni kumanda panoları, motor, VFD, konveyör ve yardımcı tesis arızalarında desteği sürdürdüm."
       ],
       facts: [
